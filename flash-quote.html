@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request a Flash Quote — Beezz_zart | Blackwork Toronto</title>
+  <meta name="description" content="Request a quote for your selected blackwork flash tattoo design by Beezz_zart in Toronto." />
+  <link rel="stylesheet" href="styles.css?v=132" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+</head>
+<body class="flashes-body flash-quote-page">
+
+  <nav class="nav nav--flashes" id="nav">
+    <div class="nav__inner">
+      <a href="index.html#hero" class="nav__logo">
+        <div class="nav__logo-icon">
+          <img src="Website Images/logo.png" alt="Beezz_zart logo" />
+        </div>
+        Beezz_zart
+      </a>
+      <button class="nav__burger" id="navBurger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html#hero">About</a></li>
+        <li><a href="projects.html">Gallery</a></li>
+        <li><a href="flashes.html" aria-current="page">Flashes</a></li>
+        <li><a href="index.html#faqs">FAQs</a></li>
+        <li><a href="index.html#lead-form" class="nav__cta">Tell Me Your Idea</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="flash-quote">
+    <section class="contact section--dark flash-quote__section" id="flash-quote-form">
+      <div class="section-texture section-texture--dark" aria-hidden="true"></div>
+      <div class="container container--narrow">
+        <a href="flashes.html" class="flash-quote__back" id="flashQuoteBack">&larr; Back to flashes</a>
+
+        <header class="flash-quote__intro">
+          <h1 class="section-title section-title--light flash-quote__title" id="flashQuoteTitle">Request This Flash</h1>
+          <p class="section-subtitle section-subtitle--light flash-quote__subtitle" id="flashQuoteSubtitle">Let's create your blackwork tattoo</p>
+        </header>
+
+        <div class="flash-quote__attachment form__group" id="flashQuoteAttachment">
+          <span class="form__label">Selected flash</span>
+          <div class="flash-quote__attachment-card">
+            <img id="flashQuoteImage" src="" alt="" width="220" height="220" />
+          </div>
+        </div>
+
+        <form class="form" id="flashQuoteForm" action="https://forms.fillout.com/t/52pcPVnEFgus" method="get" target="_blank" data-fillout-url="https://forms.fillout.com/t/52pcPVnEFgus">
+          <input type="hidden" id="flashQuoteSrc" name="flash_src" value="" />
+          <div class="form__row">
+            <div class="form__group">
+              <label for="flashQuoteName" class="form__label">Name</label>
+              <input type="text" id="flashQuoteName" name="name" class="form__input" placeholder="Your name" required />
+            </div>
+            <div class="form__group">
+              <label for="flashQuoteEmail" class="form__label">Email</label>
+              <input type="email" id="flashQuoteEmail" name="email" class="form__input" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form__group">
+            <label for="flashQuotePhone" class="form__label">Phone Number</label>
+            <input type="tel" id="flashQuotePhone" name="phone" class="form__input" placeholder="+1 (416) 000-0000" />
+          </div>
+          <div class="form__group">
+            <label for="flashQuoteIdea" class="form__label">Any notes <span class="form__optional">(optional)</span></label>
+            <textarea id="flashQuoteIdea" name="idea" class="form__textarea" rows="4" placeholder="Placement, size, timing, or questions..."></textarea>
+          </div>
+          <div class="form__consent">
+            <p class="form__consent-text">
+              By submitting your phone number, you are consenting to receive text messages about tattoo services from beezz_zart. You can opt-out at any time by texting &quot;STOP&quot;. Message &amp; data rates may apply. See our <a href="privacy-policy.html">privacy policy here</a>.
+            </p>
+            <label class="form__consent-check">
+              <input type="checkbox" class="form__consent-input" name="privacy_consent" value="yes" required />
+              <span>I agree to the privacy policy.</span>
+            </label>
+          </div>
+          <button type="submit" class="btn btn--white btn--full">Get a Quote</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer--compact">
+    <div class="section-texture section-texture--dark" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer__bottom footer__bottom--solo">
+        <p>&copy; 2026 Beezz_zart. All rights reserved.</p>
+        <a href="index.html#hero" class="footer__privacy">Back to home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="flashes-data.js?v=104"></script>
+  <script src="flash-quote.js?v=2"></script>
+</body>
+</html>

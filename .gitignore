@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+
+# Accidental browser save (not part of the site)
+Website Images/Flash-Calf-4.html
+Website Images/Flash-Calf-4_files/

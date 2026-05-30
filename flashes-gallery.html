@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flash Designs — Beezz_zart | Blackwork Toronto</title>
+  <meta name="description" content="Browse available blackwork flash tattoo designs by Beezz_zart in Toronto." />
+  <link rel="stylesheet" href="styles.css?v=132" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+</head>
+<body class="flashes-body">
+
+  <nav class="nav nav--flashes" id="nav">
+    <div class="nav__inner">
+      <a href="index.html#hero" class="nav__logo">
+        <div class="nav__logo-icon">
+          <img src="Website Images/logo.png" alt="Beezz_zart logo" />
+        </div>
+        Beezz_zart
+      </a>
+      <button class="nav__burger" id="navBurger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html#hero">About</a></li>
+        <li><a href="projects.html">Gallery</a></li>
+        <li><a href="flashes.html" aria-current="page">Flashes</a></li>
+        <li><a href="index.html#faqs">FAQs</a></li>
+        <li><a href="index.html#lead-form" class="nav__cta">Tell Me Your Idea</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="flashes-page flashes-page--solo flashes-page--gallery">
+    <section class="flashes-split flashes-split--fullscreen flashes-split--gallery" aria-label="Flash designs">
+      <div class="flashes-split__visual flashes-split__visual--gallery" aria-hidden="true">
+        <img src="Website Images/Contact.png" alt="" />
+      </div>
+      <div class="flashes-split__panel flashes-split__panel--gallery">
+        <div class="section-texture section-texture--dark" aria-hidden="true"></div>
+        <div class="flashes-split__panel-inner flashes-split__panel-inner--gallery">
+          <section class="flashes-gallery" id="flashesGalleryView">
+            <a href="flashes.html" class="flash-gallery__back" id="flashesGalleryBack">&larr; Back to flashes</a>
+            <header class="flashes-gallery__head">
+              <h1 class="flashes-gallery__title" id="flashesGalleryTitle">Flashes</h1>
+              <p class="flashes-gallery__lede" id="flashesGalleryLede">Available designs. Each flash is tattooed once.</p>
+              <p class="flashes-gallery__hint" id="flashesGalleryHint">Click on a flash to get a quote</p>
+            </header>
+            <p class="flashes__empty" id="flashesEmpty" hidden>No flashes in this category yet.</p>
+            <div class="flashes__grid flashes__grid--page" id="flashesGrid" aria-live="polite"></div>
+            <div class="flashes__cta flashes__cta--page">
+              <a href="index.html#lead-form" class="btn btn--dark btn--flashes-cta">Get a Quote</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer--compact">
+    <div class="section-texture section-texture--dark" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer__bottom footer__bottom--solo">
+        <p>&copy; 2026 Beezz_zart. All rights reserved.</p>
+        <a href="index.html#hero" class="footer__privacy">Back to home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="flashes-data.js?v=104"></script>
+  <script src="flashes-gallery.js?v=82"></script>
+</body>
+</html>
