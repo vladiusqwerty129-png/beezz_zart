@@ -2455,3 +2455,59 @@ button { cursor: pointer; font-family: inherit; }
   }
   .section-subtitle { margin-bottom: 36px; }
 }
+
+/* Cookie consent + Meta Pixel (banner only; pixel loads after accept) */
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  padding: 16px var(--page-edge);
+  background: rgba(10, 10, 10, 0.96);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+.cookie-banner__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.cookie-banner__text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+  flex: 1 1 240px;
+}
+.cookie-banner__text a {
+  color: var(--white);
+  text-decoration: underline;
+}
+.cookie-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cookie-banner__btn {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.cookie-banner__btn--primary {
+  background: var(--white);
+  color: var(--black);
+}
+.cookie-banner__btn--ghost {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.35);
+}
