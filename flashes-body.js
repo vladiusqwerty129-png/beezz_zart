@@ -40,28 +40,28 @@ document.addEventListener('DOMContentLoaded', () => {
         </span>
       </span>
     `;
-    btn.addEventListener('click', () => {
+    window.beezzMobileTap(btn, function () {
       if (part.id === 'arms') {
-        window.location.href = `flashes-arms.html?style=${encodeURIComponent(styleId)}`;
+        window.location.assign(`flashes-arms.html?style=${encodeURIComponent(styleId)}`);
         return;
       }
       if (part.id === 'legs') {
-        window.location.href = `flashes-legs.html?style=${encodeURIComponent(styleId)}`;
+        window.location.assign(`flashes-legs.html?style=${encodeURIComponent(styleId)}`);
         return;
       }
       if (part.id === 'body-front') {
-        window.location.href = `flashes-body-front.html?style=${encodeURIComponent(styleId)}`;
+        window.location.assign(`flashes-body-front.html?style=${encodeURIComponent(styleId)}`);
         return;
       }
       if (part.id === 'back') {
-        window.location.href = `flashes-back.html?style=${encodeURIComponent(styleId)}`;
+        window.location.assign(`flashes-back.html?style=${encodeURIComponent(styleId)}`);
         return;
       }
       if (part.id === 'head') {
-        window.location.href = `flashes-head.html?style=${encodeURIComponent(styleId)}`;
+        window.location.assign(`flashes-head.html?style=${encodeURIComponent(styleId)}`);
         return;
       }
-      window.location.href = `flashes-gallery.html?style=${encodeURIComponent(styleId)}&part=${encodeURIComponent(part.id)}`;
+      window.location.assign(`flashes-gallery.html?style=${encodeURIComponent(styleId)}&part=${encodeURIComponent(part.id)}`);
     });
     bodypartGrid.appendChild(btn);
   });

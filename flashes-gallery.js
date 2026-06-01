@@ -140,15 +140,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (panel) panel.scrollTop = 0;
   window.scrollTo(0, 0);
 
-  function goToQuote(flash) {
-    window.location.assign(quoteUrl(flash));
-  }
-
   items.forEach((flash) => {
-    const card = document.createElement('button');
-    card.type = 'button';
-    card.className = 'flashes__item flashes__item--gallery';
-    card.setAttribute('aria-label', `Get a quote for ${flash.alt}`);
+    const href = quoteUrl(flash);
+    const link = document.createElement('a');
+    link.href = href;
+    link.className = 'flashes__item flashes__item--gallery';
+    link.setAttribute('aria-label', `Get a quote for ${flash.alt}`);
 
     const img = document.createElement('img');
     img.src = imageUrl(flash.src);
@@ -156,16 +153,11 @@ document.addEventListener('DOMContentLoaded', () => {
     img.loading = 'lazy';
     img.draggable = false;
 
-    card.dataset.flashSrc = flash.src;
-    card.appendChild(img);
-    grid.appendChild(card);
-  });
-
-  grid.addEventListener('click', (e) => {
-    const card = e.target.closest('.flashes__item--gallery');
-    if (!card) return;
-    const src = card.dataset.flashSrc;
-    const flash = items.find((f) => f.src === src);
-    if (flash) goToQuote(flash);
+    link.appendChild(img);
+    window.beezzMobileTap(link, function (e) {
+      if (e && e.preventDefault) e.preventDefault();
+      window.location.assign(href);
+    });
+    grid.appendChild(link);
   });
 });

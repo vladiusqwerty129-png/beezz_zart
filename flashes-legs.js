@@ -45,13 +45,13 @@ document.addEventListener('DOMContentLoaded', () => {
         </span>
       </span>
     `;
-    btn.addEventListener('click', () => {
+    window.beezzMobileTap(btn, function () {
       const q = new URLSearchParams({
         style: styleId,
         part: 'legs',
         zone: zone.id,
       });
-      window.location.href = `flashes-gallery.html?${q.toString()}`;
+      window.location.assign(`flashes-gallery.html?${q.toString()}`);
     });
     legsGrid.appendChild(btn);
   });

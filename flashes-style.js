@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
         </span>
       </span>
     `;
-    btn.addEventListener('click', () => {
+    window.beezzMobileTap(btn, function () {
       const usesPlacement = window.FLASH_STYLE_USES_PLACEMENT || 'dark-abstract';
       if (style.id === usesPlacement) {
-        window.location.href = `flashes-body.html?style=${encodeURIComponent(style.id)}`;
+        window.location.assign(`flashes-body.html?style=${encodeURIComponent(style.id)}`);
         return;
       }
-      window.location.href = `flashes-gallery.html?style=${encodeURIComponent(style.id)}&part=all`;
+      window.location.assign(`flashes-gallery.html?style=${encodeURIComponent(style.id)}&part=all`);
     });
     styleGrid.appendChild(btn);
   });
