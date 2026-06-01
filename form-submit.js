@@ -1,5 +1,5 @@
 window.BEEZZ_FORM_ENDPOINT =
-  'https://script.google.com/macros/s/AKfycbxyZcgO1hVU9K47sPfXy9tDMnh5zzTVZFdSe9zpQYOcmQr6sq_8aI1pSYDMrW_9sDUp/exec';
+  'https://script.google.com/macros/s/AKfycbzak_Ce1f1FlmhwFmy1wO9KIu8dtkAQRlt3PEi2SJmtZ2L7v6u07uZnJNL61SC5zUACFA/exec';
 
 window.beezzReadFileAsBase64 = function (file) {
   return new Promise((resolve, reject) => {
