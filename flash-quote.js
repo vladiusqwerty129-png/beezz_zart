@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const imageEl = document.getElementById('flashQuoteImage');
   const srcInput = document.getElementById('flashQuoteSrc');
   const form = document.getElementById('flashQuoteForm');
-  const filloutUrl = form?.dataset.filloutUrl || form?.action;
+  const submitBtn = form?.querySelector('button[type="submit"]');
 
   function galleryUrl() {
     const q = new URLSearchParams();
@@ -105,30 +105,47 @@ document.addEventListener('DOMContentLoaded', () => {
     `Image: ${absoluteImg}`,
   ].join('\n');
 
-  form?.addEventListener('submit', (e) => {
-    if (!window.beezzRequirePrivacyConsent?.(form)) {
-      e.preventDefault();
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!window.beezzRequirePrivacyConsent?.(form)) return;
+    if (!window.beezzSubmitLead) {
+      alert('Form is not configured. Please try again later.');
       return;
     }
-    if (!filloutUrl) return;
-    e.preventDefault();
 
-    const paramsOut = new URLSearchParams();
     const name = document.getElementById('flashQuoteName')?.value.trim();
     const email = document.getElementById('flashQuoteEmail')?.value.trim();
     const phone = document.getElementById('flashQuotePhone')?.value.trim();
     const userIdea = document.getElementById('flashQuoteIdea')?.value.trim();
 
-    if (name) paramsOut.set('name', name);
-    if (email) paramsOut.set('email', email);
-    if (phone) paramsOut.set('phone', phone);
-
     const ideaParts = [];
     if (userIdea) ideaParts.push(userIdea);
     ideaParts.push(flashAttachmentBlock);
-    paramsOut.set('idea', ideaParts.join('\n\n'));
 
-    const q = paramsOut.toString();
-    window.open(q ? `${filloutUrl}?${q}` : filloutUrl, '_blank', 'noopener,noreferrer');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+    }
+
+    try {
+      await window.beezzSubmitLead({
+        name,
+        email,
+        phone,
+        idea: ideaParts.join('\n\n'),
+        source: 'flash-quote',
+        files: [],
+      });
+      form.reset();
+      if (srcInput) srcInput.value = flash.src;
+      alert('Thank you! Your quote request was sent. We will get back to you soon.');
+    } catch (err) {
+      alert(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Get a Quote';
+      }
+    }
   });
 });

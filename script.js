@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contactForm');
   const referenceInput = document.getElementById('references');
   const referenceFileList = document.getElementById('referenceFileList');
-  const filloutUrl = contactForm?.dataset.filloutUrl || contactForm?.action;
+  const contactSubmitBtn = contactForm?.querySelector('button[type="submit"]');
 
   const MAX_FILE_BYTES = 10 * 1024 * 1024;
 
@@ -119,44 +119,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
   referenceInput?.addEventListener('change', updateReferenceFileList);
 
-  contactForm?.addEventListener('submit', (e) => {
-    if (!window.beezzRequirePrivacyConsent(contactForm)) {
-      e.preventDefault();
-      return;
-    }
-    if (!referenceInput || !filloutUrl) return;
-
-    const files = referenceInput.files;
-    if (files.length) {
-      for (let i = 0; i < files.length; i++) {
-        if (files[i].size > MAX_FILE_BYTES) {
-          e.preventDefault();
-          alert(`Each image must be under 10 MB. "${files[i].name}" is too large.`);
-          return;
-        }
-      }
-      contactForm.method = 'post';
-      contactForm.enctype = 'multipart/form-data';
-      contactForm.action = filloutUrl;
-      return;
-    }
-
-    contactForm.method = 'get';
-    contactForm.removeAttribute('enctype');
-    contactForm.action = filloutUrl;
-
+  contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const params = new URLSearchParams();
+    if (!window.beezzRequirePrivacyConsent(contactForm)) return;
+    if (!window.beezzSubmitLead) {
+      alert('Form is not configured. Please try again later.');
+      return;
+    }
+
     const name = document.getElementById('name')?.value.trim();
     const email = document.getElementById('email')?.value.trim();
     const phone = document.getElementById('phone')?.value.trim();
     const idea = document.getElementById('idea')?.value.trim();
-    if (name) params.set('name', name);
-    if (email) params.set('email', email);
-    if (phone) params.set('phone', phone);
-    if (idea) params.set('idea', idea);
-    const q = params.toString();
-    window.open(q ? `${filloutUrl}?${q}` : filloutUrl, '_blank', 'noopener,noreferrer');
+
+    if (contactSubmitBtn) {
+      contactSubmitBtn.disabled = true;
+      contactSubmitBtn.textContent = 'Sending…';
+    }
+
+    try {
+      const filePayload = referenceInput?.files?.length
+        ? await window.beezzFilesToPayload(referenceInput.files, MAX_FILE_BYTES)
+        : [];
+
+      await window.beezzSubmitLead({
+        name,
+        email,
+        phone,
+        idea,
+        source: 'contact',
+        files: filePayload,
+      });
+
+      contactForm.reset();
+      if (referenceFileList) referenceFileList.textContent = '';
+      alert('Thank you! Your message was sent. We will get back to you soon.');
+    } catch (err) {
+      alert(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      if (contactSubmitBtn) {
+        contactSubmitBtn.disabled = false;
+        contactSubmitBtn.textContent = 'Start with a Free Consultation';
+      }
+    }
   });
 
 });
