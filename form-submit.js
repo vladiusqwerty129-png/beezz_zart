@@ -40,5 +40,6 @@ window.beezzSubmitLead = async function (payload) {
     throw new Error(data.error || 'Submission failed');
   }
   if (window.beezzTrackLead) window.beezzTrackLead();
+  else if (window.beezzTrackCustom) window.beezzTrackCustom('Lead');
   return data;
 };
