@@ -79,11 +79,16 @@ function sendLeadNotification_(name, email, phone, idea, source, fileLinks) {
     'Open spreadsheet: ' + sheetUrl,
   ].join('\n');
 
-  MailApp.sendEmail({
-    to: NOTIFY_EMAIL,
-    subject: subject,
-    body: body,
-  });
+  try {
+    MailApp.sendEmail({
+      to: NOTIFY_EMAIL,
+      subject: subject,
+      body: body,
+    });
+  } catch (mailErr) {
+    Logger.log('Email notification failed: ' + mailErr);
+    // Do not fail the form — row is already in the sheet.
+  }
 }
 
 function getUploadFolder_() {
