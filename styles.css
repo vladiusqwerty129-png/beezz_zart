@@ -683,22 +683,19 @@ button { cursor: pointer; font-family: inherit; }
 .form__consent-text a:hover {
   color: var(--white);
 }
-.form__consent-check {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  cursor: pointer;
+.form__consent-policy {
   font-size: 14px;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.82);
+  margin: 0;
 }
-.form__consent-input {
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  margin-top: 2px;
-  accent-color: var(--white);
-  cursor: pointer;
+.form__consent-policy a {
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.form__consent-policy a:hover {
+  color: var(--white);
 }
 
 .legal-page {
