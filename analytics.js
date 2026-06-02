@@ -1,6 +1,23 @@
 (function () {
   var META_PIXEL_ID = '974705331864130';
+  var GA_MEASUREMENT_ID = 'G-GB3KCNSD2D';
   var SCROLL_MARKS = [25, 50, 75, 100];
+
+  function loadGoogleAnalytics() {
+    if (!GA_MEASUREMENT_ID) return;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_MEASUREMENT_ID);
+
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+    document.head.appendChild(script);
+  }
 
   function loadMetaPixel() {
     if (!META_PIXEL_ID) return;
@@ -34,6 +51,9 @@
 
   window.beezzTrackLead = function () {
     window.beezzTrackCustom('Lead');
+    if (window.gtag) {
+      window.gtag('event', 'generate_lead', { send_to: GA_MEASUREMENT_ID });
+    }
   };
 
   function pageFile() {
@@ -112,6 +132,7 @@
   }
 
   function init() {
+    loadGoogleAnalytics();
     loadMetaPixel();
     trackPageContext();
     initClickTracking();
