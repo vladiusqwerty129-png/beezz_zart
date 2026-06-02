@@ -2026,12 +2026,12 @@ button { cursor: pointer; font-family: inherit; }
     height: 100dvh;
     max-width: none;
     margin: 0;
-    padding: calc(var(--nav-h) + 24px) var(--page-edge) 32px;
+    padding: calc(var(--nav-h) + 40px) max(24px, var(--page-edge)) max(28px, env(safe-area-inset-bottom, 0px));
     background: var(--bg);
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 28px;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0;
     transform: translateX(100%);
     visibility: hidden;
     pointer-events: none;
@@ -2039,6 +2039,7 @@ button { cursor: pointer; font-family: inherit; }
     z-index: 120;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.08);
   }
   .nav__links.nav__links--open {
     transform: translateX(0);
@@ -2047,21 +2048,51 @@ button { cursor: pointer; font-family: inherit; }
   }
   .nav__links li {
     width: 100%;
-    max-width: 320px;
-    display: flex;
-    justify-content: center;
+    max-width: none;
+    display: block;
+    border-bottom: 1px solid var(--border);
   }
-  .nav__links a {
-    font-size: 18px;
-    color: var(--dark) !important;
-    text-align: center;
+  .nav__links li:last-child {
+    border-bottom: none;
+    margin-top: 28px;
+    padding-top: 8px;
   }
-  .nav__cta {
-    white-space: normal !important;
-    text-align: center;
+  .nav__links a:not(.nav__cta) {
+    display: block;
     width: 100%;
-    max-width: 280px;
+    font-size: clamp(1.125rem, 4.2vw, 1.35rem);
+    font-weight: 500;
+    color: var(--dark) !important;
+    text-align: left;
+    padding: 18px 4px;
+    letter-spacing: -0.01em;
+  }
+  .nav__links a:not(.nav__cta):active {
+    color: var(--text-muted) !important;
+  }
+  .nav__links a.nav__cta {
+    display: flex;
+    align-items: center;
     justify-content: center;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 16px 28px !important;
+    min-height: 52px;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.35;
+    color: #ffffff !important;
+    background: var(--dark) !important;
+    border-radius: var(--r-pill) !important;
+    text-align: center;
+    white-space: normal !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav__links a.nav__cta:hover,
+  .nav__links a.nav__cta:active {
+    background: #3a3a3a !important;
+    color: #ffffff !important;
   }
   .nav__burger[aria-expanded="true"] span:nth-child(1) {
     transform: translateY(6.5px) rotate(45deg);
