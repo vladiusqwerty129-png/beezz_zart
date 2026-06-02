@@ -41,7 +41,12 @@ window.beezzSubmitLead = async function (payload) {
   }
 
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: 'generate_lead', form_name: 'lead-form' });
+  window.dataLayer.push({
+    event: 'generate_lead',
+    form_name: (payload && payload.source) ? payload.source : 'lead-form',
+    lead_email: (payload && payload.email) ? payload.email : '',
+    lead_phone: (payload && payload.phone) ? payload.phone : '',
+  });
 
   if (window.beezzTrackLead) window.beezzTrackLead();
   else if (window.beezzTrackCustom) window.beezzTrackCustom('Lead');
