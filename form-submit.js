@@ -39,6 +39,10 @@ window.beezzSubmitLead = async function (payload) {
   if (!data.ok) {
     throw new Error(data.error || 'Submission failed');
   }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'generate_lead', form_name: 'lead-form' });
+
   if (window.beezzTrackLead) window.beezzTrackLead();
   else if (window.beezzTrackCustom) window.beezzTrackCustom('Lead');
   return data;
