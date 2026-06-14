@@ -89,11 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0, rootMargin: '0px 0px 300px 0px' });
   fadeTargets.forEach((el, i) => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = `opacity 0.55s ease ${(i % 5) * 0.07}s, transform 0.55s ease ${(i % 5) * 0.07}s`;
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = `opacity 0.4s ease ${(i % 5) * 0.05}s, transform 0.4s ease ${(i % 5) * 0.05}s`;
     io.observe(el);
   });
 
