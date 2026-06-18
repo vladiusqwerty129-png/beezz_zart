@@ -279,7 +279,7 @@ window.FLASHES_CATALOG = {
       ],
     },
     all: [
-      { src: 'Website Images/Blackwork-Tattoo-Flash-1.png', alt: 'Dark abstract blackwork flash 1' },
+      { src: 'Website Images/Blackwork-Tattoo-Flash-1.webp', alt: 'Dark abstract blackwork flash 1' },
       { src: 'Website Images/Blackwork-Tattoo-Flash-2.png', alt: 'Dark abstract blackwork flash 2' },
       { src: 'Website Images/Blackwork-Tattoo-Flash-3.png', alt: 'Dark abstract blackwork flash 3' },
     ],
