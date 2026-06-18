@@ -7,3 +7,7 @@ Thumbs.db
 # Accidental browser save (not part of the site)
 Website Images/Flash-Calf-4.html
 Website Images/Flash-Calf-4_files/
+
+# Local PNG backups from WebP conversion (originals remain in repo as .png)
+Website Images/_originals/
+node_modules/
