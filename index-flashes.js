@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.HOMEPAGE_FLASHES.forEach((flash) => {
     const item = document.createElement('div');
     item.className = 'flashes__item';
-    item.innerHTML = `<img src="${imageUrl(flash.src)}" alt="${flash.alt}" loading="lazy" />`;
+    item.innerHTML = `<img src="${imageUrl(flash.src)}" alt="${flash.alt}" width="640" height="800" loading="lazy" />`;
     grid.appendChild(item);
   });
 });
