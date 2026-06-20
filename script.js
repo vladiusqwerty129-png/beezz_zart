@@ -122,8 +122,13 @@ document.addEventListener('DOMContentLoaded', () => {
   contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!window.beezzRequirePrivacyConsent(contactForm)) return;
+    window.beezzClearFormFeedback?.(contactForm);
     if (!window.beezzSubmitLead) {
-      alert('Form is not configured. Please try again later.');
+      window.beezzShowFormFeedback?.(
+        contactForm,
+        'error',
+        'Form is not configured. Please try again later.'
+      );
       return;
     }
 
@@ -153,11 +158,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       contactForm.reset();
       if (referenceFileList) referenceFileList.textContent = '';
-      alert('Thank you! Your message was sent. We will get back to you soon.');
+      window.beezzShowFormFeedback?.(
+        contactForm,
+        'success',
+        "Thank you! Your message was sent. I'll get back to you soon."
+      );
     } catch (err) {
-      alert(err.message || 'Something went wrong. Please try again.');
+      window.beezzShowFormFeedback?.(
+        contactForm,
+        'error',
+        err.message || 'Something went wrong. Please try again.'
+      );
     } finally {
-      if (contactSubmitBtn) {
+      if (contactSubmitBtn && !contactForm.classList.contains('form--sent')) {
         contactSubmitBtn.disabled = false;
         contactSubmitBtn.textContent = 'Start with a Free Consultation';
       }

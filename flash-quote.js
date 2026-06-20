@@ -108,8 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!window.beezzRequirePrivacyConsent?.(form)) return;
+    window.beezzClearFormFeedback?.(form);
     if (!window.beezzSubmitLead) {
-      alert('Form is not configured. Please try again later.');
+      window.beezzShowFormFeedback?.(
+        form,
+        'error',
+        'Form is not configured. Please try again later.'
+      );
       return;
     }
 
@@ -138,11 +143,19 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       form.reset();
       if (srcInput) srcInput.value = flash.src;
-      alert('Thank you! Your quote request was sent. We will get back to you soon.');
+      window.beezzShowFormFeedback?.(
+        form,
+        'success',
+        "Thank you! Your quote request was sent. I'll get back to you soon."
+      );
     } catch (err) {
-      alert(err.message || 'Something went wrong. Please try again.');
+      window.beezzShowFormFeedback?.(
+        form,
+        'error',
+        err.message || 'Something went wrong. Please try again.'
+      );
     } finally {
-      if (submitBtn) {
+      if (submitBtn && !form.classList.contains('form--sent')) {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Get a Quote';
       }

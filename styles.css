@@ -590,6 +590,23 @@ button { cursor: pointer; font-family: inherit; }
 .contact { padding: var(--pad) 0; }
 .contact .section-subtitle { color: rgba(255,255,255,0.55); }
 .form { display: flex; flex-direction: column; gap: 16px; }
+.form__success,
+.form__error {
+  padding: 16px 18px;
+  border-radius: var(--r-md);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.form__success {
+  background: rgba(116, 128, 125, 0.22);
+  border: 1px solid rgba(116, 128, 125, 0.45);
+  color: var(--white);
+}
+.form__error {
+  background: rgba(255, 96, 96, 0.12);
+  border: 1px solid rgba(255, 130, 130, 0.35);
+  color: #ffd4d4;
+}
 .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form__group { display: flex; flex-direction: column; gap: 8px; }
 .form__label {

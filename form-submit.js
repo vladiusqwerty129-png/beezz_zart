@@ -23,6 +23,52 @@ window.beezzFilesToPayload = async function (fileList, maxBytes) {
   return files;
 };
 
+window.beezzClearFormFeedback = function (form) {
+  if (!form) return;
+  const errorEl = form.querySelector('.form__error');
+  if (errorEl) {
+    errorEl.hidden = true;
+    errorEl.textContent = '';
+  }
+};
+
+window.beezzShowFormFeedback = function (form, type, message) {
+  if (!form) return;
+  const successEl = form.querySelector('.form__success');
+  const errorEl = form.querySelector('.form__error');
+
+  if (type === 'success') {
+    if (errorEl) {
+      errorEl.hidden = true;
+      errorEl.textContent = '';
+    }
+    if (successEl) {
+      successEl.textContent = message;
+      successEl.hidden = false;
+    }
+    form.classList.add('form--sent');
+    form.querySelectorAll(':scope > *:not(.form__success)').forEach((child) => {
+      child.hidden = true;
+    });
+    successEl?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    return;
+  }
+
+  form.classList.remove('form--sent');
+  form.querySelectorAll(':scope > *').forEach((child) => {
+    if (!child.classList.contains('form__success')) child.hidden = false;
+  });
+  if (successEl) {
+    successEl.hidden = true;
+    successEl.textContent = '';
+  }
+  if (errorEl) {
+    errorEl.textContent = message;
+    errorEl.hidden = false;
+    errorEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+};
+
 window.beezzSubmitLead = async function (payload) {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
