@@ -607,6 +607,16 @@ button { cursor: pointer; font-family: inherit; }
   border: 1px solid rgba(255, 130, 130, 0.35);
   color: #ffd4d4;
 }
+.form__success[hidden],
+.form__error[hidden] {
+  display: none !important;
+}
+.form.form--sent > :not(.form__success) {
+  display: none !important;
+}
+.form.form--sent .form__success {
+  display: block;
+}
 .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form__group { display: flex; flex-direction: column; gap: 8px; }
 .form__label {

@@ -100,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contactForm');
   const referenceInput = document.getElementById('references');
   const referenceFileList = document.getElementById('referenceFileList');
-  const contactSubmitBtn = contactForm?.querySelector('button[type="submit"]');
 
   const MAX_FILE_BYTES = 10 * 1024 * 1024;
 
@@ -137,10 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const phone = document.getElementById('phone')?.value.trim();
     const idea = document.getElementById('idea')?.value.trim();
 
-    if (contactSubmitBtn) {
-      contactSubmitBtn.disabled = true;
-      contactSubmitBtn.textContent = 'Sending…';
-    }
+    window.beezzStartFormSubmit?.(contactForm);
 
     try {
       const filePayload = referenceInput?.files?.length
@@ -169,11 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'error',
         err.message || 'Something went wrong. Please try again.'
       );
-    } finally {
-      if (contactSubmitBtn && !contactForm.classList.contains('form--sent')) {
-        contactSubmitBtn.disabled = false;
-        contactSubmitBtn.textContent = 'Start with a Free Consultation';
-      }
     }
   });
 

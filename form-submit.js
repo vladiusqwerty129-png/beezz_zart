@@ -106,6 +106,25 @@ window.beezzClearFormFeedback = function (form) {
   }
 };
 
+window.beezzStartFormSubmit = function (form) {
+  const btn = form?.querySelector('button[type="submit"]');
+  if (!btn) return;
+  if (!btn.dataset.beezzDefaultLabel) {
+    btn.dataset.beezzDefaultLabel = btn.textContent.trim();
+  }
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+};
+
+window.beezzResetFormSubmit = function (form) {
+  const btn = form?.querySelector('button[type="submit"]');
+  if (!btn) return;
+  btn.disabled = false;
+  if (btn.dataset.beezzDefaultLabel) {
+    btn.textContent = btn.dataset.beezzDefaultLabel;
+  }
+};
+
 window.beezzShowFormFeedback = function (form, type, message) {
   if (!form) return;
   const successEl = form.querySelector('.form__success');
@@ -121,17 +140,11 @@ window.beezzShowFormFeedback = function (form, type, message) {
       successEl.hidden = false;
     }
     form.classList.add('form--sent');
-    form.querySelectorAll(':scope > *:not(.form__success)').forEach((child) => {
-      child.hidden = true;
-    });
     successEl?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     return;
   }
 
   form.classList.remove('form--sent');
-  form.querySelectorAll(':scope > *').forEach((child) => {
-    if (!child.classList.contains('form__success')) child.hidden = false;
-  });
   if (successEl) {
     successEl.hidden = true;
     successEl.textContent = '';
@@ -141,6 +154,7 @@ window.beezzShowFormFeedback = function (form, type, message) {
     errorEl.hidden = false;
     errorEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
+  window.beezzResetFormSubmit(form);
 };
 
 window.beezzSubmitLead = async function (payload) {

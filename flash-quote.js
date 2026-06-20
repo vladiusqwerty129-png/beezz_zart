@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const imageEl = document.getElementById('flashQuoteImage');
   const srcInput = document.getElementById('flashQuoteSrc');
   const form = document.getElementById('flashQuoteForm');
-  const submitBtn = form?.querySelector('button[type="submit"]');
 
   function galleryUrl() {
     const q = new URLSearchParams();
@@ -127,10 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (userIdea) ideaParts.push(userIdea);
     ideaParts.push(flashAttachmentBlock);
 
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
-    }
+    window.beezzStartFormSubmit?.(form);
 
     try {
       await window.beezzSubmitLead({
@@ -154,11 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'error',
         err.message || 'Something went wrong. Please try again.'
       );
-    } finally {
-      if (submitBtn && !form.classList.contains('form--sent')) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Get a Quote';
-      }
     }
   });
 });
