@@ -10,6 +10,75 @@ window.beezzReadFileAsBase64 = function (file) {
   });
 };
 
+/** Scale longest side to maxSide (never upscale); JPEG export for upload payload. */
+window.beezzCompressImageFile = function (file, maxSide = 1600, quality = 0.8) {
+  return new Promise((resolve) => {
+    if (!file?.type?.startsWith('image/')) {
+      resolve(file);
+      return;
+    }
+
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+
+    const finish = (result) => {
+      URL.revokeObjectURL(url);
+      resolve(result);
+    };
+
+    img.onload = () => {
+      try {
+        const w = img.naturalWidth || img.width;
+        const h = img.naturalHeight || img.height;
+        if (!w || !h) {
+          finish(file);
+          return;
+        }
+
+        let targetW = w;
+        let targetH = h;
+        const longSide = Math.max(w, h);
+        if (longSide > maxSide) {
+          const scale = maxSide / longSide;
+          targetW = Math.max(1, Math.round(w * scale));
+          targetH = Math.max(1, Math.round(h * scale));
+        }
+
+        const canvas = document.createElement('canvas');
+        canvas.width = targetW;
+        canvas.height = targetH;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          finish(file);
+          return;
+        }
+        ctx.drawImage(img, 0, 0, targetW, targetH);
+
+        canvas.toBlob(
+          (blob) => {
+            if (!blob) {
+              finish(file);
+              return;
+            }
+            const baseName = file.name.replace(/\.[^.]+$/, '') || 'image';
+            finish(new File([blob], `${baseName}.jpg`, {
+              type: 'image/jpeg',
+              lastModified: file.lastModified,
+            }));
+          },
+          'image/jpeg',
+          quality
+        );
+      } catch {
+        finish(file);
+      }
+    };
+
+    img.onerror = () => finish(file);
+    img.src = url;
+  });
+};
+
 window.beezzFilesToPayload = async function (fileList, maxBytes) {
   const files = [];
   for (let i = 0; i < fileList.length; i++) {
@@ -17,8 +86,13 @@ window.beezzFilesToPayload = async function (fileList, maxBytes) {
     if (maxBytes && file.size > maxBytes) {
       throw new Error(`Each image must be under 10 MB. "${file.name}" is too large.`);
     }
-    const data = await window.beezzReadFileAsBase64(file);
-    files.push({ name: file.name, mimeType: file.type || 'application/octet-stream', data });
+    const uploadFile = await window.beezzCompressImageFile(file);
+    const data = await window.beezzReadFileAsBase64(uploadFile);
+    files.push({
+      name: uploadFile.name,
+      mimeType: uploadFile.type || 'application/octet-stream',
+      data,
+    });
   }
   return files;
 };
