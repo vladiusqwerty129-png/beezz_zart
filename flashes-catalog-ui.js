@@ -67,10 +67,6 @@ window.beezzCreateCatalogProductLink = function (opts) {
     </span>
   `;
 
-  window.beezzMobileTap(link, function (e) {
-    if (e && e.preventDefault) e.preventDefault();
-    window.location.assign(href);
-  });
   return link;
 };
 

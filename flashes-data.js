@@ -323,3 +323,49 @@ window.collectAllCatalogFlashes = function () {
   });
   return out;
 };
+
+window.getFlashCatalogItems = function (styleId, partId, zoneId) {
+  if (styleId === 'all' && (!partId || partId === 'all')) {
+    return window.collectAllCatalogFlashes?.() || [];
+  }
+
+  const entry = window.FLASHES_CATALOG?.[styleId];
+  if (!entry) return [];
+  if (Array.isArray(entry)) return entry;
+
+  const partEntry = entry[partId];
+  if (partEntry && !Array.isArray(partEntry) && typeof partEntry === 'object') {
+    if (zoneId && partEntry[zoneId]?.length) return partEntry[zoneId];
+    if (partEntry.all?.length) return partEntry.all;
+    return [];
+  }
+
+  if (partEntry?.length) return partEntry;
+  if (entry.all?.length) return entry.all;
+
+  const seen = new Set();
+  const out = [];
+  Object.values(entry).forEach((val) => {
+    const items = Array.isArray(val) ? val : Object.values(val || {}).flat();
+    items.forEach((flash) => {
+      if (flash?.src && !seen.has(flash.src)) {
+        seen.add(flash.src);
+        out.push(flash);
+      }
+    });
+  });
+  return out;
+};
+
+window.findCatalogFlash = function (styleId, partId, zoneId, flashSrc) {
+  if (!flashSrc) return null;
+  const target = decodeURIComponent(flashSrc);
+  const items = window.getFlashCatalogItems(styleId, partId, zoneId);
+  const match = items.find((flash) => flash.src === target || flash.src === flashSrc);
+  if (match) return match;
+  return (
+    window.collectAllCatalogFlashes?.().find(
+      (flash) => flash.src === target || flash.src === flashSrc
+    ) || null
+  );
+};

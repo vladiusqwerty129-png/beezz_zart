@@ -45,49 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  function getCatalogEntry(sid) {
-    return window.FLASHES_CATALOG?.[sid];
-  }
-
-  function getAllForStyle(sid) {
-    const entry = getCatalogEntry(sid);
-    if (!entry || Array.isArray(entry)) return entry || [];
-    const seen = new Set();
-    const out = [];
-    Object.values(entry).forEach((list) => {
-      const items = Array.isArray(list) ? list : Object.values(list || {}).flat();
-      items.forEach((f) => {
-        if (f && f.src && !seen.has(f.src)) {
-          seen.add(f.src);
-          out.push(f);
-        }
-      });
-    });
-    return out;
-  }
-
-  function getFlashesForStyle(sid, pid, zid) {
-    const entry = getCatalogEntry(sid);
-    if (!entry) return [];
-    if (Array.isArray(entry)) return entry;
-
-    const partEntry = entry[pid];
-    if (partEntry && !Array.isArray(partEntry) && typeof partEntry === 'object') {
-      if (zid && partEntry[zid]?.length) return partEntry[zid];
-      if (partEntry.all?.length) return partEntry.all;
-      return [];
-    }
-
-    if (partEntry?.length) return partEntry;
-    if (entry.all?.length) return entry.all;
-    return getAllForStyle(sid);
-  }
-
   function getFlashes(sid, pid, zid) {
-    if (sid === 'all' && (!pid || pid === 'all')) {
-      return window.collectAllCatalogFlashes?.() || [];
-    }
-    return getFlashesForStyle(sid, pid, zid);
+    return window.getFlashCatalogItems?.(sid, pid, zid) || [];
   }
 
   const styleLabel = window.getFlashStyleLabel?.(styleId) || 'Flashes';
