@@ -13,20 +13,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Request a Flash Quote — Beezz_zart | Blackwork Toronto</title>
   <meta name="description" content="Request a quote for your selected blackwork flash tattoo design by Beezz_zart in Toronto." />
-  <link rel="stylesheet" href="styles.css?v=139" />
+  <link rel="stylesheet" href="styles.css?v=142" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
 </head>
-<body class="flashes-body flash-quote-page">
-  <!-- Google Tag Manager (noscript) -->
+<body class="flashes-body flashes-body--catalog flash-quote-page">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPTTJMDX"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
 
-  <nav class="nav nav--flashes" id="nav">
+  <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="index.html#hero" class="nav__logo">
         <div class="nav__logo-icon">
@@ -52,62 +50,65 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </nav>
 
-  <main class="flash-quote">
-    <section class="contact section--dark flash-quote__section" id="flash-quote-form">
-      <div class="section-texture section-texture--dark" aria-hidden="true"></div>
-      <div class="container container--narrow">
-        <a href="flashes.html" class="flash-quote__back" id="flashQuoteBack">&larr; Back to flashes</a>
+  <main class="flashes-page flashes-page--catalog flashes-page--catalog-quote">
+    <div class="flashes-catalog flashes-catalog--quote">
+      <nav class="flashes-catalog__breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="flashes-catalog__sep" aria-hidden="true">/</span>
+        <a href="flashes.html">Flashes</a>
+        <span class="flashes-catalog__sep" aria-hidden="true">/</span>
+        <span aria-current="page">Request quote</span>
+      </nav>
 
-        <header class="flash-quote__intro">
-          <h1 class="section-title section-title--light flash-quote__title" id="flashQuoteTitle">Request This Flash</h1>
-          <p class="section-subtitle section-subtitle--light flash-quote__subtitle" id="flashQuoteSubtitle">Let's create your blackwork tattoo</p>
-        </header>
+      <a href="flashes.html" class="flashes-catalog__back" id="flashQuoteBack">&larr; Back</a>
 
-        <div class="flash-quote__attachment form__group" id="flashQuoteAttachment">
-          <span class="form__label">Selected flash</span>
-          <div class="flash-quote__attachment-card">
-            <img id="flashQuoteImage" src="" alt="" width="220" height="220" />
+      <header class="flashes-catalog__header">
+        <h1 class="flashes-catalog__title" id="flashQuoteTitle">Request This Flash</h1>
+        <p class="flashes-catalog__lede" id="flashQuoteSubtitle">Let's create your blackwork tattoo</p>
+      </header>
+
+      <div class="flash-quote__attachment" id="flashQuoteAttachment">
+        <div class="flash-quote__attachment-card">
+          <img id="flashQuoteImage" src="" alt="" width="320" height="400" />
+        </div>
+      </div>
+
+      <form class="form form--catalog" id="flashQuoteForm" action="#" method="post">
+        <div class="form__success" role="status" hidden></div>
+        <div class="form__error" role="alert" hidden></div>
+        <input type="hidden" id="flashQuoteSrc" name="flash_src" value="" />
+        <div class="form__row">
+          <div class="form__group">
+            <label for="flashQuoteName" class="form__label">Name</label>
+            <input type="text" id="flashQuoteName" name="name" class="form__input" placeholder="Your name" required />
+          </div>
+          <div class="form__group">
+            <label for="flashQuoteEmail" class="form__label">Email</label>
+            <input type="email" id="flashQuoteEmail" name="email" class="form__input" placeholder="your@email.com" required />
           </div>
         </div>
-
-        <form class="form" id="flashQuoteForm" action="#" method="post">
-          <div class="form__success" role="status" hidden></div>
-          <div class="form__error" role="alert" hidden></div>
-          <input type="hidden" id="flashQuoteSrc" name="flash_src" value="" />
-          <div class="form__row">
-            <div class="form__group">
-              <label for="flashQuoteName" class="form__label">Name</label>
-              <input type="text" id="flashQuoteName" name="name" class="form__input" placeholder="Your name" required />
-            </div>
-            <div class="form__group">
-              <label for="flashQuoteEmail" class="form__label">Email</label>
-              <input type="email" id="flashQuoteEmail" name="email" class="form__input" placeholder="your@email.com" required />
-            </div>
-          </div>
-          <div class="form__group">
-            <label for="flashQuotePhone" class="form__label">Phone Number</label>
-            <input type="tel" id="flashQuotePhone" name="phone" class="form__input" placeholder="+1 (416) 000-0000" />
-          </div>
-          <div class="form__group">
-            <label for="flashQuoteIdea" class="form__label">Any notes <span class="form__optional">(optional)</span></label>
-            <textarea id="flashQuoteIdea" name="idea" class="form__textarea" rows="4" placeholder="Placement, size, timing, or questions..."></textarea>
-          </div>
-          <div class="form__consent">
-            <p class="form__consent-text">
-              You consent to texts from beezz_zart about tattoo services. Reply STOP to unsubscribe. Msg &amp; data rates may apply.
-            </p>
-            <p class="form__consent-policy">
-              By submitting this form, you agree to our <a href="privacy-policy.html">privacy policy</a>.
-            </p>
-          </div>
-          <button type="submit" class="btn btn--white btn--full">Get a Quote</button>
-        </form>
-      </div>
-    </section>
+        <div class="form__group">
+          <label for="flashQuotePhone" class="form__label">Phone Number</label>
+          <input type="tel" id="flashQuotePhone" name="phone" class="form__input" placeholder="+1 (416) 000-0000" />
+        </div>
+        <div class="form__group">
+          <label for="flashQuoteIdea" class="form__label">Any notes <span class="form__optional">(optional)</span></label>
+          <textarea id="flashQuoteIdea" name="idea" class="form__textarea" rows="4" placeholder="Placement, size, timing, or questions..."></textarea>
+        </div>
+        <div class="form__consent">
+          <p class="form__consent-text">
+            You consent to texts from beezz_zart about tattoo services. Reply STOP to unsubscribe. Msg &amp; data rates may apply.
+          </p>
+          <p class="form__consent-policy">
+            By submitting this form, you agree to our <a href="privacy-policy.html">privacy policy</a>.
+          </p>
+        </div>
+        <button type="submit" class="flashes-catalog__cta-btn flashes-catalog__cta-btn--full">Get a Quote</button>
+      </form>
+    </div>
   </main>
 
-  <footer class="footer footer--compact">
-    <div class="section-texture section-texture--dark" aria-hidden="true"></div>
+  <footer class="footer footer--catalog">
     <div class="container">
       <div class="footer__bottom footer__bottom--solo">
         <p>&copy; 2026 Beezz_zart. All rights reserved.</p>
@@ -120,6 +121,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="form-submit.js?v=9"></script>
   <script src="script.js?v=85"></script>
   <script src="flashes-data.js?v=104"></script>
-  <script src="flash-quote.js?v=4"></script>
+  <script src="flash-quote.js?v=5"></script>
 </body>
 </html>

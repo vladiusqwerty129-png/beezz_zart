@@ -8,26 +8,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-PPTTJMDX');</script>
   <!-- End Google Tag Manager -->
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Select Back Area — Tattoo Flashes | Beezz_zart</title>
-  <meta name="description" content="Select lower back, back, or spine to browse blackwork flash tattoos." />
-  <link rel="stylesheet" href="styles.css?v=139" />
-
+  <title>Select Back — Tattoo Flashes | Beezz_zart</title>
+  <meta name="description" content="Select an area on the back to browse blackwork flash tattoos." />
+  <link rel="stylesheet" href="styles.css?v=142" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
 </head>
-<body class="flashes-body">
-  <!-- Google Tag Manager (noscript) -->
+<body class="flashes-body flashes-body--catalog">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPTTJMDX"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
 
-  <nav class="nav nav--flashes" id="nav">
+  <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="index.html#hero" class="nav__logo">
         <div class="nav__logo-icon">
@@ -52,44 +48,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </ul>
     </div>
   </nav>
+  <main class="flashes-page flashes-page--catalog">
+    <div class="flashes-catalog">
+      <nav class="flashes-catalog__breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="flashes-catalog__sep" aria-hidden="true">/</span>
+        <a href="flashes.html">Flashes</a>
+        <span class="flashes-catalog__sep" aria-hidden="true">/</span>
+        <a href="#" id="flashesBackCrumbStyle">Style</a>
+        <span class="flashes-catalog__sep" aria-hidden="true">/</span>
+        <span aria-current="page">Back</span>
+      </nav>
 
-  <main class="flashes-page flashes-page--solo">
-    <section class="flashes-split flashes-split--fullscreen" aria-label="Choose back area">
-      <div class="flashes-split__visual">
-        <a href="#" class="btn btn--outline-light flashes-split__nav-btn flashes-split__nav-btn--back flashes-split__back-float" id="flashesBackAreaBack">&larr; Back</a>
-        <img src="Website Images/Contact.webp" alt="" />
-      </div>
-      <div class="flashes-split__panel">
-        <div class="section-texture section-texture--dark" aria-hidden="true"></div>
-        <div class="flashes-split__panel-inner">
-          <header class="flashes-split__header">
-            <h1 class="flashes-split__title">Tattoo Flashes</h1>
-            <p class="flashes-split__subtitle">Choose between the body parts below</p>
-          </header>
+      <a href="#" class="flashes-catalog__back" id="flashesCatalogBack">&larr; Back</a>
 
-          <div class="flashes-picker-form">
-            <p class="flashes-picker-form__legend">Back <span aria-hidden="true">*</span></p>
-            <div class="flashes-style-grid flashes-style-grid--zone-picker" id="flashesBackGrid" role="list" aria-label="Back area"></div>
-          </div>
-        </div>
+      <header class="flashes-catalog__header">
+        <h1 class="flashes-catalog__title">Back</h1>
+        <p class="flashes-catalog__lede">Choose an area on the back.</p>
+      </header>
+
+      <div class="flashes-catalog__toolbar">
+        <p class="flashes-catalog__hint">Select back area</p>
       </div>
-    </section>
+
+      <div class="flashes-catalog__grid" id="flashesBackGrid" role="list" aria-label="Back area"></div>
+    </div>
   </main>
 
-  <footer class="footer footer--compact">
-    <div class="section-texture section-texture--dark" aria-hidden="true"></div>
+  <footer class="footer footer--catalog">
     <div class="container">
       <div class="footer__bottom footer__bottom--solo">
         <p>&copy; 2026 Beezz_zart. All rights reserved.</p>
         <a href="index.html#hero" class="footer__privacy">Back to home</a>
       </div>
     </div>
-  </footer>
-
-  <script src="analytics.js?v=5"></script>
+  </footer>  <script src="analytics.js?v=5"></script>
   <script src="script.js"></script>
   <script src="flashes-tap.js?v=1"></script>
+  <script src="flashes-catalog-ui.js?v=2"></script>
   <script src="flashes-data.js?v=104"></script>
-  <script src="flashes-back.js?v=86"></script>
+  <script src="flashes-back.js?v=87"></script>
 </body>
 </html>

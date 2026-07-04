@@ -12,21 +12,6 @@ window.FLASH_STYLE_USES_PLACEMENT = 'dark-abstract';
  */
 window.FLASH_STYLES = [
   {
-    id: 'dark-abstract',
-    label: 'Dark & Abstract',
-    preview: 'Website Images/Flash-cover-dark-abstract.webp',
-  },
-  {
-    id: 'anime',
-    label: 'Anime',
-    preview: 'Website Images/Flashes-Anime-1.webp',
-  },
-  {
-    id: 'animals',
-    label: 'Animals',
-    preview: 'Website Images/Flash-Animal-1.webp',
-  },
-  {
     id: 'all',
     label: 'All Flashes',
     preview: 'Website Images/Flash-cover-all-flashes.webp',
@@ -36,7 +21,15 @@ window.FLASH_STYLES = [
     label: 'Smaller Flashes',
     preview: 'Website Images/Flashes-Smaller-1.png',
   },
+  {
+    id: 'dark-abstract',
+    label: 'Dark & Abstract',
+    preview: 'Website Images/Flash-cover-dark-abstract.webp',
+  },
 ];
+
+/** Style cards shown on flashes.html (dark & abstract uses body-part cards instead). */
+window.FLASH_STYLES_MAIN_IDS = ['all', 'smaller'];
 
 /** Homepage index.html flashes grid — landing cover PNGs 1–6. */
 window.HOMEPAGE_FLASHES = [
@@ -286,24 +279,9 @@ window.FLASHES_CATALOG = {
   },
   /*
    * Style galleries (no body placement): add JPGs to Website Images/, then tell the agent.
-   * Naming: Flashes-Anime-1.png, Flashes-Smaller-1.png, Flash-Animal-1.png (increment 1, 2, 3…)
+   * Naming: Flashes-Smaller-1.png (increment 1, 2, 3…)
    * First image can become the style card preview on flashes.html.
    */
-  anime: {
-    all: [
-      { src: 'Website Images/Flashes-Anime-1.webp', alt: 'Anime blackwork flash 1' },
-      { src: 'Website Images/Flashes-Anime-2.webp', alt: 'Anime blackwork flash 2' },
-      { src: 'Website Images/Flashes-Anime-3.webp', alt: 'Anime blackwork flash 3' },
-      { src: 'Website Images/Flashes-Anime-4.webp', alt: 'Anime blackwork flash 4' },
-    ],
-  },
-  animals: {
-    all: [
-      { src: 'Website Images/Flash-Animal-1.webp', alt: 'Animal blackwork flash 1' },
-      { src: 'Website Images/Flash-Animal-2.webp', alt: 'Animal blackwork flash 2' },
-      { src: 'Website Images/Flash-Animal-3.webp', alt: 'Animal blackwork flash 3' },
-    ],
-  },
   smaller: {
     all: [
       { src: 'Website Images/Flashes-Smaller-1.png', alt: 'Smaller blackwork flash 1' },
