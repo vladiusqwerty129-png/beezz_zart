@@ -17,20 +17,24 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
 
   const burger = document.getElementById('navBurger');
+  const navClose = document.getElementById('navClose');
   const navLinks = document.getElementById('navLinks');
   if (burger && navLinks) {
+    const closeNav = () => {
+      navLinks.classList.remove('nav__links--open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+
     burger.setAttribute('aria-expanded', 'false');
     burger.addEventListener('click', () => {
       const open = navLinks.classList.toggle('nav__links--open');
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
       document.body.style.overflow = open ? 'hidden' : '';
     });
+    navClose?.addEventListener('click', closeNav);
     navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('nav__links--open');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeNav);
     });
   }
 
