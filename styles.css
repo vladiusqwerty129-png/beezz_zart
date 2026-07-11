@@ -816,10 +816,10 @@ button { cursor: pointer; font-family: inherit; }
 
 /* Full portfolio page */
 .projects-page {
-  padding-top: calc(var(--nav-h) + 48px);
+  padding-top: var(--nav-h);
 }
 .projects--full {
-  padding-top: 0;
+  padding-top: clamp(32px, 5vw, 48px);
   padding-bottom: var(--pad);
 }
 .projects--full .projects__intro {
