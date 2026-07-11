@@ -783,18 +783,21 @@ button { cursor: pointer; font-family: inherit; }
     column-gap: 0;
     padding-inline: 0;
   }
-  /* Pattern: big → 2×2 → big → 2-up */
-  .projects-artists__card:nth-child(1),
-  .projects-artists__card:nth-child(6) {
+  /* Pattern: big → 2×2 → big → 2-up (repeats every 8 tiles) */
+  .projects-artists__card:nth-child(8n + 1),
+  .projects-artists__card:nth-child(8n + 6) {
     grid-column: 1 / -1;
   }
-  .projects-artists__card:nth-child(1) .projects-artists__photo,
-  .projects-artists__card:nth-child(6) .projects-artists__photo {
+  .projects-artists__card:nth-child(8n + 1) .projects-artists__photo,
+  .projects-artists__card:nth-child(8n + 6) .projects-artists__photo {
     aspect-ratio: 4 / 5;
   }
-  .projects-artists__card:nth-child(n + 2):nth-child(-n + 5) .projects-artists__photo,
-  .projects-artists__card:nth-child(7) .projects-artists__photo,
-  .projects-artists__card:nth-child(8) .projects-artists__photo {
+  .projects-artists__card:nth-child(8n + 2) .projects-artists__photo,
+  .projects-artists__card:nth-child(8n + 3) .projects-artists__photo,
+  .projects-artists__card:nth-child(8n + 4) .projects-artists__photo,
+  .projects-artists__card:nth-child(8n + 5) .projects-artists__photo,
+  .projects-artists__card:nth-child(8n + 7) .projects-artists__photo,
+  .projects-artists__card:nth-child(8n + 8) .projects-artists__photo {
     aspect-ratio: 1 / 1;
   }
   .projects-artists__cta {
@@ -818,6 +821,12 @@ button { cursor: pointer; font-family: inherit; }
 .projects--full {
   padding-top: 0;
   padding-bottom: var(--pad);
+}
+.projects--full .projects__intro {
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+.projects--full .projects-artists--full {
+  padding-top: 0;
 }
 .projects--full .projects__cta {
   margin-top: 56px;
@@ -948,7 +957,7 @@ button { cursor: pointer; font-family: inherit; }
   display: flex;
   flex-direction: column;
   gap: 14px;
-  margin-top: 4px;
+  margin-top: 0;
 }
 .form__consent-text {
   font-size: 13px;
