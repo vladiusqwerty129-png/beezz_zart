@@ -53,6 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   if (srcInput) srcInput.value = flash.src;
 
+  requestAnimationFrame(() => {
+    form?.scrollIntoView({ block: 'center' });
+  });
+
   const flashAttachmentBlock = [
     '--- Selected flash design ---',
     `Category: ${galleryTitle}`,

@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const fadeEls = document.querySelectorAll(
-    '.section-label, .section-title, .section-subtitle, .projects__item, ' +
+    '.section-label, .section-title, .section-subtitle, .projects__item, .projects-artists__card, ' +
     '.flashes__item, .services__panel-inner, .faq__item, .benefits__item, ' +
     '.testimonials__card, .featured-testimonial__content'
   );
