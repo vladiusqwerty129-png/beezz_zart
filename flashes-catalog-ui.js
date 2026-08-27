@@ -58,16 +58,212 @@ window.beezzCreateCatalogProductLink = function (opts) {
   link.setAttribute('aria-label', ariaLabel || `Get a quote for ${label || 'flash design'}`);
 
   const src = window.beezzCatalogPreviewUrl(preview, imgV);
+  const infoHtml = tapLabel
+    ? `<span class="flashes-catalog-product__info">
+      <span class="flashes-catalog-product__tap">${tapLabel}</span>
+    </span>`
+    : '';
+
   link.innerHTML = `
     <span class="flashes-catalog-product__media">
       <img src="${src}" alt="" loading="lazy" draggable="false" width="480" height="600" />
     </span>
-    <span class="flashes-catalog-product__info">
-      <span class="flashes-catalog-product__tap">${tapLabel}</span>
-    </span>
+    ${infoHtml}
   `;
 
   return link;
+};
+
+window.beezzCreateSmallerFlashPicker = function (opts) {
+  const { flash, imgV, productLabel, onSelect, isActive } = opts;
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'flashes-catalog-product flashes-catalog-product--picker';
+  if (isActive) btn.classList.add('flashes-catalog-product--active');
+  btn.setAttribute(
+    'aria-label',
+    `View ${flash.alt || productLabel || 'flash design'}`
+  );
+  btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+
+  const src = window.beezzCatalogPreviewUrl(flash.src, imgV);
+
+  btn.innerHTML = `
+    <span class="flashes-catalog-product__media">
+      <img src="${src}" alt="" loading="lazy" draggable="false" width="480" height="600" />
+    </span>
+  `;
+
+  btn.addEventListener('click', () => onSelect?.(flash, btn));
+  return btn;
+};
+
+window.beezzBindFlashQuoteForm = function (config) {
+  const {
+    form,
+    styleId,
+    partId,
+    zoneId,
+    getFlash,
+    getPlacementIdea,
+    srcInput,
+    placementInput,
+  } = config;
+
+  if (!form || form.dataset.bound === 'true') return;
+  form.dataset.bound = 'true';
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!window.beezzRequirePrivacyConsent?.(form)) return;
+    window.beezzClearFormFeedback?.(form);
+
+    const flash = getFlash?.();
+    if (!flash) return;
+
+    const placementIdea = getPlacementIdea?.();
+    const galleryTitle = window.formatFlashGalleryTitle?.(styleId, partId, zoneId) || 'Flashes';
+    const absoluteImg = new URL(flash.src, window.location.href).href;
+
+    const flashAttachmentBlock = [
+      '--- Selected flash design ---',
+      `Category: ${galleryTitle}`,
+      `Design: ${flash.alt}`,
+      `Image: ${absoluteImg}`,
+      placementIdea
+        ? [
+            '',
+            '--- Selected placement inspiration ---',
+            `Inspiration: ${placementIdea.alt}`,
+            `Image: ${new URL(placementIdea.src, window.location.href).href}`,
+          ].join('\n')
+        : '',
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    if (!window.beezzSubmitLead) {
+      window.beezzShowFormFeedback?.(
+        form,
+        'error',
+        'Form is not configured. Please try again later.'
+      );
+      return;
+    }
+
+    const name = form.querySelector('[name="name"]')?.value.trim();
+    const email = form.querySelector('[name="email"]')?.value.trim();
+    const phone = form.querySelector('[name="phone"]')?.value.trim();
+    const userIdea = form.querySelector('[name="idea"]')?.value.trim();
+
+    const ideaParts = [];
+    if (userIdea) ideaParts.push(userIdea);
+    ideaParts.push(flashAttachmentBlock);
+
+    window.beezzStartFormSubmit?.(form);
+
+    try {
+      await window.beezzSubmitLead({
+        name,
+        email,
+        phone,
+        idea: ideaParts.join('\n\n'),
+        source: 'flash-quote',
+        files: [],
+      });
+      form.reset();
+      if (srcInput) srcInput.value = flash.src;
+      if (placementInput) placementInput.value = placementIdea?.src || '';
+      window.beezzShowFormFeedback?.(
+        form,
+        'success',
+        "Thank you! Your quote request was sent. I'll get back to you soon."
+      );
+    } catch (err) {
+      window.beezzShowFormFeedback?.(
+        form,
+        'error',
+        err.message || 'Something went wrong. Please try again.'
+      );
+    }
+  });
+};
+
+window.beezzCreateCatalogExpandableFlash = function (opts) {
+  const {
+    flash,
+    quoteUrl,
+    imgV,
+    productLabel,
+    onToggle,
+  } = opts;
+
+  const article = document.createElement('article');
+  article.className = 'flashes-catalog-expandable';
+  article.dataset.flashId = flash.id || flash.src;
+
+  const trigger = document.createElement('button');
+  trigger.type = 'button';
+  trigger.className = 'flashes-catalog-expandable__trigger flashes-catalog-product';
+  trigger.setAttribute(
+    'aria-expanded',
+    'false'
+  );
+  trigger.setAttribute(
+    'aria-label',
+    `Show placement ideas for ${flash.alt || productLabel || 'flash design'}`
+  );
+
+  const src = window.beezzCatalogPreviewUrl(flash.src, imgV);
+  trigger.innerHTML = `
+    <span class="flashes-catalog-product__media">
+      <img src="${src}" alt="" loading="lazy" draggable="false" width="480" height="600" />
+    </span>
+    <span class="flashes-catalog-product__info">
+      <span class="flashes-catalog-product__tap">Tap for placement ideas</span>
+    </span>
+  `;
+
+  const panel = document.createElement('div');
+  panel.className = 'flashes-catalog-expandable__panel';
+  panel.hidden = true;
+
+  const ideas = flash.placementIdeas || [];
+  const ideasHtml = ideas
+    .map((idea, index) => {
+      const ideaSrc = window.beezzCatalogPreviewUrl(idea.src, imgV);
+      const q = new URL(quoteUrl, window.location.href);
+      q.searchParams.set('placement', idea.src);
+      const href = `${q.pathname}${q.search}`;
+      return `
+        <a href="${href}" class="flashes-catalog-expandable__idea" aria-label="Get a quote with ${idea.alt || `placement idea ${index + 1}`}">
+          <span class="flashes-catalog-expandable__idea-media">
+            <img src="${ideaSrc}" alt="" loading="lazy" draggable="false" width="240" height="300" />
+          </span>
+        </a>
+      `;
+    })
+    .join('');
+
+  panel.innerHTML = `
+    <div class="flashes-catalog-expandable__panel-inner">
+      <p class="flashes-catalog-expandable__heading">Placement inspiration</p>
+      <div class="flashes-catalog-expandable__ideas">${ideasHtml}</div>
+      <a href="${quoteUrl}" class="flashes-catalog-expandable__quote">Request this flash</a>
+    </div>
+  `;
+
+  trigger.addEventListener('click', () => {
+    const willOpen = panel.hidden;
+    onToggle?.(article, willOpen);
+    panel.hidden = !willOpen;
+    trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    article.classList.toggle('flashes-catalog-expandable--open', willOpen);
+  });
+
+  article.appendChild(trigger);
+  article.appendChild(panel);
+  return article;
 };
 
 window.beezzSetCatalogBack = function (el, href) {

@@ -4,13 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const partId = params.get('part');
   const zoneId = params.get('zone');
   const flashSrc = params.get('flash');
+  const placementSrc = params.get('placement');
 
   const backLink = document.getElementById('flashQuoteBack');
   const titleEl = document.getElementById('flashQuoteTitle');
   const subtitleEl = document.getElementById('flashQuoteSubtitle');
   const imageEl = document.getElementById('flashQuoteImage');
+  const placementsSection = document.getElementById('flashQuotePlacements');
+  const placementsGrid = document.getElementById('flashQuotePlacementsGrid');
+  const visualsEl = document.getElementById('flashQuoteVisuals');
+  const catalogEl = document.querySelector('.flashes-catalog--quote');
+  const placementBlock = document.getElementById('flashQuotePlacement');
+  const lightbox = document.getElementById('flashLightbox');
+  const lightboxImage = document.getElementById('flashLightboxImage');
+  const lightboxSelect = document.getElementById('flashLightboxSelect');
   const srcInput = document.getElementById('flashQuoteSrc');
+  const placementInput = document.getElementById('flashQuotePlacementSrc');
   const form = document.getElementById('flashQuoteForm');
+
+  let activePlacement = null;
+  let lightboxPlacement = null;
+  let lightboxButton = null;
 
   function galleryUrl() {
     const q = new URLSearchParams();
@@ -37,79 +51,164 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const galleryTitle = window.formatFlashGalleryTitle(styleId, partId, zoneId);
-  const backHref = galleryUrl();
+  const isSmallerWithIdeas =
+    styleId === 'smaller' && Array.isArray(flash.placementIdeas) && flash.placementIdeas.length > 0;
 
-  if (backLink) backLink.href = backHref;
+  if (placementSrc && !isSmallerWithIdeas) {
+    const placementIdea = window.findFlashPlacementIdea?.(
+      styleId,
+      partId,
+      zoneId,
+      flashSrc,
+      placementSrc
+    );
+    if (!placementIdea) {
+      window.location.replace(galleryUrl());
+      return;
+    }
+    activePlacement = placementIdea;
+  }
+
+  if (backLink) backLink.href = galleryUrl();
   document.title = `Quote — ${galleryTitle} — Beezz_zart`;
   if (titleEl) titleEl.textContent = 'Request This Flash';
-  if (subtitleEl) subtitleEl.textContent = galleryTitle;
-
-  const displaySrc = imageUrl(flash.src);
-  const absoluteImg = new URL(flash.src, window.location.href).href;
+  if (subtitleEl) subtitleEl.hidden = true;
 
   if (imageEl) {
-    imageEl.src = displaySrc;
+    imageEl.src = imageUrl(flash.src);
     imageEl.alt = flash.alt;
   }
   if (srcInput) srcInput.value = flash.src;
 
-  requestAnimationFrame(() => {
-    form?.scrollIntoView({ block: 'center' });
+  function deselectPlacement() {
+    activePlacement = null;
+    if (placementInput) placementInput.value = '';
+    placementsGrid?.querySelectorAll('.flash-quote__placement-option').forEach((el) => {
+      el.classList.remove('flash-quote__placement-option--selected');
+      el.setAttribute('aria-pressed', 'false');
+    });
+    updateLightboxSelectLabel();
+  }
+
+  function selectPlacement(idea, btn) {
+    activePlacement = idea;
+    if (placementInput) placementInput.value = idea?.src || '';
+    placementsGrid?.querySelectorAll('.flash-quote__placement-option').forEach((el) => {
+      const selected = el === btn;
+      el.classList.toggle('flash-quote__placement-option--selected', selected);
+      el.setAttribute('aria-pressed', selected ? 'true' : 'false');
+    });
+    updateLightboxSelectLabel();
+  }
+
+  function updateLightboxSelectLabel() {
+    if (!lightboxSelect || !lightboxPlacement) return;
+    const isSelected = activePlacement?.src === lightboxPlacement.src;
+    lightboxSelect.textContent = isSelected ? 'Remove this placement' : 'Use this placement';
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.hidden = true;
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('flash-lightbox-open');
+    lightboxPlacement = null;
+    lightboxButton = null;
+  }
+
+  function openLightbox(idea, btn) {
+    if (!lightbox || !lightboxImage) return;
+    lightboxPlacement = idea;
+    lightboxButton = btn;
+    lightboxImage.src = imageUrl(idea.src);
+    lightboxImage.alt = idea.alt || 'Placement inspiration';
+    lightbox.hidden = false;
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('flash-lightbox-open');
+    updateLightboxSelectLabel();
+    lightbox.querySelector('.flash-lightbox__close')?.focus();
+  }
+
+  lightbox?.querySelector('.flash-lightbox__close')?.addEventListener('click', closeLightbox);
+  lightbox?.querySelector('.flash-lightbox__backdrop')?.addEventListener('click', closeLightbox);
+  lightboxSelect?.addEventListener('click', () => {
+    if (!lightboxPlacement || !lightboxButton) return;
+    if (activePlacement?.src === lightboxPlacement.src) {
+      deselectPlacement();
+    } else {
+      selectPlacement(lightboxPlacement, lightboxButton);
+    }
+    closeLightbox();
   });
 
-  const flashAttachmentBlock = [
-    '--- Selected flash design ---',
-    `Category: ${galleryTitle}`,
-    `Design: ${flash.alt}`,
-    `Image: ${absoluteImg}`,
-  ].join('\n');
-
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!window.beezzRequirePrivacyConsent?.(form)) return;
-    window.beezzClearFormFeedback?.(form);
-    if (!window.beezzSubmitLead) {
-      window.beezzShowFormFeedback?.(
-        form,
-        'error',
-        'Form is not configured. Please try again later.'
-      );
-      return;
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox && !lightbox.hidden) {
+      closeLightbox();
     }
+  });
 
-    const name = document.getElementById('flashQuoteName')?.value.trim();
-    const email = document.getElementById('flashQuoteEmail')?.value.trim();
-    const phone = document.getElementById('flashQuotePhone')?.value.trim();
-    const userIdea = document.getElementById('flashQuoteIdea')?.value.trim();
+  if (isSmallerWithIdeas && placementsSection && placementsGrid) {
+    placementsSection.hidden = false;
+    visualsEl?.classList.add('flash-quote__visuals--split');
+    catalogEl?.classList.add('flashes-catalog--split');
+    if (placementBlock) placementBlock.hidden = true;
+    placementsGrid.innerHTML = '';
 
-    const ideaParts = [];
-    if (userIdea) ideaParts.push(userIdea);
-    ideaParts.push(flashAttachmentBlock);
-
-    window.beezzStartFormSubmit?.(form);
-
-    try {
-      await window.beezzSubmitLead({
-        name,
-        email,
-        phone,
-        idea: ideaParts.join('\n\n'),
-        source: 'flash-quote',
-        files: [],
+    flash.placementIdeas.forEach((idea, index) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'flash-quote__placement-option';
+      btn.setAttribute('aria-label', idea.alt || `Placement inspiration ${index + 1}`);
+      btn.setAttribute('aria-pressed', 'false');
+      btn.innerHTML = `
+        <span class="flash-quote__placement-option-media">
+          <img src="${imageUrl(idea.src)}" alt="" loading="lazy" draggable="false" width="320" height="400" />
+        </span>
+      `;
+      btn.addEventListener('click', () => {
+        if (activePlacement?.src === idea.src) {
+          deselectPlacement();
+          return;
+        }
+        openLightbox(idea, btn);
       });
-      form.reset();
-      if (srcInput) srcInput.value = flash.src;
-      window.beezzShowFormFeedback?.(
-        form,
-        'success',
-        "Thank you! Your quote request was sent. I'll get back to you soon."
+      placementsGrid.appendChild(btn);
+    });
+
+    if (placementSrc) {
+      const preselected = window.findFlashPlacementIdea?.(
+        styleId,
+        partId,
+        zoneId,
+        flashSrc,
+        placementSrc
       );
-    } catch (err) {
-      window.beezzShowFormFeedback?.(
-        form,
-        'error',
-        err.message || 'Something went wrong. Please try again.'
-      );
+      if (preselected) {
+        const matchBtn = [...placementsGrid.children].find(
+          (_, i) => flash.placementIdeas[i]?.src === preselected.src
+        );
+        if (matchBtn) selectPlacement(preselected, matchBtn);
+      }
     }
+  } else if (placementBlock) {
+    placementBlock.hidden = true;
+    if (placementsSection) placementsSection.hidden = true;
+  }
+
+  if (!isSmallerWithIdeas && styleId !== 'smaller') {
+    requestAnimationFrame(() => {
+      form?.scrollIntoView({ block: 'center' });
+    });
+  }
+
+  window.beezzBindFlashQuoteForm({
+    form,
+    styleId,
+    partId,
+    zoneId,
+    srcInput,
+    placementInput,
+    getFlash: () => flash,
+    getPlacementIdea: () => activePlacement,
   });
 });

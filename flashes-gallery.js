@@ -85,19 +85,32 @@ document.addEventListener('DOMContentLoaded', () => {
     window.beezzSetCatalogBack(backEl, 'flashes.html');
   }
 
-  grid.classList.toggle('flashes-catalog__grid--compact', styleId === 'smaller');
   grid.innerHTML = '';
 
   if (!items.length) {
-    if (emptyEl) emptyEl.hidden = false;
+    if (emptyEl) {
+      const comingSoon = window.isFlashComingSoon?.(styleId, partId, zoneId);
+      emptyEl.textContent =
+        window.getFlashEmptyMessage?.(styleId, partId, zoneId) ||
+        'No flashes in this category yet.';
+      emptyEl.classList.toggle('flashes-catalog__empty--soon', !!comingSoon);
+      emptyEl.hidden = false;
+    }
     if (hintEl) hintEl.hidden = true;
     return;
   }
 
-  if (emptyEl) emptyEl.hidden = true;
+  if (emptyEl) {
+    emptyEl.hidden = true;
+    emptyEl.classList.remove('flashes-catalog__empty--soon');
+  }
   if (hintEl) hintEl.hidden = false;
 
   const imgV = window.FLASHES_IMG_V || '93';
+
+  if (styleId === 'smaller' && hintEl) {
+    hintEl.textContent = 'Tap to request a flash';
+  }
 
   function quoteUrl(flash) {
     const q = new URLSearchParams();
@@ -110,10 +123,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function productLabel(flash) {
     if (!flash.alt) return 'Flash design';
-    return flash.alt.replace(/^Dark abstract flash — /i, '').replace(/^Flash — /i, '');
+    return flash.alt
+      .replace(/^Dark abstract flash — /i, '')
+      .replace(/^Smaller flash — /i, '')
+      .replace(/^Flash — /i, '');
   }
 
   items.forEach((flash) => {
+    if (styleId === 'smaller') {
+      grid.appendChild(
+        window.beezzCreateCatalogProductLink({
+          href: quoteUrl(flash),
+          label: productLabel(flash),
+          preview: flash.src,
+          imgV,
+          ariaLabel: `Request ${flash.alt || 'flash design'}`,
+          tapLabel: '',
+        })
+      );
+      return;
+    }
+
     grid.appendChild(
       window.beezzCreateCatalogProductLink({
         href: quoteUrl(flash),

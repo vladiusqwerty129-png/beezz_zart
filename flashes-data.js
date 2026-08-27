@@ -2,7 +2,7 @@
  * Flash styles, body parts, and catalog.
  * Bump FLASHES_IMG_V when replacing covers.
  */
-window.FLASHES_IMG_V = '105';
+window.FLASHES_IMG_V = '115';
 
 /** Only this style uses body-part and zone placement pickers. */
 window.FLASH_STYLE_USES_PLACEMENT = 'dark-abstract';
@@ -19,7 +19,7 @@ window.FLASH_STYLES = [
   {
     id: 'smaller',
     label: 'Smaller Flashes',
-    preview: 'Website Images/Flashes-Smaller-1.png',
+    preview: 'Website Images/Flash-cover-smaller-flashes.webp',
   },
   {
     id: 'dark-abstract',
@@ -64,6 +64,7 @@ window.LEG_ZONES = [
   { id: 'calf', label: 'Calf', preview: 'Website Images/Leg-Calf.webp' },
   { id: 'foot', label: 'Foot', preview: 'Website Images/Leg-Foot.webp' },
   { id: 'thigh', label: 'Thigh', preview: 'Website Images/Leg-Thigh.webp' },
+  { id: 'knee', label: 'Knee', preview: 'Website Images/Leg-Knee.webp' },
   { id: 'sleeve', label: 'Sleeve', preview: 'Website Images/Leg-Sleeve.webp' },
   { id: 'butt', label: 'Butt', preview: 'Website Images/Leg-Butt.webp' },
 ];
@@ -100,6 +101,26 @@ window.FLASH_ZONE_LISTS = {
   'body-front': () => window.BODY_FRONT_ZONES,
   back: () => window.BACK_ZONES,
   head: () => window.HEAD_ZONES,
+};
+
+/** Empty galleries that should show a coming-soon message instead of the default empty copy. */
+window.FLASH_COMING_SOON_PLACEMENTS = [
+  { styleId: 'dark-abstract', partId: 'body-front', zoneId: 'sternum', message: 'Coming soon' },
+];
+
+window.isFlashComingSoon = function (styleId, partId, zoneId) {
+  return window.FLASH_COMING_SOON_PLACEMENTS?.some(
+    (entry) =>
+      entry.styleId === styleId && entry.partId === partId && entry.zoneId === zoneId
+  );
+};
+
+window.getFlashEmptyMessage = function (styleId, partId, zoneId) {
+  const match = window.FLASH_COMING_SOON_PLACEMENTS?.find(
+    (entry) =>
+      entry.styleId === styleId && entry.partId === partId && entry.zoneId === zoneId
+  );
+  return match?.message || 'No flashes in this category yet.';
 };
 
 window.getFlashStyleLabel = function (styleId) {
@@ -139,161 +160,175 @@ window.formatFlashGalleryLede = function (styleId, partId, zoneId) {
 /** Flashes per style. Use body-part keys where needed; use "all" or flat list as fallback. */
 window.FLASHES_CATALOG = {
   'dark-abstract': {
-    arms: {
-      hand: [
-        { src: 'Website Images/Flashes-Hand-1.webp', alt: 'Dark abstract flash — hand 1' },
-        { src: 'Website Images/Flashes-Hand-2.webp', alt: 'Dark abstract flash — hand 2' },
-        { src: 'Website Images/Flashes-Hand-3.webp', alt: 'Dark abstract flash — hand 3' },
+    "arms": {
+      "hand": [
+        { src: "Website Images/Flashes-Hand-1.webp", alt: "Dark abstract flash \u2014 hand 1" },
+        { src: "Website Images/Flashes-Hand-2.webp", alt: "Dark abstract flash \u2014 hand 2" },
+        { src: "Website Images/Flashes-Hand-3.webp", alt: "Dark abstract flash \u2014 hand 3" },
       ],
-      palm: [
-        { src: 'Website Images/Flashes-Palm-1.webp', alt: 'Dark abstract flash — palm 1' },
+      "palm": [
+        { src: "Website Images/Flashes-Palm-1.webp", alt: "Dark abstract flash \u2014 palm 1" },
       ],
-      forearm: [
-        { src: 'Website Images/Flashes-Forearm-1.webp', alt: 'Dark abstract flash — forearm 1' },
-        { src: 'Website Images/Flashes-Forearm-2.webp', alt: 'Dark abstract flash — forearm 2' },
-        { src: 'Website Images/Flashes-Forearm-3.webp', alt: 'Dark abstract flash — forearm 3' },
-        { src: 'Website Images/Flashes-Forearm-4.webp', alt: 'Dark abstract flash — forearm 4' },
-        { src: 'Website Images/Flashes-Forearm-5.webp', alt: 'Dark abstract flash — forearm 5' },
+      "forearm": [
+        { src: "Website Images/Flashes-Forearm-1.webp", alt: "Dark abstract flash \u2014 forearm 1" },
+        { src: "Website Images/Flashes-Forearm-2.webp", alt: "Dark abstract flash \u2014 forearm 2" },
+        { src: "Website Images/Flashes-Forearm-3.webp", alt: "Dark abstract flash \u2014 forearm 3" },
+        { src: "Website Images/Flashes-Forearm-4.webp", alt: "Dark abstract flash \u2014 forearm 4" },
       ],
-      shoulder: [
-        { src: 'Website Images/Flashes-Shoulder-1.webp', alt: 'Dark abstract flash — shoulder 1' },
-        { src: 'Website Images/Flashes-Shoulder-2.webp', alt: 'Dark abstract flash — shoulder 2' },
-        { src: 'Website Images/Flashes-Shoulder-3.webp', alt: 'Dark abstract flash — shoulder 3' },
-        { src: 'Website Images/Flashes-Shoulder-4.webp', alt: 'Dark abstract flash — shoulder 4' },
-        { src: 'Website Images/Flashes-Shoulder-5.webp', alt: 'Dark abstract flash — shoulder 5' },
-        { src: 'Website Images/Flashes-Shoulder-6.webp', alt: 'Dark abstract flash — shoulder 6' },
-        { src: 'Website Images/Flashes-Shoulder-7.webp', alt: 'Dark abstract flash — shoulder 7' },
+      "shoulder": [
+        { src: "Website Images/Flashes-Shoulder-1.webp", alt: "Dark abstract flash \u2014 shoulder 1" },
+        { src: "Website Images/Flashes-Shoulder-2.webp", alt: "Dark abstract flash \u2014 shoulder 2" },
+        { src: "Website Images/Flashes-Shoulder-3.webp", alt: "Dark abstract flash \u2014 shoulder 3" },
+        { src: "Website Images/Flashes-Shoulder-4.webp", alt: "Dark abstract flash \u2014 shoulder 4" },
+        { src: "Website Images/Flashes-Shoulder-5.webp", alt: "Dark abstract flash \u2014 shoulder 5" },
       ],
-      sleeve: [
-        { src: 'Website Images/Flashes-Arm-Sleeve-1.webp', alt: 'Dark abstract flash — arm sleeve 1' },
-        { src: 'Website Images/Flashes-Arm-Sleeve-2.webp', alt: 'Dark abstract flash — arm sleeve 2' },
+      "sleeve": [
+        { src: "Website Images/Flashes-Arm-Sleeve-1.webp", alt: "Dark abstract flash \u2014 arm sleeve 1" },
+        { src: "Website Images/Flashes-Arm-Sleeve-2.webp", alt: "Dark abstract flash \u2014 arm sleeve 2" },
+        { src: "Website Images/Flashes-Arm-Sleeve-3.webp", alt: "Dark abstract flash \u2014 arm sleeve 3" },
       ],
-      'half-sleeve': [
-        { src: 'Website Images/Blackwork-Tattoo-Flash-2.webp', alt: 'Dark abstract flash — half sleeve' },
+      "half-sleeve": [
+        { src: "Website Images/Flashes-Half-Sleeve-1.webp", alt: "Dark abstract flash \u2014 half sleeve 1" },
       ],
     },
-    legs: {
-      calf: [
-        { src: 'Website Images/Flash-Calf-1.webp', alt: 'Dark abstract flash — calf 1' },
-        { src: 'Website Images/Flash-Calf-2.webp', alt: 'Dark abstract flash — calf 2' },
-        { src: 'Website Images/Flash-Calf-3.webp', alt: 'Dark abstract flash — calf 3' },
-        { src: 'Website Images/Flashes-Calf-5.webp', alt: 'Dark abstract flash — calf 4' },
-        { src: 'Website Images/Flashes-Calf-7.webp', alt: 'Dark abstract flash — calf 5' },
-        { src: 'Website Images/Flashes-Calf-8.webp', alt: 'Dark abstract flash — calf 6' },
-        { src: 'Website Images/Flashes-Calf-9.webp', alt: 'Dark abstract flash — calf 7' },
-        { src: 'Website Images/Flashes-Calf-10.webp', alt: 'Dark abstract flash — calf 8' },
+    "legs": {
+      "calf": [
+        { src: "Website Images/Flashes-Calf-1.webp", alt: "Dark abstract flash \u2014 calf 1" },
+        { src: "Website Images/Flashes-Calf-2.webp", alt: "Dark abstract flash \u2014 calf 2" },
+        { src: "Website Images/Flashes-Calf-3.webp", alt: "Dark abstract flash \u2014 calf 3" },
       ],
-      foot: [
-        { src: 'Website Images/Blackwork-Tattoo-Flash-3.webp', alt: 'Dark abstract flash — foot' },
+      "foot": [
+        { src: "Website Images/Flashes-Foot-1.webp", alt: "Dark abstract flash \u2014 foot 1" },
+        { src: "Website Images/Flashes-Foot-2.webp", alt: "Dark abstract flash \u2014 foot 2" },
+        { src: "Website Images/Flashes-Foot-3.webp", alt: "Dark abstract flash \u2014 foot 3" },
       ],
-      thigh: [
-        { src: 'Website Images/Flashes-Thigh-1.webp', alt: 'Dark abstract flash — thigh 1' },
-        { src: 'Website Images/Flashes-Thigh-2.webp', alt: 'Dark abstract flash — thigh 2' },
-        { src: 'Website Images/Flashes-Thigh-3.webp', alt: 'Dark abstract flash — thigh 3' },
-        { src: 'Website Images/Flashes-Thigh-4.webp', alt: 'Dark abstract flash — thigh 4' },
-        { src: 'Website Images/Flashes-Thigh-5.webp', alt: 'Dark abstract flash — thigh 5' },
-        { src: 'Website Images/Flashes-Thigh-6.webp', alt: 'Dark abstract flash — thigh 6' },
-        { src: 'Website Images/Flashes-Thigh-7.webp', alt: 'Dark abstract flash — thigh 7' },
+      "thigh": [
+        { src: "Website Images/Flashes-Thigh-1.webp", alt: "Dark abstract flash \u2014 thigh 1" },
+        { src: "Website Images/Flashes-Thigh-2.webp", alt: "Dark abstract flash \u2014 thigh 2" },
+        { src: "Website Images/Flashes-Thigh-3.webp", alt: "Dark abstract flash \u2014 thigh 3" },
       ],
-      sleeve: [
-        { src: 'Website Images/Flashes-Leg-Sleeve-1.webp', alt: 'Dark abstract flash — leg sleeve 1' },
+      "knee": [
+        { src: "Website Images/Flashes-Knee-1.webp", alt: "Dark abstract flash \u2014 knee 1" },
+        { src: "Website Images/Flashes-Knee-2.webp", alt: "Dark abstract flash \u2014 knee 2" },
+        { src: "Website Images/Flashes-Knee-3.webp", alt: "Dark abstract flash \u2014 knee 3" },
       ],
-      butt: [
-        { src: 'Website Images/Flashes-Butt-1.webp', alt: 'Dark abstract flash — butt 1' },
+      "sleeve": [
+        { src: "Website Images/Flashes-Leg-Sleeve-1.webp", alt: "Dark abstract flash \u2014 leg sleeve 1" },
+      ],
+      "butt": [
+        { src: "Website Images/Flashes-Butt-1.webp", alt: "Dark abstract flash \u2014 butt 1" },
       ],
     },
-    'body-front': {
-      stomach: [
-        { src: 'Website Images/Flashes-Stomach-1.webp', alt: 'Dark abstract flash — stomach 1' },
-        { src: 'Website Images/Flashes-Stomach-2.webp', alt: 'Dark abstract flash — stomach 2' },
-        { src: 'Website Images/Flashes-Stomach-3.webp', alt: 'Dark abstract flash — stomach 3' },
-        { src: 'Website Images/Flashes-Stomach-4.webp', alt: 'Dark abstract flash — stomach 4' },
-        { src: 'Website Images/Flashes-Stomach-5.webp', alt: 'Dark abstract flash — stomach 5' },
-        { src: 'Website Images/Flashes-Stomach-6.webp', alt: 'Dark abstract flash — stomach 6' },
-        { src: 'Website Images/Flashes-Stomach-7.webp', alt: 'Dark abstract flash — stomach 7' },
-        { src: 'Website Images/Flashes-Stomach-8.webp', alt: 'Dark abstract flash — stomach 8' },
+    "body-front": {
+      "stomach": [
+        { src: "Website Images/Flashes-Stomach-1.webp", alt: "Dark abstract flash \u2014 stomach 1" },
+        { src: "Website Images/Flashes-Stomach-2.webp", alt: "Dark abstract flash \u2014 stomach 2" },
+        { src: "Website Images/Flashes-Stomach-3.webp", alt: "Dark abstract flash \u2014 stomach 3" },
+        { src: "Website Images/Flashes-Stomach-4.webp", alt: "Dark abstract flash \u2014 stomach 4" },
+        { src: "Website Images/Flashes-Stomach-5.webp", alt: "Dark abstract flash \u2014 stomach 5" },
+        { src: "Website Images/Flashes-Stomach-6.webp", alt: "Dark abstract flash \u2014 stomach 6" },
+        { src: "Website Images/Flashes-Stomach-7.webp", alt: "Dark abstract flash \u2014 stomach 7" },
+        { src: "Website Images/Flashes-Stomach-8.webp", alt: "Dark abstract flash \u2014 stomach 8" },
+        { src: "Website Images/Flashes-Stomach-9.webp", alt: "Dark abstract flash \u2014 stomach 9" },
       ],
-      chest: [
-        { src: 'Website Images/Flashes-Chest-1.webp', alt: 'Dark abstract flash — chest 1' },
-        { src: 'Website Images/Flashes-Chest-2.webp', alt: 'Dark abstract flash — chest 2' },
-        { src: 'Website Images/Flashes-Chest-3.webp', alt: 'Dark abstract flash — chest 3' },
-        { src: 'Website Images/Flashes-Chest-4.webp', alt: 'Dark abstract flash — chest 4' },
-        { src: 'Website Images/Flashes-Chest-5.webp', alt: 'Dark abstract flash — chest 5' },
-        { src: 'Website Images/Flashes-Chest-6.webp', alt: 'Dark abstract flash — chest 6' },
-        { src: 'Website Images/Flashes-Chest-7.webp', alt: 'Dark abstract flash — chest 7' },
+      "chest": [
+        { src: "Website Images/Flashes-Chest-1.webp", alt: "Dark abstract flash \u2014 chest 1" },
+        { src: "Website Images/Flashes-Chest-2.webp", alt: "Dark abstract flash \u2014 chest 2" },
+        { src: "Website Images/Flashes-Chest-3.webp", alt: "Dark abstract flash \u2014 chest 3" },
+        { src: "Website Images/Flashes-Chest-4.webp", alt: "Dark abstract flash \u2014 chest 4" },
+        { src: "Website Images/Flashes-Chest-5.webp", alt: "Dark abstract flash \u2014 chest 5" },
+        { src: "Website Images/Flashes-Chest-6.webp", alt: "Dark abstract flash \u2014 chest 6" },
+        { src: "Website Images/Flashes-Chest-7.webp", alt: "Dark abstract flash \u2014 chest 7" },
+        { src: "Website Images/Flashes-Chest-8.webp", alt: "Dark abstract flash \u2014 chest 8" },
+        { src: "Website Images/Flashes-Chest-9.webp", alt: "Dark abstract flash \u2014 chest 9" },
       ],
-      nipples: [
-        { src: 'Website Images/Flashes-Nipples-1.webp', alt: 'Dark abstract flash — nipples 1' },
-        { src: 'Website Images/Flashes-Nipples-2.webp', alt: 'Dark abstract flash — nipples 2' },
-        { src: 'Website Images/Flashes-Nipples-3.webp', alt: 'Dark abstract flash — nipples 3' },
-        { src: 'Website Images/Flashes-Nipples-4.webp', alt: 'Dark abstract flash — nipples 4' },
-        { src: 'Website Images/Flashes-Nipples-5.webp', alt: 'Dark abstract flash — nipples 5' },
-        { src: 'Website Images/Flashes-Nipples-6.webp', alt: 'Dark abstract flash — nipples 6' },
-        { src: 'Website Images/Flashes-Nipples-7.webp', alt: 'Dark abstract flash — nipples 7' },
-        { src: 'Website Images/Flashes-Nipples-8.webp', alt: 'Dark abstract flash — nipples 8' },
-        { src: 'Website Images/Flashes-Nipples-9.webp', alt: 'Dark abstract flash — nipples 9' },
+      "nipples": [
+        { src: "Website Images/Flashes-Nipples-1.webp", alt: "Dark abstract flash \u2014 nipples 1" },
+        { src: "Website Images/Flashes-Nipples-2.webp", alt: "Dark abstract flash \u2014 nipples 2" },
+        { src: "Website Images/Flashes-Nipples-3.webp", alt: "Dark abstract flash \u2014 nipples 3" },
       ],
-      sternum: [
-        { src: 'Website Images/Flashes-Sternum-1.webp', alt: 'Dark abstract flash — sternum 1' },
-      ],
-      'full-front': [
-        { src: 'Website Images/Flashes-Body Front-1.webp', alt: 'Dark abstract flash — full front 1' },
+      "full-front": [
+        { src: "Website Images/Flashes-Full-Front-1.webp", alt: "Dark abstract flash \u2014 full front 1" },
+        { src: "Website Images/Flashes-Full-Front-2.webp", alt: "Dark abstract flash \u2014 full front 2" },
       ],
     },
-    back: {
-      'lower-back': [
-        { src: 'Website Images/Flashes-Lower-Back-1.webp', alt: 'Dark abstract flash — lower back 1' },
+    "back": {
+      "lower-back": [
+        { src: "Website Images/Flashes-Lower-Back-1.webp", alt: "Dark abstract flash \u2014 lower back 1" },
+        { src: "Website Images/Flashes-Lower-Back-2.webp", alt: "Dark abstract flash \u2014 lower back 2" },
       ],
-      back: [
-        { src: 'Website Images/Flashes-Back-1.webp', alt: 'Dark abstract flash — back 1' },
-        { src: 'Website Images/Flashes-Back-2.webp', alt: 'Dark abstract flash — back 2' },
-        { src: 'Website Images/Flashes-Back-3.webp', alt: 'Dark abstract flash — back 3' },
-        { src: 'Website Images/Flashes-Back-4.webp', alt: 'Dark abstract flash — back 4' },
-        { src: 'Website Images/Flashes-Back-6.webp', alt: 'Dark abstract flash — back 5' },
-        { src: 'Website Images/Flashes-Back-7.webp', alt: 'Dark abstract flash — back 6' },
+      "back": [
+        { src: "Website Images/Flashes-Back-1.webp", alt: "Dark abstract flash \u2014 back 1" },
+        { src: "Website Images/Flashes-Back-2.webp", alt: "Dark abstract flash \u2014 back 2" },
+        { src: "Website Images/Flashes-Back-3.webp", alt: "Dark abstract flash \u2014 back 3" },
       ],
-      spine: [
-        { src: 'Website Images/Blackwork-Tattoo-Flash-3.webp', alt: 'Dark abstract flash — spine' },
+      "spine": [
+        { src: "Website Images/Flashes-Spine-1.webp", alt: "Dark abstract flash \u2014 spine 1" },
       ],
     },
-    head: {
-      face: [
-        { src: 'Website Images/Flashes-Face-1.webp', alt: 'Dark abstract flash — face 1' },
+    "head": {
+      "face": [
+        { src: "Website Images/Flashes-Face-1.webp", alt: "Dark abstract flash \u2014 face 1" },
+        { src: "Website Images/Flashes-Face-2.webp", alt: "Dark abstract flash \u2014 face 2" },
+        { src: "Website Images/Flashes-Face-3.webp", alt: "Dark abstract flash \u2014 face 3" },
+        { src: "Website Images/Flashes-Face-4.webp", alt: "Dark abstract flash \u2014 face 4" },
+        { src: "Website Images/Flashes-Face-5.webp", alt: "Dark abstract flash \u2014 face 5" },
       ],
-      ears: [
-        { src: 'Website Images/Flashes-Ear-1.webp', alt: 'Dark abstract flash — ear 1' },
-        { src: 'Website Images/Flashes-Ear-2.webp', alt: 'Dark abstract flash — ear 2' },
-        { src: 'Website Images/Flashes-Ear-3.webp', alt: 'Dark abstract flash — ear 3' },
-        { src: 'Website Images/Flashes-Ear-4.webp', alt: 'Dark abstract flash — ear 4' },
-        { src: 'Website Images/Flashes-Ear-5.webp', alt: 'Dark abstract flash — ear 5' },
+      "ears": [
+        { src: "Website Images/Flashes-Ear-1.webp", alt: "Dark abstract flash \u2014 ear 1" },
+        { src: "Website Images/Flashes-Ear-2.webp", alt: "Dark abstract flash \u2014 ear 2" },
+        { src: "Website Images/Flashes-Ear-3.webp", alt: "Dark abstract flash \u2014 ear 3" },
+        { src: "Website Images/Flashes-Ear-4.webp", alt: "Dark abstract flash \u2014 ear 4" },
+        { src: "Website Images/Flashes-Ear-5.webp", alt: "Dark abstract flash \u2014 ear 5" },
       ],
-      neck: [
-        { src: 'Website Images/Flashes-Neck-1.webp', alt: 'Dark abstract flash — neck 1' },
+      "neck": [
+        { src: "Website Images/Flashes-Neck-1.webp", alt: "Dark abstract flash \u2014 neck 1" },
+        { src: "Website Images/Flashes-Neck-2.webp", alt: "Dark abstract flash \u2014 neck 2" },
       ],
     },
-    all: [
-      { src: 'Website Images/Blackwork-Tattoo-Flash-1.webp', alt: 'Dark abstract blackwork flash 1' },
-      { src: 'Website Images/Blackwork-Tattoo-Flash-2.webp', alt: 'Dark abstract blackwork flash 2' },
-      { src: 'Website Images/Blackwork-Tattoo-Flash-3.webp', alt: 'Dark abstract blackwork flash 3' },
-    ],
   },
-  /*
-   * Style galleries (no body placement): add JPGs to Website Images/, then tell the agent.
-   * Naming: Flashes-Smaller-1.png (increment 1, 2, 3…)
-   * First image can become the style card preview on flashes.html.
-   */
   smaller: {
     all: [
-      { src: 'Website Images/Flashes-Smaller-1.png', alt: 'Smaller blackwork flash 1' },
-      { src: 'Website Images/Flashes-Smaller-2.png', alt: 'Smaller blackwork flash 2' },
-      { src: 'Website Images/Flashes-Smaller-3.webp', alt: 'Smaller blackwork flash 3' },
-      { src: 'Website Images/Flashes-Smaller-4.png', alt: 'Smaller blackwork flash 4' },
-      { src: 'Website Images/Flashes-Smaller-5.png', alt: 'Smaller blackwork flash 5' },
-      { src: 'Website Images/Flashes-Smaller-6.webp', alt: 'Smaller blackwork flash 6' },
-      { src: 'Website Images/Flashes-Smaller-7.png', alt: 'Smaller blackwork flash 7' },
-      { src: 'Website Images/Flashes-Smaller-8.png', alt: 'Smaller blackwork flash 8' },
-      { src: 'Website Images/Flashes-Smaller-9.png', alt: 'Smaller blackwork flash 9' },
-      { src: 'Website Images/Flashes-Smaller-10.png', alt: 'Smaller blackwork flash 10' },
+      { id: "abstract", src: "Website Images/Flashes-Smaller-Abstract-Main.webp", alt: "Smaller flash \u2014 abstract", placementIdeas: [
+          { src: "Website Images/Flashes-Smaller-Abstract-Placement-1.webp", alt: "Placement inspiration 1 \u2014 abstract" },
+          { src: "Website Images/Flashes-Smaller-Abstract-Placement-2.webp", alt: "Placement inspiration 2 \u2014 abstract" },
+          { src: "Website Images/Flashes-Smaller-Abstract-Placement-3.webp", alt: "Placement inspiration 3 \u2014 abstract" },
+          { src: "Website Images/Flashes-Smaller-Abstract-Placement-4.webp", alt: "Placement inspiration 4 \u2014 abstract" },
+          { src: "Website Images/Flashes-Smaller-Abstract-Placement-5.webp", alt: "Placement inspiration 5 \u2014 abstract" },
+          { src: "Website Images/Flashes-Smaller-Abstract-Placement-6.webp", alt: "Placement inspiration 6 \u2014 abstract" },
+        ] },
+      { id: "dark-flower", src: "Website Images/Flashes-Smaller-DarkFlower-Main.webp", alt: "Smaller flash \u2014 dark flower", placementIdeas: [
+          { src: "Website Images/Flashes-Smaller-DarkFlower-Placement-1.webp", alt: "Placement inspiration 1 \u2014 dark flower" },
+        ] },
+      { id: "magic-flower", src: "Website Images/Flashes-Smaller-MagicFlower-Main.webp", alt: "Smaller flash \u2014 magic flower", placementIdeas: [
+          { src: "Website Images/Flashes-Smaller-MagicFlower-Placement-1.webp", alt: "Placement inspiration 1 \u2014 magic flower" },
+          { src: "Website Images/Flashes-Smaller-MagicFlower-Placement-2.webp", alt: "Placement inspiration 2 \u2014 magic flower" },
+        ] },
+      { id: "mushroom", src: "Website Images/Flashes-Smaller-Mushroom-Main.webp", alt: "Smaller flash \u2014 mushroom", placementIdeas: [
+          { src: "Website Images/Flashes-Smaller-Mushroom-Placement-1.webp", alt: "Placement inspiration 1 \u2014 mushroom" },
+          { src: "Website Images/Flashes-Smaller-Mushroom-Placement-2.webp", alt: "Placement inspiration 2 \u2014 mushroom" },
+        ] },
+      { id: "star", src: "Website Images/Flashes-Smaller-Star-Main.webp", alt: "Smaller flash \u2014 star", placementIdeas: [
+          { src: "Website Images/Flashes-Smaller-Star-Placement-1.webp", alt: "Placement inspiration 1 \u2014 star" },
+          { src: "Website Images/Flashes-Smaller-Star-Placement-2.webp", alt: "Placement inspiration 2 \u2014 star" },
+          { src: "Website Images/Flashes-Smaller-Star-Placement-3.webp", alt: "Placement inspiration 3 \u2014 star" },
+          { src: "Website Images/Flashes-Smaller-Star-Placement-4.webp", alt: "Placement inspiration 4 \u2014 star" },
+          { src: "Website Images/Flashes-Smaller-Star-Placement-5.webp", alt: "Placement inspiration 5 \u2014 star" },
+        ] },
+      { id: "thorns", src: "Website Images/Flashes-Smaller-Thorns-Main.webp", alt: "Smaller flash \u2014 thorns", placementIdeas: [
+          { src: "Website Images/Flashes-Smaller-Thorns-Placement-1.webp", alt: "Placement inspiration 1 \u2014 thorns" },
+          { src: "Website Images/Flashes-Smaller-Thorns-Placement-2.webp", alt: "Placement inspiration 2 \u2014 thorns" },
+          { src: "Website Images/Flashes-Smaller-Thorns-Placement-3.webp", alt: "Placement inspiration 3 \u2014 thorns" },
+          { src: "Website Images/Flashes-Smaller-Thorns-Placement-4.webp", alt: "Placement inspiration 4 \u2014 thorns" },
+          { src: "Website Images/Flashes-Smaller-Thorns-Placement-5.webp", alt: "Placement inspiration 5 \u2014 thorns" },
+          { src: "Website Images/Flashes-Smaller-Thorns-Placement-6.webp", alt: "Placement inspiration 6 \u2014 thorns" },
+        ] },
+      { id: "underground-flower", src: "Website Images/Flashes-Smaller-UndergroundFlower-Main.webp", alt: "Smaller flash \u2014 underground flower", placementIdeas: [
+          { src: "Website Images/Flashes-Smaller-UndergroundFlower-Placement-1.webp", alt: "Placement inspiration 1 \u2014 underground flower" },
+        ] },
+      { src: "Website Images/Flashes-Smaller-Flow-Branch.webp", alt: "Smaller flash \u2014 flow branch" },
+      { src: "Website Images/Flashes-Smaller-Flow-Heart.webp", alt: "Smaller flash \u2014 flow heart" },
+      { src: "Website Images/Flashes-Smaller-Flow-Star.webp", alt: "Smaller flash \u2014 flow star" },
     ],
   },
 };
@@ -307,6 +342,9 @@ window.collectAllCatalogFlashes = function () {
       seen.add(flash.src);
       out.push(flash);
     }
+    (flash?.placementIdeas || []).forEach((idea) => {
+      if (idea?.src) seen.add(idea.src);
+    });
   };
   Object.values(window.FLASHES_CATALOG || {}).forEach((entry) => {
     if (Array.isArray(entry)) {
@@ -355,6 +393,19 @@ window.getFlashCatalogItems = function (styleId, partId, zoneId) {
     });
   });
   return out;
+};
+
+
+window.findFlashPlacementIdea = function (styleId, partId, zoneId, flashSrc, placementSrc) {
+  if (!flashSrc || !placementSrc) return null;
+  const flash = window.findCatalogFlash?.(styleId, partId, zoneId, flashSrc);
+  if (!flash?.placementIdeas?.length) return null;
+  const target = decodeURIComponent(placementSrc);
+  return (
+    flash.placementIdeas.find(
+      (idea) => idea.src === target || idea.src === placementSrc
+    ) || null
+  );
 };
 
 window.findCatalogFlash = function (styleId, partId, zoneId, flashSrc) {

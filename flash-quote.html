@@ -13,7 +13,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Request a Flash Quote — Beezz_zart | Blackwork Toronto</title>
   <meta name="description" content="Request a quote for your selected blackwork flash tattoo design by Beezz_zart in Toronto." />
-  <link rel="stylesheet" href="styles.css?v=174" />
+  <link rel="stylesheet" href="styles.css?v=197" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
@@ -67,9 +67,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="flashes-catalog__lede" id="flashQuoteSubtitle">Let's create your blackwork tattoo</p>
       </header>
 
-      <div class="flash-quote__attachment" id="flashQuoteAttachment">
-        <div class="flash-quote__attachment-card">
-          <img id="flashQuoteImage" src="" alt="" width="320" height="400" />
+      <div class="flash-quote__visuals" id="flashQuoteVisuals">
+        <div class="flash-quote__attachment" id="flashQuoteAttachment">
+          <div class="flash-quote__attachment-card">
+            <img id="flashQuoteImage" src="" alt="" width="320" height="400" />
+          </div>
+        </div>
+
+        <div class="flash-quote__placements" id="flashQuotePlacements" hidden>
+          <div class="flash-quote__placements-grid" id="flashQuotePlacementsGrid"></div>
+        </div>
+      </div>
+
+      <div class="flash-quote__placement" id="flashQuotePlacement" hidden>
+        <p class="flash-quote__placement-label" id="flashQuotePlacementCaption">Placement inspiration</p>
+        <div class="flash-quote__attachment-card flash-quote__attachment-card--placement">
+          <img id="flashQuotePlacementImage" src="" alt="" width="240" height="300" />
         </div>
       </div>
 
@@ -77,6 +90,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="form__success" role="status" hidden></div>
         <div class="form__error" role="alert" hidden></div>
         <input type="hidden" id="flashQuoteSrc" name="flash_src" value="" />
+        <input type="hidden" id="flashQuotePlacementSrc" name="flash_placement_src" value="" />
         <div class="form__row">
           <div class="form__group">
             <label for="flashQuoteName" class="form__label">Name</label>
@@ -86,10 +100,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <label for="flashQuoteEmail" class="form__label">Email</label>
             <input type="email" id="flashQuoteEmail" name="email" class="form__input" placeholder="your@email.com" required />
           </div>
-        </div>
-        <div class="form__group">
-          <label for="flashQuotePhone" class="form__label">Phone Number</label>
-          <input type="tel" id="flashQuotePhone" name="phone" class="form__input" placeholder="+1 (416) 000-0000" />
+          <div class="form__group">
+            <label for="flashQuotePhone" class="form__label">Phone Number</label>
+            <input type="tel" id="flashQuotePhone" name="phone" class="form__input" placeholder="+1 (416) 000-0000" />
+          </div>
         </div>
         <div class="form__group">
           <label for="flashQuoteIdea" class="form__label">Any notes <span class="form__optional">(optional)</span></label>
@@ -117,10 +131,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </footer>
 
+  <div class="flash-lightbox" id="flashLightbox" hidden aria-hidden="true">
+    <button type="button" class="flash-lightbox__backdrop" aria-label="Close fullscreen view"></button>
+    <div class="flash-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Placement inspiration">
+      <button type="button" class="flash-lightbox__close" aria-label="Close">&times;</button>
+      <div class="flash-lightbox__stage">
+        <img class="flash-lightbox__image" id="flashLightboxImage" src="" alt="" />
+      </div>
+      <button type="button" class="flash-lightbox__select" id="flashLightboxSelect">Use this placement</button>
+    </div>
+  </div>
+
   <script src="analytics.js?v=5"></script>
   <script src="form-submit.js?v=9"></script>
   <script src="script.js?v=85"></script>
-  <script src="flashes-data.js?v=107"></script>
-  <script src="flash-quote.js?v=7"></script>
+  <script src="flashes-catalog-ui.js?v=10"></script>
+  <script src="flashes-data.js?v=115"></script>
+  <script src="flash-quote.js?v=16"></script>
 </body>
 </html>
