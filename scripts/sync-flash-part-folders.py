@@ -25,18 +25,18 @@ PART_FOLDER_MATCH = {
 }
 
 PART_ALL_LABEL = {
-    "arms": "All Arms",
-    "legs": "All Legs",
-    "body-front": "All Body Front",
-    "back": "All Back",
-    "head": "All Head",
+    "arms": "All Arm Flashes",
+    "legs": "All Leg Flashes",
+    "body-front": "All Body Front Flashes",
+    "back": "All Back Flashes",
+    "head": "All Head Flashes",
 }
 
 # Optional: subfolder name (case-insensitive) -> zone id for each part
 ZONE_FOLDER_ALIASES = {
     "arms": {
         "sleeve": ("sleeve",),
-        "half-sleeve": ("half sleeve", "half-sleeve", "halfsleeve"),
+        "forearm": ("forearm", "half sleeve", "half-sleeve", "halfsleeve"),
         "shoulder": ("shoulder",),
         "hand": ("hand",),
         "palm": ("palm",),
@@ -53,7 +53,6 @@ ZONE_FOLDER_ALIASES = {
         "stomach": ("stomach",),
         "chest": ("chest",),
         "nipples": ("nipples",),
-        "sternum": ("sternum",),
         "full-front": ("full front", "full-front", "fullfront"),
     },
     "back": {
@@ -180,9 +179,9 @@ def build_part_galleries() -> tuple[dict, dict]:
 
 def zone_order(part_id: str, zones: dict[str, list[dict[str, str]]]) -> list[str]:
     order_map = {
-        "arms": ["all", "sleeve", "half-sleeve", "shoulder", "hand", "palm"],
+        "arms": ["all", "sleeve", "forearm", "shoulder", "hand", "palm"],
         "legs": ["all", "calf", "foot", "thigh", "knee", "sleeve", "butt"],
-        "body-front": ["all", "stomach", "chest", "nipples", "sternum", "full-front"],
+        "body-front": ["all", "full-front", "stomach", "chest", "nipples"],
         "back": ["all", "back", "lower-back"],
         "head": ["all", "neck", "ears", "face"],
     }
@@ -329,7 +328,7 @@ def bump_html_cache() -> None:
         text = path.read_text(encoding="utf-8")
         new_text = re.sub(
             r"flashes-data\.js\?v=\d+",
-            "flashes-data.js?v=123",
+            "flashes-data.js?v=127",
             text,
         )
         if new_text != text:

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     styleCrumbId: 'flashesHeadCrumbStyle',
     zonesKey: 'HEAD_ZONES',
     partId: 'head',
-    pageTitle: 'Head',
+    pageTitle: 'Head and Neck',
     imgV: window.FLASHES_IMG_V || '89',
   });
 });

@@ -2,7 +2,7 @@
  * Flash styles, body parts, and catalog.
  * Bump FLASHES_IMG_V when replacing covers.
  */
-window.FLASHES_IMG_V = '123';
+window.FLASHES_IMG_V = '129';
 
 /** Only this style uses body-part and zone placement pickers. */
 window.FLASH_STYLE_USES_PLACEMENT = 'dark-abstract';
@@ -46,15 +46,15 @@ window.BODY_PARTS = [
   { id: 'legs', label: 'Legs', preview: 'Website Images/Body-Legs.webp' },
   { id: 'body-front', label: 'Body Front', preview: 'Website Images/Body-Front.webp' },
   { id: 'back', label: 'Back', preview: 'Website Images/Body-Back.webp' },
-  { id: 'head', label: 'Head', preview: 'Website Images/Body-Head.webp' },
+  { id: 'head', label: 'Head and Neck', preview: 'Website Images/Body-Head.webp' },
 ];
 
 /** Arm sub-areas (shown after selecting Arms). Replace previews with your anatomical PNGs. */
 window.ARM_ZONES = [
-  { id: 'all', label: "All Arms", preview: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 1.webp" },
+  { id: 'all', label: "All Arm Flashes", preview: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 1.webp" },
 
   { id: 'sleeve', label: 'Sleeve', preview: 'Website Images/Arm-Sleeve.webp' },
-  { id: 'half-sleeve', label: 'Half Sleeve', preview: 'Website Images/Arm-Half-Sleeve.webp' },
+  { id: 'forearm', label: 'Forearm', preview: 'Website Images/Arm-Forearm.webp' },
   { id: 'shoulder', label: 'Shoulder', preview: 'Website Images/Arm-Shoulder.webp' },
   { id: 'hand', label: 'Hand', preview: 'Website Images/Arm-Hand.webp' },
   { id: 'palm', label: 'Palm', preview: 'Website Images/Arm-Palm.webp' },
@@ -62,7 +62,7 @@ window.ARM_ZONES = [
 
 /** Leg sub-areas (shown after selecting Legs). Replace previews with your anatomical PNGs. */
 window.LEG_ZONES = [
-  { id: 'all', label: "All Legs", preview: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 1.webp" },
+  { id: 'all', label: "All Leg Flashes", preview: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 1.webp" },
 
   { id: 'calf', label: 'Calf', preview: 'Website Images/Leg-Calf.webp' },
   { id: 'foot', label: 'Foot', preview: 'Website Images/Leg-Foot.webp' },
@@ -74,18 +74,17 @@ window.LEG_ZONES = [
 
 /** Body front sub-areas (shown after selecting Body Front). Replace previews with your anatomical PNGs. */
 window.BODY_FRONT_ZONES = [
-  { id: 'all', label: "All Body Front", preview: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 1..webp" },
+  { id: 'all', label: "All Body Front Flashes", preview: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 1..webp" },
 
+  { id: 'full-front', label: 'Full Front', preview: 'Website Images/Front-Full.webp' },
   { id: 'stomach', label: 'Stomach', preview: 'Website Images/Front-Stomach.webp' },
   { id: 'chest', label: 'Chest', preview: 'Website Images/Front-Chest.webp' },
   { id: 'nipples', label: 'Nipples', preview: 'Website Images/Front-Nipples.webp' },
-  { id: 'sternum', label: 'Sternum', preview: 'Website Images/Front-Sternum.webp' },
-  { id: 'full-front', label: 'Full Front', preview: 'Website Images/Front-Full.webp' },
 ];
 
 /** Back sub-areas (shown after selecting Back). Replace previews with your anatomical PNGs. */
 window.BACK_ZONES = [
-  { id: 'all', label: "All Back", preview: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 1.webp" },
+  { id: 'all', label: "All Back Flashes", preview: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 1.webp" },
 
   { id: 'back', label: 'Back', preview: 'Website Images/Back-Back.webp' },
   { id: 'lower-back', label: 'Lower Back', preview: 'Website Images/Back-Lower-Back.webp' },
@@ -93,7 +92,7 @@ window.BACK_ZONES = [
 
 /** Head sub-areas (shown after selecting Head). Replace previews with your anatomical PNGs. */
 window.HEAD_ZONES = [
-  { id: 'all', label: "All Head", preview: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 1.webp" },
+  { id: 'all', label: "All Head Flashes", preview: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 1.webp" },
 
   { id: 'neck', label: 'Neck', preview: 'Website Images/Head-Neck.webp' },
   { id: 'ears', label: 'Ears', preview: 'Website Images/Head-Ears.webp' },
@@ -112,9 +111,7 @@ window.FLASH_ZONE_LISTS = {
 };
 
 /** Empty galleries that should show a coming-soon message instead of the default empty copy. */
-window.FLASH_COMING_SOON_PLACEMENTS = [
-  { styleId: 'dark-abstract', partId: 'body-front', zoneId: 'sternum', message: 'Coming soon' },
-];
+window.FLASH_COMING_SOON_PLACEMENTS = [];
 
 window.isFlashComingSoon = function (styleId, partId, zoneId) {
   return window.FLASH_COMING_SOON_PLACEMENTS?.some(
@@ -189,10 +186,10 @@ window.FLASHES_CATALOG = {
         { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 17.webp", alt: "Dark abstract flash — all arms 17" },
         { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 18.webp", alt: "Dark abstract flash — all arms 18" },
       ],
-      "half-sleeve": [
-        { src: "Website Images/Flashes/Flashes-Half-Sleeve-2.webp", alt: "Dark abstract flash \u2014 half sleeve 2" },
-        { src: "Website Images/Flashes/Flashes-Half-Sleeve-3.webp", alt: "Dark abstract flash \u2014 half sleeve 3" },
-        { src: "Website Images/Flashes/Flashes-Half-Sleeve-4.webp", alt: "Dark abstract flash \u2014 half sleeve 4" },
+      "forearm": [
+        { src: "Website Images/Flashes/Flashes-Half-Sleeve-2.webp", alt: "Dark abstract flash \u2014 forearm 1" },
+        { src: "Website Images/Flashes/Flashes-Half-Sleeve-3.webp", alt: "Dark abstract flash \u2014 forearm 2" },
+        { src: "Website Images/Flashes/Flashes-Half-Sleeve-4.webp", alt: "Dark abstract flash \u2014 forearm 3" },
       ],
       "hand": [
         { src: "Website Images/Flashes/Flashes-Hand-1.webp", alt: "Dark abstract flash \u2014 hand 1" },
@@ -288,25 +285,9 @@ window.FLASHES_CATALOG = {
         { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 24.webp", alt: "Dark abstract flash — all body front 24" },
         { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 25.webp", alt: "Dark abstract flash — all body front 25" },
       ],
-      "chest": [
-        { src: "Website Images/Flashes/Flashes-Chest-1.webp", alt: "Dark abstract flash \u2014 chest 1" },
-        { src: "Website Images/Flashes/Flashes-Chest-2.webp", alt: "Dark abstract flash \u2014 chest 2" },
-        { src: "Website Images/Flashes/Flashes-Chest-3.webp", alt: "Dark abstract flash \u2014 chest 3" },
-        { src: "Website Images/Flashes/Flashes-Chest-4.webp", alt: "Dark abstract flash \u2014 chest 4" },
-        { src: "Website Images/Flashes/Flashes-Chest-5.webp", alt: "Dark abstract flash \u2014 chest 5" },
-        { src: "Website Images/Flashes/Flashes-Chest-6.webp", alt: "Dark abstract flash \u2014 chest 6" },
-        { src: "Website Images/Flashes/Flashes-Chest-7.webp", alt: "Dark abstract flash \u2014 chest 7" },
-        { src: "Website Images/Flashes/Flashes-Chest-8.webp", alt: "Dark abstract flash \u2014 chest 8" },
-        { src: "Website Images/Flashes/Flashes-Chest-9.webp", alt: "Dark abstract flash \u2014 chest 9" },
-      ],
       "full-front": [
         { src: "Website Images/Flashes/Flashes-Full-Front-1.webp", alt: "Dark abstract flash \u2014 full front 1" },
         { src: "Website Images/Flashes/Flashes-Full-Front-2.webp", alt: "Dark abstract flash \u2014 full front 2" },
-      ],
-      "nipples": [
-        { src: "Website Images/Flashes/Flashes-Nipples-1.webp", alt: "Dark abstract flash \u2014 nipples 1" },
-        { src: "Website Images/Flashes/Flashes-Nipples-2.webp", alt: "Dark abstract flash \u2014 nipples 2" },
-        { src: "Website Images/Flashes/Flashes-Nipples-3.webp", alt: "Dark abstract flash \u2014 nipples 3" },
       ],
       "stomach": [
         { src: "Website Images/Flashes/Flashes-Stomach-1.webp", alt: "Dark abstract flash \u2014 stomach 1" },
@@ -318,6 +299,22 @@ window.FLASHES_CATALOG = {
         { src: "Website Images/Flashes/Flashes-Stomach-7.webp", alt: "Dark abstract flash \u2014 stomach 7" },
         { src: "Website Images/Flashes/Flashes-Stomach-8.webp", alt: "Dark abstract flash \u2014 stomach 8" },
         { src: "Website Images/Flashes/Flashes-Stomach-9.webp", alt: "Dark abstract flash \u2014 stomach 9" },
+      ],
+      "chest": [
+        { src: "Website Images/Flashes/Flashes-Chest-1.webp", alt: "Dark abstract flash \u2014 chest 1" },
+        { src: "Website Images/Flashes/Flashes-Chest-2.webp", alt: "Dark abstract flash \u2014 chest 2" },
+        { src: "Website Images/Flashes/Flashes-Chest-3.webp", alt: "Dark abstract flash \u2014 chest 3" },
+        { src: "Website Images/Flashes/Flashes-Chest-4.webp", alt: "Dark abstract flash \u2014 chest 4" },
+        { src: "Website Images/Flashes/Flashes-Chest-5.webp", alt: "Dark abstract flash \u2014 chest 5" },
+        { src: "Website Images/Flashes/Flashes-Chest-6.webp", alt: "Dark abstract flash \u2014 chest 6" },
+        { src: "Website Images/Flashes/Flashes-Chest-7.webp", alt: "Dark abstract flash \u2014 chest 7" },
+        { src: "Website Images/Flashes/Flashes-Chest-8.webp", alt: "Dark abstract flash \u2014 chest 8" },
+        { src: "Website Images/Flashes/Flashes-Chest-9.webp", alt: "Dark abstract flash \u2014 chest 9" },
+      ],
+      "nipples": [
+        { src: "Website Images/Flashes/Flashes-Nipples-1.webp", alt: "Dark abstract flash \u2014 nipples 1" },
+        { src: "Website Images/Flashes/Flashes-Nipples-2.webp", alt: "Dark abstract flash \u2014 nipples 2" },
+        { src: "Website Images/Flashes/Flashes-Nipples-3.webp", alt: "Dark abstract flash \u2014 nipples 3" },
       ],
     },
     "back": {

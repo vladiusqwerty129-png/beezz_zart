@@ -5,10 +5,10 @@
         { src: "Website Images/Flashes/Flashes-Arm-Sleeve-2.webp", alt: "Dark abstract flash \u2014 arm sleeve 2" },
         { src: "Website Images/Flashes/Flashes-Arm-Sleeve-3.webp", alt: "Dark abstract flash \u2014 arm sleeve 3" },
       ],
-      "half-sleeve": [
-        { src: "Website Images/Flashes/Flashes-Half-Sleeve-2.webp", alt: "Dark abstract flash \u2014 half sleeve 2" },
-        { src: "Website Images/Flashes/Flashes-Half-Sleeve-3.webp", alt: "Dark abstract flash \u2014 half sleeve 3" },
-        { src: "Website Images/Flashes/Flashes-Half-Sleeve-4.webp", alt: "Dark abstract flash \u2014 half sleeve 4" },
+      "forearm": [
+        { src: "Website Images/Flashes/Flashes-Half-Sleeve-2.webp", alt: "Dark abstract flash \u2014 forearm 1" },
+        { src: "Website Images/Flashes/Flashes-Half-Sleeve-3.webp", alt: "Dark abstract flash \u2014 forearm 2" },
+        { src: "Website Images/Flashes/Flashes-Half-Sleeve-4.webp", alt: "Dark abstract flash \u2014 forearm 3" },
       ],
       "shoulder": [
         { src: "Website Images/Flashes/Flashes-Shoulder-1.webp", alt: "Dark abstract flash \u2014 shoulder 1" },

@@ -1699,7 +1699,7 @@ button { cursor: pointer; font-family: inherit; }
   min-height: var(--flashes-card-preview-h);
   max-height: var(--flashes-card-preview-h);
   flex-shrink: 0;
-  background: var(--white);
+  background: transparent;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -3039,8 +3039,19 @@ button { cursor: pointer; font-family: inherit; }
 
 .flashes-catalog-card__media--contain img {
   object-fit: contain;
-  padding: 8px;
+  padding: 0;
   transform: none !important;
+}
+
+/* Flash catalog covers (styles, body parts, zones) — no white mat/frame */
+.flashes-body--catalog .flashes-catalog-card__media {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.flashes-body--catalog .flashes-catalog-card__media--contain img {
+  object-fit: cover;
 }
 
 .flashes-catalog--landing .flashes-catalog-card__media--contain {
@@ -4026,7 +4037,7 @@ button { cursor: pointer; font-family: inherit; }
   width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  background: var(--bg-alt);
+  background: transparent;
 }
 
 .flashes-catalog-card__media img {

@@ -60,9 +60,9 @@ def classify(filename: str) -> dict:
     zone_patterns = [
         (r"^Hand_Flash", ("arms", "hand", "Hand")),
         (r"^Palm_Flash", ("arms", "palm", "Palm")),
-        (r"^Forearm_Flash", ("arms", "half-sleeve", "Half-Sleeve")),
+        (r"^Forearm_Flash", ("arms", "forearm", "Forearm")),
         (r"^Shoulder_Flash", ("arms", "shoulder", "Shoulder")),
-        (r"^Half_Sleeve_Flash", ("arms", "half-sleeve", "Half-Sleeve")),
+        (r"^Half_Sleeve_Flash", ("arms", "forearm", "Forearm")),
         (r"^Sleeve_Flash", ("arms", "sleeve", "Arm-Sleeve")),
         (r"^Calf_Flash", ("legs", "calf", "Calf")),
         (r"^Feet_Flash", ("legs", "foot", "Foot")),
