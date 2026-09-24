@@ -90,13 +90,11 @@
         { src: "Website Images/Flashes/Flashes-Back-1.webp", alt: "Dark abstract flash \u2014 back 1" },
         { src: "Website Images/Flashes/Flashes-Back-2.webp", alt: "Dark abstract flash \u2014 back 2" },
         { src: "Website Images/Flashes/Flashes-Back-3.webp", alt: "Dark abstract flash \u2014 back 3" },
+        { src: "Website Images/Flashes/Flashes-Spine-1.webp", alt: "Dark abstract flash \u2014 back 4" },
       ],
       "lower-back": [
         { src: "Website Images/Flashes/Flashes-Lower-Back-1.webp", alt: "Dark abstract flash \u2014 lower back 1" },
         { src: "Website Images/Flashes/Flashes-Lower-Back-2.webp", alt: "Dark abstract flash \u2014 lower back 2" },
-      ],
-      "spine": [
-        { src: "Website Images/Flashes/Flashes-Spine-1.webp", alt: "Dark abstract flash \u2014 spine 1" },
       ],
     },
     "head": {

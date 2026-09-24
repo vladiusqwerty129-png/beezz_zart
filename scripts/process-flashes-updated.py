@@ -76,7 +76,7 @@ def classify(filename: str) -> dict:
         (r"^Full_Front_Flash", ("body-front", "full-front", "Full-Front")),
         (r"^Lower_Back_Flash", ("back", "lower-back", "Lower-Back")),
         (r"^Back_Flash", ("back", "back", "Back")),
-        (r"^Spine_Flash", ("back", "spine", "Spine")),
+        (r"^Spine_Flash", ("back", "back", "Back")),
         (r"^Face_Flash", ("head", "face", "Face")),
         (r"^Ear_Flash", ("head", "ears", "Ear")),
         (r"^Neck_Flash", ("head", "neck", "Neck")),

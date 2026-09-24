@@ -2,7 +2,7 @@
  * Flash styles, body parts, and catalog.
  * Bump FLASHES_IMG_V when replacing covers.
  */
-window.FLASHES_IMG_V = '121';
+window.FLASHES_IMG_V = '123';
 
 /** Only this style uses body-part and zone placement pickers. */
 window.FLASH_STYLE_USES_PLACEMENT = 'dark-abstract';
@@ -51,6 +51,8 @@ window.BODY_PARTS = [
 
 /** Arm sub-areas (shown after selecting Arms). Replace previews with your anatomical PNGs. */
 window.ARM_ZONES = [
+  { id: 'all', label: "All Arms", preview: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 1.webp" },
+
   { id: 'sleeve', label: 'Sleeve', preview: 'Website Images/Arm-Sleeve.webp' },
   { id: 'half-sleeve', label: 'Half Sleeve', preview: 'Website Images/Arm-Half-Sleeve.webp' },
   { id: 'shoulder', label: 'Shoulder', preview: 'Website Images/Arm-Shoulder.webp' },
@@ -60,6 +62,8 @@ window.ARM_ZONES = [
 
 /** Leg sub-areas (shown after selecting Legs). Replace previews with your anatomical PNGs. */
 window.LEG_ZONES = [
+  { id: 'all', label: "All Legs", preview: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 1.webp" },
+
   { id: 'calf', label: 'Calf', preview: 'Website Images/Leg-Calf.webp' },
   { id: 'foot', label: 'Foot', preview: 'Website Images/Leg-Foot.webp' },
   { id: 'thigh', label: 'Thigh', preview: 'Website Images/Leg-Thigh.webp' },
@@ -70,6 +74,8 @@ window.LEG_ZONES = [
 
 /** Body front sub-areas (shown after selecting Body Front). Replace previews with your anatomical PNGs. */
 window.BODY_FRONT_ZONES = [
+  { id: 'all', label: "All Body Front", preview: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 1..webp" },
+
   { id: 'stomach', label: 'Stomach', preview: 'Website Images/Front-Stomach.webp' },
   { id: 'chest', label: 'Chest', preview: 'Website Images/Front-Chest.webp' },
   { id: 'nipples', label: 'Nipples', preview: 'Website Images/Front-Nipples.webp' },
@@ -79,13 +85,16 @@ window.BODY_FRONT_ZONES = [
 
 /** Back sub-areas (shown after selecting Back). Replace previews with your anatomical PNGs. */
 window.BACK_ZONES = [
+  { id: 'all', label: "All Back", preview: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 1.webp" },
+
   { id: 'back', label: 'Back', preview: 'Website Images/Back-Back.webp' },
   { id: 'lower-back', label: 'Lower Back', preview: 'Website Images/Back-Lower-Back.webp' },
-  { id: 'spine', label: 'Spine', preview: 'Website Images/Back-Spine.webp' },
 ];
 
 /** Head sub-areas (shown after selecting Head). Replace previews with your anatomical PNGs. */
 window.HEAD_ZONES = [
+  { id: 'all', label: "All Head", preview: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 1.webp" },
+
   { id: 'neck', label: 'Neck', preview: 'Website Images/Head-Neck.webp' },
   { id: 'ears', label: 'Ears', preview: 'Website Images/Head-Ears.webp' },
   { id: 'face', label: 'Face', preview: 'Website Images/Head-Face.webp' },
@@ -160,22 +169,30 @@ window.formatFlashGalleryLede = function (styleId, partId, zoneId) {
 window.FLASHES_CATALOG = {
   'dark-abstract': {
     "arms": {
-      "sleeve": [
-        { src: "Website Images/Flashes/Flashes-Arm-Sleeve-1.webp", alt: "Dark abstract flash \u2014 arm sleeve 1" },
-        { src: "Website Images/Flashes/Flashes-Arm-Sleeve-2.webp", alt: "Dark abstract flash \u2014 arm sleeve 2" },
-        { src: "Website Images/Flashes/Flashes-Arm-Sleeve-3.webp", alt: "Dark abstract flash \u2014 arm sleeve 3" },
+      "all": [
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 1.webp", alt: "Dark abstract flash — all arms 1" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 2.webp", alt: "Dark abstract flash — all arms 2" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 3.webp", alt: "Dark abstract flash — all arms 3" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 4.webp", alt: "Dark abstract flash — all arms 4" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 5.webp", alt: "Dark abstract flash — all arms 5" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 6.webp", alt: "Dark abstract flash — all arms 6" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 7.webp", alt: "Dark abstract flash — all arms 7" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 8.webp", alt: "Dark abstract flash — all arms 8" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 9.webp", alt: "Dark abstract flash — all arms 9" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 10.webp", alt: "Dark abstract flash — all arms 10" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 11.webp", alt: "Dark abstract flash — all arms 11" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 12.webp", alt: "Dark abstract flash — all arms 12" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 13.webp", alt: "Dark abstract flash — all arms 13" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 14.webp", alt: "Dark abstract flash — all arms 14" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 15.webp", alt: "Dark abstract flash — all arms 15" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 16.webp", alt: "Dark abstract flash — all arms 16" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 17.webp", alt: "Dark abstract flash — all arms 17" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 18.webp", alt: "Dark abstract flash — all arms 18" },
       ],
       "half-sleeve": [
         { src: "Website Images/Flashes/Flashes-Half-Sleeve-2.webp", alt: "Dark abstract flash \u2014 half sleeve 2" },
         { src: "Website Images/Flashes/Flashes-Half-Sleeve-3.webp", alt: "Dark abstract flash \u2014 half sleeve 3" },
         { src: "Website Images/Flashes/Flashes-Half-Sleeve-4.webp", alt: "Dark abstract flash \u2014 half sleeve 4" },
-      ],
-      "shoulder": [
-        { src: "Website Images/Flashes/Flashes-Shoulder-1.webp", alt: "Dark abstract flash \u2014 shoulder 1" },
-        { src: "Website Images/Flashes/Flashes-Shoulder-2.webp", alt: "Dark abstract flash \u2014 shoulder 2" },
-        { src: "Website Images/Flashes/Flashes-Shoulder-3.webp", alt: "Dark abstract flash \u2014 shoulder 3" },
-        { src: "Website Images/Flashes/Flashes-Shoulder-4.webp", alt: "Dark abstract flash \u2014 shoulder 4" },
-        { src: "Website Images/Flashes/Flashes-Shoulder-5.webp", alt: "Dark abstract flash \u2014 shoulder 5" },
       ],
       "hand": [
         { src: "Website Images/Flashes/Flashes-Hand-1.webp", alt: "Dark abstract flash \u2014 hand 1" },
@@ -185,8 +202,40 @@ window.FLASHES_CATALOG = {
       "palm": [
         { src: "Website Images/Flashes/Flashes-Palm-1.webp", alt: "Dark abstract flash \u2014 palm 1" },
       ],
+      "shoulder": [
+        { src: "Website Images/Flashes/Flashes-Shoulder-1.webp", alt: "Dark abstract flash \u2014 shoulder 1" },
+        { src: "Website Images/Flashes/Flashes-Shoulder-2.webp", alt: "Dark abstract flash \u2014 shoulder 2" },
+        { src: "Website Images/Flashes/Flashes-Shoulder-3.webp", alt: "Dark abstract flash \u2014 shoulder 3" },
+        { src: "Website Images/Flashes/Flashes-Shoulder-4.webp", alt: "Dark abstract flash \u2014 shoulder 4" },
+        { src: "Website Images/Flashes/Flashes-Shoulder-5.webp", alt: "Dark abstract flash \u2014 shoulder 5" },
+      ],
+      "sleeve": [
+        { src: "Website Images/Flashes/Flashes-Arm-Sleeve-1.webp", alt: "Dark abstract flash \u2014 arm sleeve 1" },
+        { src: "Website Images/Flashes/Flashes-Arm-Sleeve-2.webp", alt: "Dark abstract flash \u2014 arm sleeve 2" },
+        { src: "Website Images/Flashes/Flashes-Arm-Sleeve-3.webp", alt: "Dark abstract flash \u2014 arm sleeve 3" },
+      ],
     },
     "legs": {
+      "all": [
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 1.webp", alt: "Dark abstract flash — all legs 1" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 2.webp", alt: "Dark abstract flash — all legs 2" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 3.webp", alt: "Dark abstract flash — all legs 3" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 4.webp", alt: "Dark abstract flash — all legs 4" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 5.webp", alt: "Dark abstract flash — all legs 5" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 6.webp", alt: "Dark abstract flash — all legs 6" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 7.webp", alt: "Dark abstract flash — all legs 7" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 8.webp", alt: "Dark abstract flash — all legs 8" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 9.webp", alt: "Dark abstract flash — all legs 9" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 10.webp", alt: "Dark abstract flash — all legs 10" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 11.webp", alt: "Dark abstract flash — all legs 11" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 12.webp", alt: "Dark abstract flash — all legs 12" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 13.webp", alt: "Dark abstract flash — all legs 13" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 14.webp", alt: "Dark abstract flash — all legs 14" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 15.webp", alt: "Dark abstract flash — all legs 15" },
+      ],
+      "butt": [
+        { src: "Website Images/Flashes/Flashes-Butt-1.webp", alt: "Dark abstract flash \u2014 butt 1" },
+      ],
       "calf": [
         { src: "Website Images/Flashes/Flashes-Calf-1.webp", alt: "Dark abstract flash \u2014 calf 1" },
         { src: "Website Images/Flashes/Flashes-Calf-2.webp", alt: "Dark abstract flash \u2014 calf 2" },
@@ -197,11 +246,6 @@ window.FLASHES_CATALOG = {
         { src: "Website Images/Flashes/Flashes-Foot-2.webp", alt: "Dark abstract flash \u2014 foot 2" },
         { src: "Website Images/Flashes/Flashes-Foot-3.webp", alt: "Dark abstract flash \u2014 foot 3" },
       ],
-      "thigh": [
-        { src: "Website Images/Flashes/Flashes-Thigh-1.webp", alt: "Dark abstract flash \u2014 thigh 1" },
-        { src: "Website Images/Flashes/Flashes-Thigh-2.webp", alt: "Dark abstract flash \u2014 thigh 2" },
-        { src: "Website Images/Flashes/Flashes-Thigh-3.webp", alt: "Dark abstract flash \u2014 thigh 3" },
-      ],
       "knee": [
         { src: "Website Images/Flashes/Flashes-Knee-1.webp", alt: "Dark abstract flash \u2014 knee 1" },
         { src: "Website Images/Flashes/Flashes-Knee-2.webp", alt: "Dark abstract flash \u2014 knee 2" },
@@ -210,21 +254,39 @@ window.FLASHES_CATALOG = {
       "sleeve": [
         { src: "Website Images/Flashes/Flashes-Leg-Sleeve-1.webp", alt: "Dark abstract flash \u2014 leg sleeve 1" },
       ],
-      "butt": [
-        { src: "Website Images/Flashes/Flashes-Butt-1.webp", alt: "Dark abstract flash \u2014 butt 1" },
+      "thigh": [
+        { src: "Website Images/Flashes/Flashes-Thigh-1.webp", alt: "Dark abstract flash \u2014 thigh 1" },
+        { src: "Website Images/Flashes/Flashes-Thigh-2.webp", alt: "Dark abstract flash \u2014 thigh 2" },
+        { src: "Website Images/Flashes/Flashes-Thigh-3.webp", alt: "Dark abstract flash \u2014 thigh 3" },
       ],
     },
     "body-front": {
-      "stomach": [
-        { src: "Website Images/Flashes/Flashes-Stomach-1.webp", alt: "Dark abstract flash \u2014 stomach 1" },
-        { src: "Website Images/Flashes/Flashes-Stomach-2.webp", alt: "Dark abstract flash \u2014 stomach 2" },
-        { src: "Website Images/Flashes/Flashes-Stomach-3.webp", alt: "Dark abstract flash \u2014 stomach 3" },
-        { src: "Website Images/Flashes/Flashes-Stomach-4.webp", alt: "Dark abstract flash \u2014 stomach 4" },
-        { src: "Website Images/Flashes/Flashes-Stomach-5.webp", alt: "Dark abstract flash \u2014 stomach 5" },
-        { src: "Website Images/Flashes/Flashes-Stomach-6.webp", alt: "Dark abstract flash \u2014 stomach 6" },
-        { src: "Website Images/Flashes/Flashes-Stomach-7.webp", alt: "Dark abstract flash \u2014 stomach 7" },
-        { src: "Website Images/Flashes/Flashes-Stomach-8.webp", alt: "Dark abstract flash \u2014 stomach 8" },
-        { src: "Website Images/Flashes/Flashes-Stomach-9.webp", alt: "Dark abstract flash \u2014 stomach 9" },
+      "all": [
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 1..webp", alt: "Dark abstract flash — all body front 1" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 2.webp", alt: "Dark abstract flash — all body front 2" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 3.webp", alt: "Dark abstract flash — all body front 3" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 4.webp", alt: "Dark abstract flash — all body front 4" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 5.webp", alt: "Dark abstract flash — all body front 5" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 6.webp", alt: "Dark abstract flash — all body front 6" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 7.webp", alt: "Dark abstract flash — all body front 7" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 8.webp", alt: "Dark abstract flash — all body front 8" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 9.webp", alt: "Dark abstract flash — all body front 9" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 10.webp", alt: "Dark abstract flash — all body front 10" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 11.webp", alt: "Dark abstract flash — all body front 11" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 12.webp", alt: "Dark abstract flash — all body front 12" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 13.webp", alt: "Dark abstract flash — all body front 13" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 14.webp", alt: "Dark abstract flash — all body front 14" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 15.webp", alt: "Dark abstract flash — all body front 15" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 16.webp", alt: "Dark abstract flash — all body front 16" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 17.webp", alt: "Dark abstract flash — all body front 17" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 18.webp", alt: "Dark abstract flash — all body front 18" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 19.webp", alt: "Dark abstract flash — all body front 19" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 20.webp", alt: "Dark abstract flash — all body front 20" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 21.webp", alt: "Dark abstract flash — all body front 21" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 22.webp", alt: "Dark abstract flash — all body front 22" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 23.webp", alt: "Dark abstract flash — all body front 23" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 24.webp", alt: "Dark abstract flash — all body front 24" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 25.webp", alt: "Dark abstract flash — all body front 25" },
       ],
       "chest": [
         { src: "Website Images/Flashes/Flashes-Chest-1.webp", alt: "Dark abstract flash \u2014 chest 1" },
@@ -237,34 +299,64 @@ window.FLASHES_CATALOG = {
         { src: "Website Images/Flashes/Flashes-Chest-8.webp", alt: "Dark abstract flash \u2014 chest 8" },
         { src: "Website Images/Flashes/Flashes-Chest-9.webp", alt: "Dark abstract flash \u2014 chest 9" },
       ],
+      "full-front": [
+        { src: "Website Images/Flashes/Flashes-Full-Front-1.webp", alt: "Dark abstract flash \u2014 full front 1" },
+        { src: "Website Images/Flashes/Flashes-Full-Front-2.webp", alt: "Dark abstract flash \u2014 full front 2" },
+      ],
       "nipples": [
         { src: "Website Images/Flashes/Flashes-Nipples-1.webp", alt: "Dark abstract flash \u2014 nipples 1" },
         { src: "Website Images/Flashes/Flashes-Nipples-2.webp", alt: "Dark abstract flash \u2014 nipples 2" },
         { src: "Website Images/Flashes/Flashes-Nipples-3.webp", alt: "Dark abstract flash \u2014 nipples 3" },
       ],
-      "full-front": [
-        { src: "Website Images/Flashes/Flashes-Full-Front-1.webp", alt: "Dark abstract flash \u2014 full front 1" },
-        { src: "Website Images/Flashes/Flashes-Full-Front-2.webp", alt: "Dark abstract flash \u2014 full front 2" },
+      "stomach": [
+        { src: "Website Images/Flashes/Flashes-Stomach-1.webp", alt: "Dark abstract flash \u2014 stomach 1" },
+        { src: "Website Images/Flashes/Flashes-Stomach-2.webp", alt: "Dark abstract flash \u2014 stomach 2" },
+        { src: "Website Images/Flashes/Flashes-Stomach-3.webp", alt: "Dark abstract flash \u2014 stomach 3" },
+        { src: "Website Images/Flashes/Flashes-Stomach-4.webp", alt: "Dark abstract flash \u2014 stomach 4" },
+        { src: "Website Images/Flashes/Flashes-Stomach-5.webp", alt: "Dark abstract flash \u2014 stomach 5" },
+        { src: "Website Images/Flashes/Flashes-Stomach-6.webp", alt: "Dark abstract flash \u2014 stomach 6" },
+        { src: "Website Images/Flashes/Flashes-Stomach-7.webp", alt: "Dark abstract flash \u2014 stomach 7" },
+        { src: "Website Images/Flashes/Flashes-Stomach-8.webp", alt: "Dark abstract flash \u2014 stomach 8" },
+        { src: "Website Images/Flashes/Flashes-Stomach-9.webp", alt: "Dark abstract flash \u2014 stomach 9" },
       ],
     },
     "back": {
+      "all": [
+        { src: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 1.webp", alt: "Dark abstract flash — all back 1" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 2.webp", alt: "Dark abstract flash — all back 2" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 3.webp", alt: "Dark abstract flash — all back 3" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 4.webp", alt: "Dark abstract flash — all back 4" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 5.webp", alt: "Dark abstract flash — all back 5" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 6.webp", alt: "Dark abstract flash — all back 6" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 7.webp", alt: "Dark abstract flash — all back 7" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 8.webp", alt: "Dark abstract flash — all back 8" },
+      ],
       "back": [
         { src: "Website Images/Flashes/Flashes-Back-1.webp", alt: "Dark abstract flash \u2014 back 1" },
         { src: "Website Images/Flashes/Flashes-Back-2.webp", alt: "Dark abstract flash \u2014 back 2" },
         { src: "Website Images/Flashes/Flashes-Back-3.webp", alt: "Dark abstract flash \u2014 back 3" },
+        { src: "Website Images/Flashes/Flashes-Spine-1.webp", alt: "Dark abstract flash \u2014 back 4" },
       ],
       "lower-back": [
         { src: "Website Images/Flashes/Flashes-Lower-Back-1.webp", alt: "Dark abstract flash \u2014 lower back 1" },
         { src: "Website Images/Flashes/Flashes-Lower-Back-2.webp", alt: "Dark abstract flash \u2014 lower back 2" },
       ],
-      "spine": [
-        { src: "Website Images/Flashes/Flashes-Spine-1.webp", alt: "Dark abstract flash \u2014 spine 1" },
-      ],
     },
     "head": {
-      "neck": [
-        { src: "Website Images/Flashes/Flashes-Neck-1.webp", alt: "Dark abstract flash \u2014 neck 1" },
-        { src: "Website Images/Flashes/Flashes-Neck-2.webp", alt: "Dark abstract flash \u2014 neck 2" },
+      "all": [
+        { src: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 1.webp", alt: "Dark abstract flash — all head 1" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 2.webp", alt: "Dark abstract flash — all head 2" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 3.webp", alt: "Dark abstract flash — all head 3" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 4.webp", alt: "Dark abstract flash — all head 4" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 5.webp", alt: "Dark abstract flash — all head 5" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 6.webp", alt: "Dark abstract flash — all head 6" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Head Flashes / All Head Flashes 7.webp", alt: "Dark abstract flash — all head 7" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 8.webp", alt: "Dark abstract flash — all head 8" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 9.webp", alt: "Dark abstract flash — all head 9" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 10.webp", alt: "Dark abstract flash — all head 10" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 11.webp", alt: "Dark abstract flash — all head 11" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 12.webp", alt: "Dark abstract flash — all head 12" },
+        { src: "Website Images/Flashes/All Body parts Flashes/All Head Flashes /All Head Flashes 13.webp", alt: "Dark abstract flash — all head 13" },
       ],
       "ears": [
         { src: "Website Images/Flashes/Flashes-Ear-1.webp", alt: "Dark abstract flash \u2014 ear 1" },
@@ -279,6 +371,10 @@ window.FLASHES_CATALOG = {
         { src: "Website Images/Flashes/Flashes-Face-3.webp", alt: "Dark abstract flash \u2014 face 3" },
         { src: "Website Images/Flashes/Flashes-Face-4.webp", alt: "Dark abstract flash \u2014 face 4" },
         { src: "Website Images/Flashes/Flashes-Face-5.webp", alt: "Dark abstract flash \u2014 face 5" },
+      ],
+      "neck": [
+        { src: "Website Images/Flashes/Flashes-Neck-1.webp", alt: "Dark abstract flash \u2014 neck 1" },
+        { src: "Website Images/Flashes/Flashes-Neck-2.webp", alt: "Dark abstract flash \u2014 neck 2" },
       ],
     },
   },

@@ -1,0 +1,34 @@
+{
+  "parts": {
+    "arms": {
+      "folder": "All arms",
+      "zones": {
+        "all": 18
+      }
+    },
+    "legs": {
+      "folder": "All Legs Flashes ",
+      "zones": {
+        "all": 15
+      }
+    },
+    "body-front": {
+      "folder": "All Body Front Flashes ",
+      "zones": {
+        "all": 25
+      }
+    },
+    "back": {
+      "folder": "All Back Flashes ",
+      "zones": {
+        "all": 8
+      }
+    },
+    "head": {
+      "folder": "All Head Flashes ",
+      "zones": {
+        "all": 13
+      }
+    }
+  }
+}
