@@ -192,7 +192,9 @@ button { cursor: pointer; font-family: inherit; }
 }
 .hero.section--dark .hero__title-line { color: var(--white); }
 .hero.section--dark .hero__title-line--gray { color: rgba(255, 255, 255, 0.55); }
-.hero.section--dark .hero__subtitle,
+.hero.section--dark .hero__subtitle {
+  color: var(--white);
+}
 .section--light .projects__heading { color: var(--dark); }
 .section--light .projects__lede { color: #8b8b8b; }
 .faq.section--dark .faq__item { border-color: var(--border-dark); }
@@ -2510,6 +2512,9 @@ button { cursor: pointer; font-family: inherit; }
     font-size: clamp(0.95rem, 3.8vw, 1.15rem);
     max-width: none;
     padding-inline: 4px;
+  }
+  .hero.section--dark .hero__text > .hero__subtitle {
+    color: var(--white);
   }
   .hero__card-wrap {
     width: 100%;
