@@ -2,6 +2,24 @@
   var META_PIXEL_ID = '974705331864130';
   var SCROLL_MARKS = [25, 50, 75, 100];
 
+  function loadMicrosoftClarity() {
+    var projectId = (window.BEEZZ_CLARITY_PROJECT_ID || '').trim();
+    if (!projectId) return;
+
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = 'https://www.clarity.ms/tag/' + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', projectId);
+  }
+
   function loadMetaPixel() {
     if (!META_PIXEL_ID) return;
 
@@ -112,6 +130,7 @@
   }
 
   function init() {
+    loadMicrosoftClarity();
     loadMetaPixel();
     trackPageContext();
     initClickTracking();
