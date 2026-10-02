@@ -2,7 +2,7 @@
  * Flash styles, body parts, and catalog.
  * Bump FLASHES_IMG_V when replacing covers.
  */
-window.FLASHES_IMG_V = '131';
+window.FLASHES_IMG_V = '132';
 
 /** Only this style uses body-part and zone placement pickers. */
 window.FLASH_STYLE_USES_PLACEMENT = 'dark-abstract';
@@ -327,12 +327,14 @@ window.FLASHES_CATALOG = {
         { src: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 6.webp", alt: "Dark abstract flash — all back 6" },
         { src: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 7.webp", alt: "Dark abstract flash — all back 7" },
         { src: "Website Images/Flashes/All Body parts Flashes/All Back Flashes /All Back Flashes 8.webp", alt: "Dark abstract flash — all back 8" },
+        { src: "Website Images/Flashes/Flashes-Back-5.webp", alt: "Dark abstract flash — all back 9" },
       ],
       "back": [
         { src: "Website Images/Flashes/Flashes-Back-1.webp", alt: "Dark abstract flash \u2014 back 1" },
         { src: "Website Images/Flashes/Flashes-Back-2.webp", alt: "Dark abstract flash \u2014 back 2" },
         { src: "Website Images/Flashes/Flashes-Back-3.webp", alt: "Dark abstract flash \u2014 back 3" },
         { src: "Website Images/Flashes/Flashes-Spine-1.webp", alt: "Dark abstract flash \u2014 back 4" },
+        { src: "Website Images/Flashes/Flashes-Back-5.webp", alt: "Dark abstract flash \u2014 back 5" },
       ],
       "lower-back": [
         { src: "Website Images/Flashes/Flashes-Lower-Back-1.webp", alt: "Dark abstract flash \u2014 lower back 1" },
