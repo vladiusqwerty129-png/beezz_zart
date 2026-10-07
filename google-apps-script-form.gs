@@ -7,7 +7,7 @@
  */
 
 var UPLOAD_FOLDER_NAME = 'Beezz_zart Form Uploads';
-var NOTIFY_EMAIL = 'beezzzart22808@gmail.com';
+var NOTIFY_EMAIL = 'tattoo@beezz-zart.ca';
 
 function doPost(e) {
   try {
@@ -62,7 +62,8 @@ function sendLeadNotification_(name, email, phone, idea, source, fileLinks) {
   if (!NOTIFY_EMAIL || NOTIFY_EMAIL.indexOf('@') < 0) return;
 
   var sheetUrl = SpreadsheetApp.getActiveSpreadsheet().getUrl();
-  var subject = 'New lead — beezz-zart.ca — ' + (name || 'No name');
+  var subjectPrefix = source === 'poster-inquiry' ? 'New print inquiry' : 'New lead';
+  var subject = subjectPrefix + ' — beezz-zart.ca — ' + (name || 'No name');
   var body = [
     'Someone submitted a form on beezz-zart.ca',
     '',

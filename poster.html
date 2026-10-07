@@ -10,18 +10,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Select Arms — Tattoo Flashes | Beezz_zart</title>
-  <meta name="description" content="Select an area on the arms to browse blackwork flash tattoos." />
+  <title>Print — Beezz_zart</title>
+  <meta name="description" content="Limited-edition blackwork art print by Beezz_zart." />
   <link rel="stylesheet" href="styles.css?v=203" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
 </head>
-<body class="flashes-body flashes-body--catalog">
+<body class="flashes-body flashes-body--catalog shop-posters-body">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPTTJMDX"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-
 
   <nav class="nav" id="nav">
     <div class="nav__inner">
@@ -45,53 +44,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </li>
         <li><a href="index.html#hero">About</a></li>
         <li><a href="projects.html">Gallery</a></li>
-        <li><a href="flashes.html" aria-current="page">Flashes</a></li>
-        <li><a href="shop-posters.html">Shop Posters &amp; Art</a></li>
+        <li><a href="flashes.html">Flashes</a></li>
+        <li><a href="shop-posters.html" aria-current="page">Shop Posters &amp; Art</a></li>
         <li><a href="index.html#faqs">FAQs</a></li>
         <li><a href="index.html#lead-form" class="nav__cta">Tell Me Your Idea</a></li>
       </ul>
     </div>
   </nav>
-  <main class="flashes-page flashes-page--catalog">
-    <div class="flashes-catalog">
+
+  <main class="flashes-page flashes-page--catalog poster-detail-page">
+    <div class="flashes-catalog poster-detail">
       <nav class="flashes-catalog__breadcrumb" aria-label="Breadcrumb">
         <a href="index.html">Home</a>
         <span class="flashes-catalog__sep" aria-hidden="true">/</span>
-        <a href="flashes.html">Flashes</a>
+        <a href="shop-posters.html">Shop Posters &amp; Art</a>
         <span class="flashes-catalog__sep" aria-hidden="true">/</span>
-        <a href="#" id="flashesArmsCrumbStyle">Style</a>
-        <span class="flashes-catalog__sep" aria-hidden="true">/</span>
-        <span aria-current="page">Arms</span>
+        <span id="posterDetailCrumb" aria-current="page">Print</span>
       </nav>
 
-      <a href="#" class="flashes-catalog__back" id="flashesCatalogBack">&larr; Back</a>
+      <a href="shop-posters.html" class="flashes-catalog__back">&larr; Back to shop</a>
 
-      <header class="flashes-catalog__header">
-        <h1 class="flashes-catalog__title">Arms</h1>
-        <p class="flashes-catalog__lede">Choose an area on the arms.</p>
-      </header>
+      <p class="flashes-catalog__empty" id="posterDetailNotFound" hidden>
+        This print isn&rsquo;t listed. <a href="shop-posters.html">Browse the shop</a>.
+      </p>
 
-      <div class="flashes-catalog__toolbar">
-        <p class="flashes-catalog__hint">Select arm area</p>
+      <div class="poster-detail__layout" id="posterDetailLayout">
+        <div class="poster-detail__gallery" id="posterDetailGallery" aria-label="Print photos"></div>
+
+        <div class="poster-detail__content">
+          <header class="poster-detail__header">
+            <p class="poster-detail__label">Limited edition fine art print</p>
+            <h1 class="flashes-catalog__title poster-detail__title" id="posterDetailTitle">Print</h1>
+            <p class="poster-detail__subtitle" id="posterDetailLede"></p>
+          </header>
+
+          <div class="poster-detail__copy" id="posterDetailCopy"></div>
+
+          <dl class="poster-detail__details" id="posterDetailDetails"></dl>
+
+          <div class="poster-detail__actions">
+            <a href="poster-inquiry.html" class="flashes-catalog__cta-btn poster-detail__buy" id="posterDetailBuy">
+              Inquire to purchase
+            </a>
+          </div>
+        </div>
       </div>
-
-      <div class="flashes-catalog__grid" id="flashesArmsGrid" role="list" aria-label="Arms area"></div>
     </div>
   </main>
+
+  <div class="poster-detail__lightbox" id="posterDetailLightbox" hidden>
+    <button type="button" class="poster-detail__lightbox-close" id="posterDetailLightboxClose" aria-label="Close">
+      &times;
+    </button>
+    <img class="poster-detail__lightbox-img" id="posterDetailLightboxImg" alt="" />
+  </div>
 
   <footer class="footer footer--catalog">
     <div class="container">
       <div class="footer__bottom footer__bottom--solo">
         <p>&copy; 2026 Beezz_zart. All rights reserved.</p>
-        <a href="index.html#hero" class="footer__privacy">Back to home</a>
+        <a href="shop-posters.html" class="footer__privacy">Back to shop</a>
       </div>
     </div>
-  </footer>  <script src="clarity-config.js?v=1"></script>
+  </footer>
+
+  <script src="clarity-config.js?v=1"></script>
   <script src="analytics.js?v=6"></script>
   <script src="script.js"></script>
-  <script src="flashes-tap.js?v=1"></script>
-  <script src="flashes-catalog-ui.js?v=2"></script>
-  <script src="flashes-data.js?v=132"></script>
-  <script src="flashes-arms.js?v=87"></script>
+  <script src="flashes-catalog-ui.js?v=10"></script>
+  <script src="posters-data.js?v=1"></script>
+  <script src="poster-detail.js?v=4"></script>
 </body>
 </html>

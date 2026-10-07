@@ -158,16 +158,6 @@ window.beezzShowFormFeedback = function (form, type, message) {
 };
 
 window.beezzSubmitLead = async function (payload) {
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: 'generate_lead',
-    form_name: (payload && payload.source) ? payload.source : 'lead-form',
-    lead_email: (payload && payload.email) ? payload.email : '',
-    lead_phone: (payload && payload.phone) ? payload.phone : '',
-  });
-  if (window.beezzTrackLead) window.beezzTrackLead();
-  else if (window.beezzTrackCustom) window.beezzTrackCustom('Lead');
-
   const res = await fetch(window.BEEZZ_FORM_ENDPOINT, {
     method: 'POST',
     mode: 'cors',
@@ -183,5 +173,16 @@ window.beezzSubmitLead = async function (payload) {
   if (!data.ok) {
     throw new Error(data.error || 'Submission failed');
   }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'generate_lead',
+    form_name: (payload && payload.source) ? payload.source : 'lead-form',
+    lead_email: (payload && payload.email) ? payload.email : '',
+    lead_phone: (payload && payload.phone) ? payload.phone : '',
+  });
+  if (window.beezzTrackLead) window.beezzTrackLead();
+  else if (window.beezzTrackCustom) window.beezzTrackCustom('Lead');
+
   return data;
 };

@@ -315,7 +315,7 @@ def main():
             "preview_text": "A few just went up on the site — first come, first inked.",
             "title": "Flash Drop E-blast — Mockup v2",
             "from_name": "Mariia · Beezz_zart",
-            "reply_to": "beezzzart22808@gmail.com",
+            "reply_to": "tattoo@beezz-zart.ca",
             "auto_footer": False,
             "inline_css": False,
         }
@@ -332,7 +332,7 @@ def main():
         sys.exit(1)
 
     status, _ = mc("POST", f"/campaigns/{CAMPAIGN_ID}/actions/test", {
-        "test_emails": ["beezzzart22808@gmail.com"],
+        "test_emails": ["tattoo@beezz-zart.ca"],
         "send_type": "html",
     })
     print("Test email sent:", status)
