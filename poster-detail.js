@@ -20,7 +20,7 @@
     if (titleEl) titleEl.textContent = 'Print not found';
     if (layout) layout.hidden = true;
     if (notFound) notFound.hidden = false;
-    document.title = 'Print not found — Beezz_zart';
+    document.title = 'Print not found - Beezz_zart';
     return;
   }
 
@@ -29,7 +29,7 @@
     ? (path) => window.beezzCatalogPreviewUrl(path, imgV)
     : (path) => `${path}?v=${imgV}`;
 
-  document.title = `${poster.title} — Shop Posters & Art — Beezz_zart`;
+  document.title = `${poster.title} - Shop Posters & Art - Beezz_zart`;
   if (titleEl) titleEl.textContent = poster.title;
   if (ledeEl) {
     const ledeParts = [poster.price, poster.cardSubtitle].filter(Boolean);
@@ -73,7 +73,7 @@
   const thumbsEl = document.getElementById('posterDetailThumbs');
 
   function altForIndex(i) {
-    return i === 0 ? poster.title : `${poster.title} — photo ${i + 1}`;
+    return i === 0 ? poster.title : `${poster.title} - photo ${i + 1}`;
   }
 
   function setActiveIndex(index) {

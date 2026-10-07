@@ -15,8 +15,8 @@ window.POSTERS = [
     ],
     paragraphs: [
       'Original dark blackwork design, reproduced as a limited-edition fine art print.',
-      'For this piece, I played with movement and symmetry — flowing linework that mirrors itself down the center, echoing the freehand approach I use in my tattoo work. High-contrast black, grey, and white on 9.4″ × 24″ fine art paper with a subtle grainy texture that gives it a tactile, hand-printed feel.',
-      'Each print is signed and numbered by hand. Only 10 prints exist in this edition — once they\u2019re gone, this design won\u2019t be reprinted.',
+      'For this piece, I played with movement and symmetry - flowing linework that mirrors itself down the center, echoing the freehand approach I use in my tattoo work. High-contrast black, grey, and white on 9.4″ × 24″ fine art paper with a subtle grainy texture that gives it a tactile, hand-printed feel.',
+      'Each print is signed and numbered by hand. Only 10 prints exist in this edition - once they\u2019re gone, this design won\u2019t be reprinted.',
       'Perfect for anyone into blackwork tattoo art, dark line work, or bold graphic wall pieces.',
     ],
     details: [
@@ -26,7 +26,7 @@ window.POSTERS = [
       { label: 'Edition', value: 'Signed and numbered (10/10 edition)' },
       { label: 'Shipping', value: 'Ships worldwide' },
     ],
-    mailSubject: 'Poster inquiry — Symmetric Flow',
+    mailSubject: 'Poster inquiry - Symmetric Flow',
   },
   {
     id: 'poster-2',
@@ -43,7 +43,7 @@ window.POSTERS = [
     paragraphs: [
       'Original dark blackwork design, hand-drawn freehand and reproduced as a limited-edition fine art print.',
       'Smoke-like linework curls and drifts across a grey gradient background, echoing the freehand approach I use in my tattoo work. High-contrast black, grey, and white on 7″ × 17″ fine art paper with a subtle grainy texture that gives it a tactile, hand-printed feel.',
-      'Only 15 prints exist in this edition — once they\u2019re gone, this design won\u2019t be reprinted.',
+      'Only 15 prints exist in this edition - once they\u2019re gone, this design won\u2019t be reprinted.',
     ],
     details: [
       { label: 'Price', value: '$40' },
@@ -52,7 +52,7 @@ window.POSTERS = [
       { label: 'Edition', value: 'Limited edition of 15' },
       { label: 'Shipping', value: 'Ships worldwide' },
     ],
-    mailSubject: 'Poster inquiry — Smoke Drift',
+    mailSubject: 'Poster inquiry - Smoke Drift',
   },
 ];
 

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   BEEZZ_ZART — Styles matching original beezz-zart.ca
+   BEEZZ_ZART - Styles matching original beezz-zart.ca
    ========================================================================== */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,7 +26,7 @@
   --pad:        96px;
   --pad-sm:     64px;
   --max-w:      1420px;
-  /* Gutters — content stretches closer to viewport edges than old 90% + 1200 cap */
+  /* Gutters - content stretches closer to viewport edges than old 90% + 1200 cap */
   --page-edge:  clamp(14px, 3vw, 28px);
 
   /* Radii */
@@ -88,7 +88,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 .section-subtitle--light { color: rgba(255,255,255,0.65); }
 
-/* ---------- Section themes — alternating dark / light ---------- */
+/* ---------- Section themes - alternating dark / light ---------- */
 .section--dark,
 .footer {
   position: relative;
@@ -373,7 +373,7 @@ button { cursor: pointer; font-family: inherit; }
 .nav__close span:last-child { transform: rotate(-45deg); }
 
 /* ==========================================================================
-   HERO — two-column layout
+   HERO - two-column layout
    ========================================================================== */
 .hero {
   padding: 40px 0 60px;
@@ -438,7 +438,7 @@ button { cursor: pointer; font-family: inherit; }
   align-items: center;
   min-height: calc(100vh - var(--nav-h) - 40px);
 }
-/* LEFT: text — centered in column */
+/* LEFT: text - centered in column */
 .hero__text {
   display: flex;
   flex-direction: column;
@@ -593,7 +593,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* ==========================================================================
-   GALLERY — portfolio grid (same layout as flashes: 3 per row)
+   GALLERY - portfolio grid (same layout as flashes: 3 per row)
    ========================================================================== */
 .projects {
   padding: calc(var(--pad) - 20px) 0 calc(var(--pad) - 28px);
@@ -662,7 +662,7 @@ button { cursor: pointer; font-family: inherit; }
   letter-spacing: 0.02em;
 }
 
-/* Homepage gallery — Monolith "Artists" section style */
+/* Homepage gallery - Monolith "Artists" section style */
 .projects--artists {
   padding: 0;
 }
@@ -700,7 +700,7 @@ button { cursor: pointer; font-family: inherit; }
   opacity: 0.75;
 }
 
-/* Desktop — full-bleed 4×2 grid (option 1) */
+/* Desktop - full-bleed 4×2 grid (option 1) */
 @media (min-width: 768px) {
   .projects-artists__scroll {
     width: 100vw;
@@ -1005,7 +1005,7 @@ button { cursor: pointer; font-family: inherit; }
   color: var(--white);
 }
 
-/* Homepage contact — light section */
+/* Homepage contact - light section */
 .contact.section--light .section-title {
   color: var(--dark);
 }
@@ -1158,7 +1158,7 @@ button { cursor: pointer; font-family: inherit; }
   border-top: 1px solid var(--border);
 }
 
-/* Flash quote page — contact form + selected flash */
+/* Flash quote page - contact form + selected flash */
 .flash-quote-page main.flash-quote {
   padding-top: var(--nav-h);
 }
@@ -1257,7 +1257,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* ==========================================================================
-   FLASHES — light section
+   FLASHES - light section
    ========================================================================== */
 .flashes { padding: var(--pad) 0; }
 .flashes__grid {
@@ -1272,7 +1272,7 @@ button { cursor: pointer; font-family: inherit; }
   width: 100%; height: 100%; object-fit: cover;
   display: block; transition: transform 0.5s ease;
 }
-/* Homepage landing covers — natural proportions, not square crops */
+/* Homepage landing covers - natural proportions, not square crops */
 .flashes__grid--landing .flashes__item {
   aspect-ratio: auto;
   overflow: hidden;
@@ -1320,7 +1320,7 @@ button { cursor: pointer; font-family: inherit; }
   color: var(--dark);
 }
 
-/* Full flashes page — split picker + gallery */
+/* Full flashes page - split picker + gallery */
 .flashes-body {
   background: var(--black);
   --flashes-panel-bg: var(--black);
@@ -1367,7 +1367,7 @@ button { cursor: pointer; font-family: inherit; }
   line-height: 1.25;
   letter-spacing: -0.02em;
 }
-/* All flash picker cards: style, body part, zone — same label size & layout */
+/* All flash picker cards: style, body part, zone - same label size & layout */
 .flashes-body .flashes-style-card__name {
   font-size: var(--flashes-picker-card-text);
   font-weight: 600;
@@ -1444,7 +1444,7 @@ button { cursor: pointer; font-family: inherit; }
 .flashes-style-grid--zone-picker:has(> :nth-child(5):last-child) > :nth-child(5) {
   grid-column: 4 / span 2;
 }
-/* 6 zones (e.g. arms): 3 on top, 3 below — full second row */
+/* 6 zones (e.g. arms): 3 on top, 3 below - full second row */
 .flashes-style-grid--zone-picker:has(> :nth-child(6)) > :nth-child(n + 4) {
   grid-column: span 2;
 }
@@ -1993,7 +1993,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* ==========================================================================
-   FEATURED TESTIMONIAL — dark section
+   FEATURED TESTIMONIAL - dark section
    ========================================================================== */
 .featured-testimonial { /* background via .section--dark */ }
 .featured-testimonial__inner {
@@ -2026,7 +2026,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* ==========================================================================
-   SERVICES — tab bar + card layout
+   SERVICES - tab bar + card layout
    ========================================================================== */
 .services { padding: var(--pad) 0; }
 .services__intro {
@@ -2165,7 +2165,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* ==========================================================================
-   FAQ — light section
+   FAQ - light section
    ========================================================================== */
 .faq { padding: var(--pad) 0; }
 .faq__list { display: flex; flex-direction: column; margin-top: 16px; }
@@ -2202,7 +2202,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* ==========================================================================
-   BENEFITS — light section
+   BENEFITS - light section
    ========================================================================== */
 .benefits { padding: var(--pad) 0; }
 .benefits__grid {
@@ -2314,7 +2314,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* ==========================================================================
-   FOOTER — dark section
+   FOOTER - dark section
    ========================================================================== */
 .footer { background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 60px 0 28px; }
 .footer__inner {
@@ -2950,7 +2950,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* ==========================================================================
-   FLASHES — Editorial catalog (flashes.html)
+   FLASHES - Editorial catalog (flashes.html)
    Inspired by luxury e-commerce collection grids
    ========================================================================== */
 .flashes-body--catalog {
@@ -3108,7 +3108,7 @@ button { cursor: pointer; font-family: inherit; }
   transform: none !important;
 }
 
-/* Flash catalog covers (styles, body parts, zones) — no white mat/frame */
+/* Flash catalog covers (styles, body parts, zones) - no white mat/frame */
 .flashes-body--catalog .flashes-catalog-card__media {
   background: transparent;
   border: none;
@@ -4248,7 +4248,7 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* ==========================================================================
-   LINKS PAGE — link-in-bio (noindex)
+   LINKS PAGE - link-in-bio (noindex)
    ========================================================================== */
 
 .links-body {
@@ -4500,6 +4500,7 @@ button { cursor: pointer; font-family: inherit; }
 
 .shop-poster-product .flashes-catalog-product__info {
   margin-top: 4px;
+  gap: 8px;
 }
 
 .shop-posters__grid:empty {
@@ -4614,6 +4615,36 @@ button { cursor: pointer; font-family: inherit; }
   font-weight: 500;
   letter-spacing: 0.02em;
   text-transform: none;
+}
+
+.shop-poster-product__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: min(100%, 320px);
+  min-height: 52px;
+  margin-top: 12px;
+  padding: 16px 28px;
+  border: 2px solid var(--dark);
+  border-radius: 10px;
+  background: var(--dark);
+  color: var(--white);
+  font-size: clamp(13px, 1.6vw, 15px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.shop-poster-product:hover .shop-poster-product__cta,
+.shop-poster-product:focus-visible .shop-poster-product__cta {
+  background: var(--white);
+  color: var(--dark);
+  border-color: var(--dark);
+  transform: translateY(-1px);
 }
 
 .poster-detail__layout {

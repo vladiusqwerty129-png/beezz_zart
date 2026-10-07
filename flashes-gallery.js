@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (titleEl) titleEl.textContent = titleText;
   if (ledeEl) ledeEl.textContent = ledeText;
   if (currentCrumb) currentCrumb.textContent = titleText;
-  document.title = `${titleText} — Beezz_zart`;
+  document.title = `${titleText} - Beezz_zart`;
 
   if (styleCrumb) {
     if (partId === 'all') {
@@ -124,9 +124,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function productLabel(flash) {
     if (!flash.alt) return 'Flash design';
     return flash.alt
-      .replace(/^Dark abstract flash — /i, '')
-      .replace(/^Smaller flash — /i, '')
-      .replace(/^Flash — /i, '');
+      .replace(/^Dark abstract flash - /i, '')
+      .replace(/^Smaller flash - /i, '')
+      .replace(/^Flash - /i, '');
   }
 
   items.forEach((flash) => {

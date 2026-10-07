@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (backLink) backLink.href = galleryUrl();
-  document.title = `Quote — ${galleryTitle} — Beezz_zart`;
+  document.title = `Quote - ${galleryTitle} - Beezz_zart`;
   if (titleEl) titleEl.textContent = 'Request This Flash';
   if (subtitleEl) subtitleEl.hidden = true;
 

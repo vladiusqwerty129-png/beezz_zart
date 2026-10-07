@@ -1,5 +1,5 @@
 /**
- * Microsoft Clarity — session recordings & heatmaps (free).
+ * Microsoft Clarity - session recordings & heatmaps (free).
  * 1. Sign in at https://clarity.microsoft.com/
  * 2. Add project → Website → beezz-zart.ca
  * 3. Copy Project ID from Settings → Setup

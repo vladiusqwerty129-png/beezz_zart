@@ -332,7 +332,7 @@ window.beezzInitFlashesZonePage = function (config) {
     backEl,
     'flashes.html#dark-abstract'
   );
-  document.title = `${pageTitle} — ${styleLabel} | Beezz_zart`;
+  document.title = `${pageTitle} - ${styleLabel} | Beezz_zart`;
 
   zones.forEach((zone) => {
     grid.appendChild(
