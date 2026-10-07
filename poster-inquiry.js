@@ -58,6 +58,7 @@
     const idea = [
       '--- Print inquiry ---',
       `Print: ${printLabel}`,
+      poster?.price ? `Price: ${poster.price}` : '',
       poster?.cardSubtitle ? `Edition: ${poster.cardSubtitle}` : '',
       `Shipping: ${shipping}`,
       notes ? `\nNotes:\n${notes}` : '',

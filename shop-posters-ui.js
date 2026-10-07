@@ -28,6 +28,7 @@
       <span class="flashes-catalog-product__info">
         <span class="flashes-catalog-product__brand">Limited edition</span>
         <span class="flashes-catalog-product__name">${poster.title}</span>
+        ${poster.price ? `<span class="shop-poster-product__price">${poster.price}</span>` : ''}
         <span class="shop-poster-product__meta">${poster.cardSubtitle || ''}</span>
         <span class="flashes-catalog-product__tap">View print</span>
       </span>

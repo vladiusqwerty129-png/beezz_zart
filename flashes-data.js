@@ -2,7 +2,7 @@
  * Flash styles, body parts, and catalog.
  * Bump FLASHES_IMG_V when replacing covers.
  */
-window.FLASHES_IMG_V = '132';
+window.FLASHES_IMG_V = '133';
 
 /** Only this style uses body-part and zone placement pickers. */
 window.FLASH_STYLE_USES_PLACEMENT = 'dark-abstract';
@@ -31,14 +31,14 @@ window.FLASH_STYLES = [
 /** Style cards shown on flashes.html (dark & abstract uses body-part cards instead). */
 window.FLASH_STYLES_MAIN_IDS = ['all', 'smaller'];
 
-/** Homepage index.html flashes grid — landing cover PNGs 1–6. */
+/** Homepage index.html flashes grid — covers from Available blackwork flashes main page cover/. */
 window.HOMEPAGE_FLASHES = [
-  { src: 'Website Images/landing-page-flash-cover-1.webp', alt: 'Blackwork tattoo flash cover 1' },
-  { src: 'Website Images/landing-page-flash-cover-2.webp', alt: 'Blackwork tattoo flash cover 2' },
-  { src: 'Website Images/landing-page-flash-cover-3.webp', alt: 'Blackwork tattoo flash cover 3' },
-  { src: 'Website Images/landing-page-flash-cover-4.webp', alt: 'Blackwork tattoo flash cover 4' },
-  { src: 'Website Images/landing-page-flash-cover-5.webp', alt: 'Blackwork tattoo flash cover 5' },
-  { src: 'Website Images/landing-page-flash-cover-6.webp', alt: 'Blackwork tattoo flash cover 6' },
+  { src: 'Website Images/Available blackwork flashes main page cover/home-photo-img_6701.webp', alt: 'Blackwork flash design — IMG_6701' },
+  { src: 'Website Images/Available blackwork flashes main page cover/home-ink-iris.webp', alt: 'Blackwork flash design — Ink Iris' },
+  { src: 'Website Images/Available blackwork flashes main page cover/home-ledge-axis.webp', alt: 'Blackwork flash design — Ledge Axis' },
+  { src: 'Website Images/Available blackwork flashes main page cover/home-sacred-spine.webp', alt: 'Blackwork flash design — Sacred Spine' },
+  { src: 'Website Images/Available blackwork flashes main page cover/home-violet-nova.webp', alt: 'Blackwork flash design — Violet Nova' },
+  { src: 'Website Images/Available blackwork flashes main page cover/home-wraith-vault.webp', alt: 'Blackwork flash design — Wraith Vault' },
 ];
 
 window.BODY_PARTS = [

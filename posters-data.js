@@ -4,6 +4,7 @@ window.POSTERS = [
   {
     id: 'poster-1',
     title: 'Symmetric Flow',
+    price: '$100',
     cardSubtitle: '9.4″ × 24″ · Edition of 10 · Signed & numbered',
     preview: 'Website Images/Posters/web/poster-1-main.webp',
     images: [
@@ -19,6 +20,7 @@ window.POSTERS = [
       'Perfect for anyone into blackwork tattoo art, dark line work, or bold graphic wall pieces.',
     ],
     details: [
+      { label: 'Price', value: '$100' },
       { label: 'Size', value: '9.4″ × 24″' },
       { label: 'Paper', value: 'Grainy-textured fine art paper, archival quality' },
       { label: 'Edition', value: 'Signed and numbered (10/10 edition)' },
@@ -29,6 +31,7 @@ window.POSTERS = [
   {
     id: 'poster-2',
     title: 'Smoke Drift',
+    price: '$40',
     cardSubtitle: '7″ × 17″ · Edition of 15',
     preview: 'Website Images/Posters/web/poster-2-main.webp',
     images: [
@@ -43,6 +46,7 @@ window.POSTERS = [
       'Only 15 prints exist in this edition — once they\u2019re gone, this design won\u2019t be reprinted.',
     ],
     details: [
+      { label: 'Price', value: '$40' },
       { label: 'Size', value: '7″ × 17″' },
       { label: 'Paper', value: 'Grainy-textured fine art paper, archival quality' },
       { label: 'Edition', value: 'Limited edition of 15' },

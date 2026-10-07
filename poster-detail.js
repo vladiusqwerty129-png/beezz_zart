@@ -31,7 +31,10 @@
 
   document.title = `${poster.title} — Shop Posters & Art — Beezz_zart`;
   if (titleEl) titleEl.textContent = poster.title;
-  if (ledeEl) ledeEl.textContent = poster.cardSubtitle || '';
+  if (ledeEl) {
+    const ledeParts = [poster.price, poster.cardSubtitle].filter(Boolean);
+    ledeEl.textContent = ledeParts.join(' · ');
+  }
   if (crumbEl) crumbEl.textContent = poster.title;
 
   if (copyEl && poster.paragraphs) {
