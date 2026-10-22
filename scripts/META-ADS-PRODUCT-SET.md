@@ -1,7 +1,8 @@
 # Meta catalog product set — ads refresh (Oct 2026)
 
-The CSV tags **14 flashes** with `custom_label_2` = `beezz_ads_refresh_2026-10`:
-updated artwork from Desktop + new **Grim Veil**.
+The catalog CSV contains **only 14 flashes** (full replace upload in Commerce Manager).
+Each row uses `custom_label_2` = `beezz_ads_refresh_2026-10` and artwork from `Desktop/Falshes ads shop`
+(`IMG_6701.JPG` = **Grim Veil** on `Flashes-Back-5.webp`).
 
 ## After you upload `catalog_service.csv`
 

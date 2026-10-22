@@ -2,7 +2,7 @@
  * Flash styles, body parts, and catalog.
  * Bump FLASHES_IMG_V when replacing covers.
  */
-window.FLASHES_IMG_V = '133';
+window.FLASHES_IMG_V = '134';
 
 /** Only this style uses body-part and zone placement pickers. */
 window.FLASH_STYLE_USES_PLACEMENT = 'dark-abstract';
@@ -33,7 +33,7 @@ window.FLASH_STYLES_MAIN_IDS = ['all', 'smaller'];
 
 /** Homepage index.html flashes grid - covers from Available blackwork flashes main page cover/. */
 window.HOMEPAGE_FLASHES = [
-  { src: 'Website Images/Available blackwork flashes main page cover/home-photo-img_6701.webp', alt: 'Blackwork flash design - IMG_6701' },
+  { src: 'Website Images/Available blackwork flashes main page cover/home-grim-veil.webp', alt: 'Blackwork flash design - Grim Veil' },
   { src: 'Website Images/Available blackwork flashes main page cover/home-ink-iris.webp', alt: 'Blackwork flash design - Ink Iris' },
   { src: 'Website Images/Available blackwork flashes main page cover/home-ledge-axis.webp', alt: 'Blackwork flash design - Ledge Axis' },
   { src: 'Website Images/Available blackwork flashes main page cover/home-sacred-spine.webp', alt: 'Blackwork flash design - Sacred Spine' },
