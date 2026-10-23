@@ -2,7 +2,7 @@
  * Flash styles, body parts, and catalog.
  * Bump FLASHES_IMG_V when replacing covers.
  */
-window.FLASHES_IMG_V = '138';
+window.FLASHES_IMG_V = '139';
 
 /** Only this style uses body-part and zone placement pickers. */
 window.FLASH_STYLE_USES_PLACEMENT = 'dark-abstract';
@@ -31,14 +31,14 @@ window.FLASH_STYLES = [
 /** Style cards shown on flashes.html (dark & abstract uses body-part cards instead). */
 window.FLASH_STYLES_MAIN_IDS = ['all', 'smaller'];
 
-/** Homepage index.html flashes grid - covers from Available blackwork flashes main page cover/. */
+/** Homepage index.html — same placement mockups as Meta ad set (Flashes ad). */
 window.HOMEPAGE_FLASHES = [
-  { src: 'Website Images/Available blackwork flashes main page cover/home-grim-veil.webp', alt: 'Blackwork flash design - Grim Veil' },
-  { src: 'Website Images/Available blackwork flashes main page cover/home-ink-iris.webp', alt: 'Blackwork flash design - Ink Iris' },
-  { src: 'Website Images/Available blackwork flashes main page cover/home-ledge-axis.webp', alt: 'Blackwork flash design - Ledge Axis' },
-  { src: 'Website Images/Available blackwork flashes main page cover/home-sacred-spine.webp', alt: 'Blackwork flash design - Sacred Spine' },
-  { src: 'Website Images/Available blackwork flashes main page cover/home-violet-nova.webp', alt: 'Blackwork flash design - Violet Nova' },
-  { src: 'Website Images/Available blackwork flashes main page cover/home-wraith-vault.webp', alt: 'Blackwork flash design - Wraith Vault' },
+  { src: 'Website Images/Flashes/Flashes-Back-5.webp', alt: 'Blackwork flash design - Grim Veil' },
+  { src: 'Website Images/Flashes/Flashes-Chest-2.webp', alt: 'Blackwork flash design - Ink Iris' },
+  { src: 'Website Images/Flashes/Flashes-Hand-1.webp', alt: 'Blackwork flash design - Ledge Axis' },
+  { src: 'Website Images/Flashes/Flashes-Arm-Sleeve-2.webp', alt: 'Blackwork flash design - Drift Oath' },
+  { src: 'Website Images/Flashes/Flashes-Stomach-2.webp', alt: 'Blackwork flash design - Omen Branch' },
+  { src: 'Website Images/Flashes/Flashes-Thigh-3.webp', alt: 'Blackwork flash design - Drift Plume' },
 ];
 
 window.BODY_PARTS = [
@@ -187,9 +187,9 @@ window.FLASHES_CATALOG = {
         { src: "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 18.webp", alt: "Dark abstract flash - all arms 18" },
       ],
       "forearm": [
-        { src: "Website Images/Flashes/Flashes-Half-Sleeve-2.webp", alt: "Dark abstract flash \u2014 forearm 1" },
-        { src: "Website Images/Flashes/Flashes-Half-Sleeve-3.webp", alt: "Dark abstract flash \u2014 forearm 2" },
-        { src: "Website Images/Flashes/Flashes-Half-Sleeve-4.webp", alt: "Dark abstract flash \u2014 forearm 3" },
+        { src: "Website Images/Flashes/Flashes-Half-Sleeve-1.webp", alt: "Dark abstract flash \u2014 forearm 1" },
+        { src: "Website Images/Flashes/Flashes-Forearm-2.webp", alt: "Dark abstract flash \u2014 forearm 2" },
+        { src: "Website Images/Flashes/Flashes-Half-Sleeve-2.webp", alt: "Dark abstract flash \u2014 forearm 3" },
       ],
       "hand": [
         { src: "Website Images/Flashes/Flashes-Hand-1.webp", alt: "Dark abstract flash \u2014 hand 1" },
