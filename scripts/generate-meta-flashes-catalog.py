@@ -34,9 +34,17 @@ def main() -> None:
     for row in csv.DictReader(text[2:], fieldnames=fieldnames):
         old_ids[row["title"]] = row["id"]
 
+    display = json.loads((root / "scripts/meta-flash-display-names.json").read_text())
+
+    def title_for(item: dict) -> str:
+        if item.get("title"):
+            return item["title"]
+        flash_path = f"Website Images/{item['catalog_rel']}"
+        return display[flash_path]
+
     rows = []
     for item in cfg["items"]:
-        title = item["title"]
+        title = title_for(item)
         flash_path = f"Website Images/{item['catalog_rel']}"
         pid = old_ids.get(title) or f"beezz-flash-{hashlib.sha1(flash_path.encode()).hexdigest()[:12]}"
         flash_q = urllib.parse.quote(flash_path, safe="")

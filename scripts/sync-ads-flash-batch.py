@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
-"""Apply the 6-flash ad batch from cover JPGs; revert mistaken Desktop-14 updates."""
+"""Apply ad flash batch from Desktop/Flashes ad PNGs; rebuild Meta CSV (14 products)."""
 
 from __future__ import annotations
 
 import csv
-import fnmatch
 import hashlib
 import io
 import json
-import subprocess
 import urllib.parse
 from pathlib import Path
 
@@ -16,27 +14,47 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "scripts" / "ads-flash-batch.json"
-DISPLAY_PATH = ROOT / "scripts" / "meta-flash-display-names.json"
+DISPLAY_NAMES_PATH = ROOT / "scripts" / "meta-flash-display-names.json"
 OUT_REPO = ROOT / "scripts" / "meta-flashes-catalog.csv"
+OUT_ADS = ROOT / "scripts" / "meta-flashes-catalog-ads-batch.csv"
 OUT_DOWNLOADS = Path.home() / "Downloads" / "catalog_service.csv"
 IDS_FILE = ROOT / "scripts" / "meta-ads-set-product-ids.txt"
 BASE = "https://beezz-zart.ca"
 
 MAX_SIDE = 1200
-COVER_MAX = 800
 QUALITY = 85
 
 
-def find_jpg(src_dir: Path, glob_pat: str) -> Path:
-    for f in src_dir.iterdir():
-        if f.suffix.upper() in {".JPG", ".JPEG"} and fnmatch.fnmatch(f.name, glob_pat):
-            return f
-    raise FileNotFoundError(f"No JPG matching {glob_pat!r} in {src_dir}")
+def load_display_names() -> dict[str, str]:
+    raw = json.loads(DISPLAY_NAMES_PATH.read_text(encoding="utf-8"))
+    return {k.replace("\\", "/"): v for k, v in raw.items()}
 
 
-def to_webp(jpg: Path, dest: Path, max_side: int) -> None:
+def title_for_item(item: dict, display_names: dict[str, str]) -> str:
+    if item.get("title"):
+        return item["title"]
+    flash_path = f"Website Images/{item['catalog_rel']}"
+    title = display_names.get(flash_path)
+    if not title:
+        raise KeyError(f"No display name for {flash_path} (add to meta-flash-display-names.json)")
+    return title
+
+
+def resolve_source(item: dict, ads_dir: Path) -> Path:
+    name = item.get("source_file")
+    if not name:
+        raise ValueError(f"Missing source_file for {item}")
+    path = ads_dir / name
+    if not path.is_file():
+        raise FileNotFoundError(path)
+    return path
+
+
+def to_webp(src: Path, dest: Path, max_side: int = MAX_SIDE) -> None:
     dest.parent.mkdir(parents=True, exist_ok=True)
-    img = Image.open(jpg)
+    img = Image.open(src)
+    if img.mode not in ("RGB", "RGBA"):
+        img = img.convert("RGB")
     w, h = img.size
     if max(w, h) > max_side:
         scale = max_side / max(w, h)
@@ -45,16 +63,6 @@ def to_webp(jpg: Path, dest: Path, max_side: int) -> None:
             Image.Resampling.LANCZOS,
         )
     img.convert("RGB").save(dest, "WEBP", quality=QUALITY, method=6)
-
-
-def git_checkout(commit: str, paths: list[str]) -> None:
-    if not paths:
-        return
-    subprocess.run(
-        ["git", "checkout", commit, "--", *paths],
-        cwd=ROOT,
-        check=True,
-    )
 
 
 def flash_id_for(path: str) -> str:
@@ -71,54 +79,30 @@ def load_old_ids() -> dict[str, str]:
     return by_title
 
 
-def write_catalog(rows: list[dict[str, str]], fieldnames: list[str]) -> None:
-    text = OUT_REPO.read_text(encoding="utf-8").splitlines()
-    header_meta, header_fields = text[0], text[1]
-    buf = io.StringIO()
-    w = csv.writer(buf, lineterminator="\n")
-    for r in rows:
-        w.writerow([r.get(f, "") for f in fieldnames])
-    body = buf.getvalue()
-    content = "\n".join([header_meta, header_fields, body.rstrip("\n")]) + "\n"
-    OUT_REPO.write_text(content, encoding="utf-8")
-    OUT_DOWNLOADS.write_text(content, encoding="utf-8")
-    IDS_FILE.write_text("\n".join(r["id"] for r in rows) + "\n", encoding="utf-8")
-
-
 def main() -> None:
     cfg = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
-    src_dir = ROOT / cfg["source_dir"]
+    ads_dir = Path(cfg["ads_dir"]).expanduser()
     img_v = cfg["img_v"]
     set_label = cfg["set_label"]
+    items = cfg["items"]
+    display_names = load_display_names()
 
-    if not src_dir.is_dir():
-        raise SystemExit(f"Missing source folder: {src_dir}")
+    if not ads_dir.is_dir():
+        raise SystemExit(f"Missing ads folder: {ads_dir}")
 
-    revert_commit = cfg.get("revert_catalog_rel_from_commit")
-    revert_paths = cfg.get("revert_paths", [])
-    if revert_commit and revert_paths:
-        git_checkout(revert_commit, revert_paths)
-        print(f"Reverted {len(revert_paths)} catalog images from {revert_commit}")
-
-    for item in cfg["items"]:
-        jpg = find_jpg(src_dir, item["jpg_glob"])
-        rel = item["catalog_rel"]
-        to_webp(jpg, ROOT / "Website Images" / rel, MAX_SIDE)
-        if item.get("homepage_cover"):
-            to_webp(
-                jpg,
-                src_dir / item["homepage_cover"],
-                COVER_MAX,
-            )
-        print("updated", item["title"], "<=", jpg.name)
+    for item in items:
+        src = resolve_source(item, ads_dir)
+        title = title_for_item(item, display_names)
+        to_webp(src, ROOT / "Website Images" / item["catalog_rel"])
+        print("updated", title, "<=", src.name)
 
     text = OUT_REPO.read_text(encoding="utf-8").splitlines()
     fieldnames = next(csv.reader([text[1]]))
     old_ids = load_old_ids()
     rows: list[dict[str, str]] = []
 
-    for item in cfg["items"]:
-        title = item["title"]
+    for item in items:
+        title = title_for_item(item, display_names)
         flash_path = f"Website Images/{item['catalog_rel']}"
         pid = old_ids.get(title) or flash_id_for(flash_path)
         flash_q = urllib.parse.quote(flash_path, safe="")
@@ -147,7 +131,17 @@ def main() -> None:
         )
         rows.append(row)
 
-    write_catalog(rows, fieldnames)
+    header_meta, header_fields = text[0], text[1]
+    buf = io.StringIO()
+    w = csv.writer(buf, lineterminator="\n")
+    for r in rows:
+        w.writerow([r.get(f, "") for f in fieldnames])
+    content = "\n".join([header_meta, header_fields, buf.getvalue().rstrip("\n")]) + "\n"
+    OUT_REPO.write_text(content, encoding="utf-8")
+    OUT_ADS.write_text(content, encoding="utf-8")
+    OUT_DOWNLOADS.write_text(content, encoding="utf-8")
+    IDS_FILE.write_text("\n".join(r["id"] for r in rows) + "\n", encoding="utf-8")
+
     print(f"Meta CSV: {len(rows)} products (v={img_v})")
     print(f"  {OUT_DOWNLOADS}")
 

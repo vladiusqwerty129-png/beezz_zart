@@ -1,54 +1,63 @@
 {
-  "source_dir": "Website Images/Available blackwork flashes main page cover",
-  "img_v": "135",
+  "ads_dir": "/Users/mariabacman/Desktop/Flashes ad",
+  "img_v": "138",
   "set_label": "beezz_ads_refresh_2026-10",
   "items": [
     {
-      "jpg_glob": "*Ink Iris*",
-      "title": "Ink Iris",
-      "catalog_rel": "Flashes/Flashes-Chest-2.webp",
-      "homepage_cover": "home-ink-iris.webp"
+      "source_file": "Arm_Sleeve_Flash_1.png",
+      "catalog_rel": "Flashes/Flashes-Arm-Sleeve-1.webp"
     },
     {
-      "jpg_glob": "*Ledge Axis*",
-      "title": "Ledge Axis",
-      "catalog_rel": "Flashes/Flashes-Hand-1.webp",
-      "homepage_cover": "home-ledge-axis.webp"
+      "source_file": "Arm_Sleeve_Flash_2.png",
+      "catalog_rel": "Flashes/Flashes-Arm-Sleeve-2.webp"
     },
     {
-      "jpg_glob": "*Sacred Spine*",
-      "title": "Sacred Spine",
-      "catalog_rel": "Flashes/Flashes-Half-Sleeve-4.webp",
-      "homepage_cover": "home-sacred-spine.webp"
+      "source_file": "Back_Flash_5.png",
+      "catalog_rel": "Flashes/Flashes-Back-5.webp"
     },
     {
-      "jpg_glob": "*Violet Nova*",
-      "title": "Violet Nova",
-      "catalog_rel": "Flashes/Flashes-Thigh-2.webp",
-      "homepage_cover": "home-violet-nova.webp"
+      "source_file": "Chest_Flash_1.png",
+      "catalog_rel": "Flashes/Flashes-Chest-1.webp"
     },
     {
-      "jpg_glob": "*Wraith Vault*",
-      "title": "Wraith Vault",
-      "catalog_rel": "Flashes/All Body parts Flashes/All arms/All Arms Flashes 3.webp",
-      "homepage_cover": "home-wraith-vault.webp"
+      "source_file": "Chest_Flash_2.png",
+      "catalog_rel": "Flashes/Flashes-Chest-2.webp"
     },
     {
-      "jpg_glob": "*IMG_6701*",
-      "title": "Grim Veil",
-      "catalog_rel": "Flashes/Flashes-Back-5.webp",
-      "homepage_cover": "home-grim-veil.webp"
+      "source_file": "Chest_Flash_3.png",
+      "catalog_rel": "Flashes/Flashes-Chest-3.webp"
+    },
+    {
+      "source_file": "Forearm_flash_2.png",
+      "catalog_rel": "Flashes/Flashes-Forearm-2.webp"
+    },
+    {
+      "source_file": "Full_Front_Flash_2.png",
+      "catalog_rel": "Flashes/Flashes-Full-Front-2.webp"
+    },
+    {
+      "source_file": "Half_Sleeve_Flash_1.png",
+      "catalog_rel": "Flashes/Flashes-Half-Sleeve-1.webp"
+    },
+    {
+      "source_file": "Hand_Flash_1.png",
+      "catalog_rel": "Flashes/Flashes-Hand-1.webp"
+    },
+    {
+      "source_file": "Hand_Flash_2_.png",
+      "catalog_rel": "Flashes/Flashes-Hand-2.webp"
+    },
+    {
+      "source_file": "Shoulder_Flash_2.png",
+      "catalog_rel": "Flashes/Flashes-Shoulder-2.webp"
+    },
+    {
+      "source_file": "Stomach_Flash_2.png",
+      "catalog_rel": "Flashes/Flashes-Stomach-2.webp"
+    },
+    {
+      "source_file": "Thigh_Flash_3.png",
+      "catalog_rel": "Flashes/Flashes-Thigh-3.webp"
     }
-  ],
-  "revert_catalog_rel_from_commit": "a438829^",
-  "revert_paths": [
-    "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 1..webp",
-    "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 3.webp",
-    "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 6.webp",
-    "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 8.webp",
-    "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 11.webp",
-    "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 5.webp",
-    "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 7.webp",
-    "Website Images/Flashes/Flashes-Stomach-3.webp"
   ]
 }
