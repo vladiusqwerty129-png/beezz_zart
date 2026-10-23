@@ -2,7 +2,7 @@
  * Flash styles, body parts, and catalog.
  * Bump FLASHES_IMG_V when replacing covers.
  */
-window.FLASHES_IMG_V = '134';
+window.FLASHES_IMG_V = '135';
 
 /** Only this style uses body-part and zone placement pickers. */
 window.FLASH_STYLE_USES_PLACEMENT = 'dark-abstract';

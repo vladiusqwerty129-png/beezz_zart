@@ -1,0 +1,54 @@
+{
+  "source_dir": "Website Images/Available blackwork flashes main page cover",
+  "img_v": "135",
+  "set_label": "beezz_ads_refresh_2026-10",
+  "items": [
+    {
+      "jpg_glob": "*Ink Iris*",
+      "title": "Ink Iris",
+      "catalog_rel": "Flashes/Flashes-Chest-2.webp",
+      "homepage_cover": "home-ink-iris.webp"
+    },
+    {
+      "jpg_glob": "*Ledge Axis*",
+      "title": "Ledge Axis",
+      "catalog_rel": "Flashes/Flashes-Hand-1.webp",
+      "homepage_cover": "home-ledge-axis.webp"
+    },
+    {
+      "jpg_glob": "*Sacred Spine*",
+      "title": "Sacred Spine",
+      "catalog_rel": "Flashes/Flashes-Half-Sleeve-4.webp",
+      "homepage_cover": "home-sacred-spine.webp"
+    },
+    {
+      "jpg_glob": "*Violet Nova*",
+      "title": "Violet Nova",
+      "catalog_rel": "Flashes/Flashes-Thigh-2.webp",
+      "homepage_cover": "home-violet-nova.webp"
+    },
+    {
+      "jpg_glob": "*Wraith Vault*",
+      "title": "Wraith Vault",
+      "catalog_rel": "Flashes/All Body parts Flashes/All arms/All Arms Flashes 3.webp",
+      "homepage_cover": "home-wraith-vault.webp"
+    },
+    {
+      "jpg_glob": "*IMG_6701*",
+      "title": "Grim Veil",
+      "catalog_rel": "Flashes/Flashes-Back-5.webp",
+      "homepage_cover": "home-grim-veil.webp"
+    }
+  ],
+  "revert_catalog_rel_from_commit": "a438829^",
+  "revert_paths": [
+    "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 1..webp",
+    "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 3.webp",
+    "Website Images/Flashes/All Body parts Flashes/All Body Front Flashes /All Body Front Flashes 6.webp",
+    "Website Images/Flashes/All Body parts Flashes/All Legs Flashes /All Legs Flashes 8.webp",
+    "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 11.webp",
+    "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 5.webp",
+    "Website Images/Flashes/All Body parts Flashes/All arms/All Arms Flashes 7.webp",
+    "Website Images/Flashes/Flashes-Stomach-3.webp"
+  ]
+}

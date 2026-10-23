@@ -1,8 +1,9 @@
 # Meta catalog product set — ads refresh (Oct 2026)
 
-The catalog CSV contains **only 14 flashes** (full replace upload in Commerce Manager).
-Each row uses `custom_label_2` = `beezz_ads_refresh_2026-10` and artwork from `Desktop/Falshes ads shop`
-(`IMG_6701.JPG` = **Grim Veil** on `Flashes-Back-5.webp`).
+The catalog CSV contains **only 6 flashes** (full replace upload in Commerce Manager).
+Artwork comes from `Website Images/Available blackwork flashes main page cover/` (see `scripts/ads-flash-batch.json`).
+Each row uses `custom_label_2` = `beezz_ads_refresh_2026-10`.
+**Pulse Keep** and other Desktop-only ads are not in this batch.
 
 ## After you upload `catalog_service.csv`
 
