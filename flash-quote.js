@@ -195,12 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (placementsSection) placementsSection.hidden = true;
   }
 
-  if (!isSmallerWithIdeas && styleId !== 'smaller') {
-    requestAnimationFrame(() => {
-      form?.scrollIntoView({ block: 'center' });
-    });
-  }
-
   window.beezzBindFlashQuoteForm({
     form,
     styleId,
